@@ -206,24 +206,37 @@ class OneDriveChecker:
         
         else:
             # It is Local (Not Synced yet)
-            if age > SYNC_TIMEOUT:
-                # It's been local for too long. Stalled.
-                logger.warning(f"Active Check: Canary stalled for {age:.0f}s. OneDrive likely PAUSED.")
+            
+            # EARLY DETECTION: Don't wait 60s if we can know NOW that it is paused.
+            # Query PowerShell immediately if we are in the "Waiting" phase.
+            ps_status = self._get_shell_status_ps(self.canary_path)
+            if ps_status:
+                ps_lower = ps_status.lower()
                 
-                # Check PowerShell as last resort confirmation?
-                ps_status = self._get_shell_status_ps(self.canary_path)
-                if ps_status:
-                    valid = ["sincronizando", "syncing"] # "Disponible" is ambiguous if local
-                    ps_lower = ps_status.lower()
-                    
-                    # If PS explicitly says Syncing, we trust it
-                    if any(k in ps_lower for k in valid):
-                        logger.info(f"Active Check: Recovered via PowerShell Status ('{ps_status}').")
-                        return OneDriveStatus.OK, f"Active ({ps_status})"
-                    
-                    # If PS says "Disponible" but attributes say "Local", it is ambiguous.
-                    # We stick to PAUSED because Attributes are lower-level truth for sync.
+                # 1. Check for explicit PAUSE or ERROR
+                paused_keywords = ["pausado", "paused", "detenido", "stopped", "error", "fallo", "failed", "atencion", "attention"]
+                if any(k in ps_lower for k in paused_keywords):
+                    logger.warning(f"Active Check: Early Detection! PowerShell says '{ps_status}'. Declaring PAUSED/ERROR.")
+                    return OneDriveStatus.PAUSED, f"Paused/Error ({ps_status})"
 
+                # 2. Check for explicit SYNC (Confirmation to keep waiting)
+                sync_keywords = ["sincronizando", "syncing", "procesando", "processing", "comprobando", "checking", "cargando", "uploading", "descargando", "downloading"]
+                if any(k in ps_lower for k in sync_keywords):
+                     return OneDriveStatus.OK, f"Active (Syncing... {age:.0f}s)"
+
+                # 3. Check for explicit AVAILABLE (Local but Synced)
+                available_keywords = ["disponible", "available", "ok", "listo", "ready"]
+                if any(k in ps_lower for k in available_keywords):
+                     # It is Synced (Local). Check if we need to re-probe.
+                     if age > PROBE_INTERVAL:
+                         logger.info(f"Active Check: Probing 'Available' file... (Canary age {age:.0f}s > {PROBE_INTERVAL}s)")
+                         self._write_canary()
+                         return OneDriveStatus.OK, "Active (Probing...)"
+                     return OneDriveStatus.OK, f"Active (Local & Synced {age:.0f}s)"
+
+            # If no explicit Pause or Sync/Available detected, use the Timeout mechanism as safety net
+            if age > SYNC_TIMEOUT:
+                logger.warning(f"Active Check: Canary stalled for {age:.0f}s. PowerShell: '{ps_status}'. OneDrive likely PAUSED.")
                 return OneDriveStatus.PAUSED, f"Paused (Sync Pending > {SYNC_TIMEOUT}s)"
             
             # Still within grace period
