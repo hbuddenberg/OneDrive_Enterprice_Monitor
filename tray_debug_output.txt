@@ -1,0 +1,13 @@
+============================================================
+SYSTEM TRAY ICON EXPLORER (LEGACY)
+============================================================
+
+=== All OneDrive elements in taskbar ===
+FOUND ELEMENT:  OneDrive - tipartner
+Actualizado
+  - Legacy Pattern not supported: 
+FOUND ELEMENT:  OneDrive - Personal
+Tu OneDrive se quedó sin espacio.
+  - Legacy Pattern not supported: 
+
+============================================================

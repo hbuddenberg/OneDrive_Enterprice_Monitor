@@ -1,0 +1,37 @@
+ONEDRIVE FILE DISCOVERY
+============================================================
+
+Scanning: C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings
+[2026-01-15 17:57:59.128032] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\logUploaderSettings.ini
+[2026-01-15 17:57:59.128032] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\logUploaderSettings_temp.ini
+[2026-01-15 17:36:20.527413] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\ClientPolicy_3f75884ab24746b1a97d39058f74b154_ecd86ae043e046348d941c5323271b24.ini
+[2026-01-15 17:31:11.236129] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\downloads3.txt
+[2026-01-15 17:31:11.233116] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\global.ini
+[2026-01-15 17:13:16.425133] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\83d3eae5-e49d-45ee-ad33-aee523bd1f1c.ini
+[2026-01-15 17:13:12.931262] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\uploads.txt
+[2026-01-15 17:13:12.887320] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\ClientPolicy.ini
+[2026-01-15 17:13:09.873856] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\ClientPolicy.ini
+[2026-01-15 17:13:06.255802] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\SiteIdDiscoveryResponse.txt
+[2026-01-15 17:13:05.878487] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\ListIdDiscoveryResponse.txt
+[2026-01-15 17:11:27.064522] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\logUploaderSettings.ini
+[2026-01-15 17:11:27.064522] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\logUploaderSettings_temp.ini
+[2026-01-15 13:11:22.384337] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Business1\Originator.ini
+[2026-01-15 11:29:54.150059] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\global.ini
+[2026-01-15 11:29:54.139499] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\bbb1299a0572ae1c.ini
+[2026-01-15 08:58:10.330665] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\Originator.ini
+[2026-01-15 08:58:09.659688] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\uploads.txt
+[2026-01-14 18:17:52.449887] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\downloads3.txt
+[2026-01-13 18:37:58.937486] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\SiteIdDiscoveryResponse.txt
+[2026-01-13 18:37:58.537381] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\ListIdDiscoveryResponse.txt
+[2025-09-22 09:12:55.860791] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\settings\Personal\assertInformation.ini
+
+Scanning: C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs
+[2026-01-15 17:31:11.153944] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Business1\SyncDiagnostics.log
+[2026-01-15 16:37:45.286120] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\ListSync\Business1\telemetry-dll-ramp-value.txt
+[2026-01-15 16:30:19.615109] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Personal\SyncDiagnostics.log
+[2025-09-22 21:09:07.543026] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\ListSync\Business1\collector-url.txt
+[2025-09-22 09:16:35.542109] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Business1\collector-url.txt
+[2025-09-22 09:11:11.650068] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Business1\telemetry-dll-ramp-value.txt
+[2025-09-22 09:08:40.625731] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Personal\collector-url.txt
+[2025-01-29 09:14:13.219675] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Personal\telemetry-dll-ramp-value.txt
+[2025-01-29 09:14:12.813476] C:\Users\hansbuddenberg\AppData\Local\Microsoft\OneDrive\logs\Common\telemetry-dll-ramp-value.txt

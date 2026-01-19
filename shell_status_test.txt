@@ -1,0 +1,71 @@
+=== COLUMNAS RELEVANTES PARA ESTADO ===
+
+Nombres de columnas:
+  Col 7: Estado sin conexión
+  Col 8: Disponibilidad
+  Col 148: Estado
+  Col 149: Estado
+  Col 305: Estado de disponibilidad
+  Col 306: Estado
+
+=== CARPETA RAÍZ ===
+Nombre: OneDrive - tipartner
+  Col 7 [Estado sin conexión]: 'Estado sin conexión'
+  Col 8 [Disponibilidad]: 'Disponibilidad'
+  Col 148 [Estado]: 'Estado'
+  Col 149 [Estado]: 'Estado'
+  Col 305 [Estado de disponibilidad]: 'Estado de disponibilidad'
+  Col 306 [Estado]: 'Estado'
+
+=== ARCHIVOS (todos) ===
+
+.canary_test:
+  (sin datos de estado)
+
+Actividades.xlsx:
+  Col 305 [Estado de disponibilidad]: 'Disponible cuando esté conectado'
+
+Aplicaciones:
+  (sin datos de estado)
+
+Archivos de chat de Microsoft Teams:
+  (sin datos de estado)
+
+Archivos de chat de Microsoft Copilot:
+  (sin datos de estado)
+
+Datos adjuntos:
+  (sin datos de estado)
+
+Diagrama de Gantt ágil1.xlsx:
+  Col 305 [Estado de disponibilidad]: 'Disponible cuando esté conectado'
+
+Documento.docx:
+  Col 305 [Estado de disponibilidad]: 'Disponible cuando esté conectado'
+
+Documentos:
+  (sin datos de estado)
+
+ERU Proyecto RIA OUT DIARIA FINAL 1.docx:
+  Col 305 [Estado de disponibilidad]: 'Disponible cuando esté conectado'
+
+ERU Proyecto RIA OUT DIARIA FINAL.docx:
+  Col 305 [Estado de disponibilidad]: 'Disponible cuando esté conectado'
+
+Escritorio:
+  (sin datos de estado)
+
+Imágenes:
+  (sin datos de estado)
+
+Microsoft Teams Chat Files:
+  (sin datos de estado)
+
+Presentation_RIA.pptx:
+  Col 305 [Estado de disponibilidad]: 'Disponible cuando esté conectado'
+
+Proyectos:
+  (sin datos de estado)
+
+Recordings:
+  (sin datos de estado)

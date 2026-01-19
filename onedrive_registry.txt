@@ -1,0 +1,98 @@
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1
+    OneDriveDeviceId    REG_SZ    769e95d8-1d77-7b08-a21c-3727479e2d2f
+    IsGoSov    REG_DWORD    0x0
+    FeatureSupportService    REG_DWORD    0x1
+    FeatureSupportInstance    REG_DWORD    0x1
+    LastShutdownReason    REG_DWORD    0x0
+    ECSConfigurationETag    REG_SZ    "6phXjPNtmfzYRszdnOZvAoRkFalKJe1xPNlx3jMAo8w="
+    ECSConfigurationExpires    REG_QWORD    0x696eec71
+    ResetPreserveSelectiveSync    REG_DWORD    0x1
+    WebView2InstallCheckedTimeStamp    REG_QWORD    0x6966bb1f
+    ECSConfigurationMaxAge    REG_DWORD    0xa8c0
+    ECSConfigurationLastSuccess    REG_DWORD    0x77f4e
+    GetOnlineStatus    REG_SZ    Completed
+    WebServiceUrl    REG_SZ    https://www.odwebp.svc.ms
+    OneAuthAccountId    REG_SZ    83d3eae5-e49d-45ee-ad33-aee523bd1f1c
+    FirstRunSignInOrigin    REG_DWORD    0x1
+    FirstRunSignInOriginDateTime    REG_SZ    1758543347
+    LatestSignInStack    REG_DWORD    0x8
+    LastAttemptedSignInTime    REG_QWORD    0x696e43ae
+    LastSignInResult    REG_DWORD    0x0
+    ConfiguredTenantId    REG_SZ    6841a159-b2ea-438c-bf30-6e157fd02632
+    cid    REG_SZ    83d3eae5-e49d-45ee-ad33-aee523bd1f1c
+    UserEmail    REG_SZ    hansbuddenberg@tipartner.com
+    SPOLastUpdate    REG_QWORD    0x6966bb4c
+    TeamSiteSPOResourceId    REG_SZ    https://tipartnercom.sharepoint.com/
+    DisplayName    REG_SZ    tipartner
+    SPOResourceId    REG_SZ    https://tipartnercom-my.sharepoint.com/
+    ServiceEndpointUri    REG_SZ    https://tipartnercom-my.sharepoint.com/personal/hansbuddenberg_tipartner_com/_api
+    PUID    REG_SZ    10032002C9CE31AD
+    UserName    REG_SZ    Hans Buddenberg
+    Business    REG_DWORD    0x1
+    NamespaceRootId    REG_SZ    {04271989-C4D2-2599-4DDB-8B6D1AF09056}
+    LastSignInTime    REG_QWORD    0x696e43ae
+    GrooveTakeoverAttemptedOperations    REG_DWORD    0x1
+    GrooveTakeoverSuccessfulOperations    REG_DWORD    0x1
+    OCPSConnectedOfficeExperiences    REG_DWORD    0x3
+    OCPSEmailCollection    REG_DWORD    0x3
+    OCPSLogCollection    REG_DWORD    0x3
+    OCPSScreenshot    REG_DWORD    0x3
+    OCPSSendFeedback    REG_DWORD    0x3
+    OCPSSendSurvey    REG_DWORD    0x3
+    CacheRefreshTime    REG_DWORD    0x696f9531
+    ClientFirstSignInTimestamp    REG_QWORD    0x68d13e24
+    UserFolder    REG_SZ    C:\Users\hansbuddenberg\OneDrive - tipartner
+    EdpManaged    REG_DWORD    0x0
+    FirstRun    REG_DWORD    0x1
+    LastKnownCloudFilesEnabled    REG_DWORD    0x1
+    LastPerFolderMigrationScanResult    REG_SZ    {"Camera Roll":1,"Desktop":1,"Documents":1,"Pictures":1,"Screenshots":1}
+    LastKnownFolderBackupLaunchSource    REG_DWORD    0x1a
+    LastKnownFolderBackupTime    REG_QWORD    0x68d13e73
+    KfmFoldersProtectedNow    REG_DWORD    0xe00
+    LastKFMOptInSource    REG_DWORD    0x1a
+    LastKFMOptInTime    REG_QWORD    0x68d13e73
+    LastKFMOptInPartnerTeamScenario    REG_SZ    
+    LastKnownFolderMigrationState    REG_SZ    {"Camera Roll":5,"Desktop":5,"Documents":5,"Pictures":5,"Screenshots":5}
+    KFMCampaignToast    REG_DWORD    0x68e
+    LastUserActivityTimestamp    REG_QWORD    0x696e45fb
+    HasMadeFirstUpload    REG_DWORD    0x1
+    NextOneRmUpdateTime    REG_QWORD    0x696f848a
+    LastMigrationScanResultExclusions    REG_SZ    1
+    LastMigrationScanResult    REG_DWORD    0x1
+    BackgroundScanMigrationSizeMB    REG_DWORD    0x13ee
+    RunOfflineProviderExperiment    REG_DWORD    0x1
+    NextMigrationScan    REG_QWORD    0x696f7fda
+    TimerNezhaTelemetryHeartbeat    REG_QWORD    0x696f7316
+    CrashDetectionKey    REG_DWORD    0x1
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\AuthenticationURLs
+    Authority    REG_SZ    https://login.windows.net/common/
+    DiscoveryApi    REG_SZ    https://odc.officeapps.live.com/odc/servicemanager/userconnected
+    DiscoveryResourceId    REG_SZ    https://api.office.net
+    GraphApi    REG_SZ    https://graph.microsoft.com/
+    NextEmailHRDUpdate    REG_QWORD    0x696f7310
+    FederationProvider    REG_SZ    
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\FileCoAuth
+    ECSConfigurationETag    REG_SZ    "Kia3n/18AJB+yjkWZcVSybPf69smWOHMCrI5C/kwZq0="
+    ECSConfigurationExpires    REG_QWORD    0x695d8092
+    ECSConfigurationMaxAge    REG_DWORD    0xa8c0
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\FileCoAuth\Personal
+    ECSConfigurationETag    REG_SZ    "ACVz5jCgdfN5XLG1rrXmdp/E59aQNl1uo7vO7xBs3rw="
+    ECSConfigurationExpires    REG_QWORD    0x695d8093
+    ECSConfigurationMaxAge    REG_DWORD    0xa8c0
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\ScopeIdToMountPointPathCache
+    a033d197fde84ac59e7c81caf8f023ab    REG_SZ    C:\Users\hansbuddenberg\OneDrive - tipartner
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\Tenants
+    UpdatedTenantValue    REG_DWORD    0x2
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\Tenants\OneDrive - tipartner
+    C:\Users\hansbuddenberg\OneDrive - tipartner    REG_DWORD    0x2
+
+HKEY_CURRENT_USER\Software\Microsoft\OneDrive\Accounts\Business1\WindowsSecurityCenterIntegration
+    WscRegistrationGuid    REG_SZ    {2D7BD93E-6680-4E07-80AE-9858C47BCF0D}
+

@@ -1,0 +1,18 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+# Virtual environments
+.venv
+
+# Runtime & Logs
+*.log
+status.json
+.monitor_canary
+ps_scan*.txt
+ps_status*.txt

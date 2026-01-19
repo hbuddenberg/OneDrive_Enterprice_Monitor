@@ -1,0 +1,19 @@
+[project]
+name = "onedrive-monitor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.128.0",
+    "psutil>=7.2.1",
+    "pydantic>=2.12.5",
+    "pywinauto>=0.6.9",
+    "pyyaml>=6.0.3",
+    "uvicorn>=0.40.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.12",
+]
