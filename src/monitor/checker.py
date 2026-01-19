@@ -249,6 +249,21 @@ class OneDriveChecker:
         if not process_running:
             return OneDriveStatus.NOT_RUNNING, False, None
 
+        # Process IS running, but is it OUR process?
+        # If the target log file hasn't updated in > 5 minutes, assume our instance is dead/killed
+        # (even if another OneDrive.exe is running).
+        # Note: OneDrive updates logs even when Paused, so a dead log means a dead app.
+        try:
+             # Check log mtime
+             if self.log_path.exists():
+                 log_mtime = self.log_path.stat().st_mtime
+                 log_age = time.time() - log_mtime
+                 if log_age > 300: # 5 minutes
+                     logger.warning(f"Process found but Log is dead ({log_age:.0f}s > 300s). Assuming Instance Killed.")
+                     return OneDriveStatus.NOT_RUNNING, False, "Process ghost / Instance killed"
+        except Exception as e:
+             logger.warning(f"Could not verify log age: {e}")
+
         # Active Liveness Check is now the PRIMARY source of truth
         status, msg = self.active_liveness_check()
         
