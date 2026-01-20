@@ -1,0 +1,1294 @@
+﻿
+
+Id              : 4696
+ProcessName     : AggregatorHost
+MainWindowTitle : 
+
+Id              : 7088
+ProcessName     : Antigravity
+MainWindowTitle : OneDrive_Enterprice_Mon
+                  itor - Antigravity - 
+                  Implementation Plan
+
+Id              : 7896
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 8584
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 10516
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 10540
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 11868
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 11952
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 15764
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 16364
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 17744
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 18860
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 21972
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 22384
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 22536
+ProcessName     : Antigravity
+MainWindowTitle : 
+
+Id              : 19956
+ProcessName     : AppActions
+MainWindowTitle : 
+
+Id              : 18256
+ProcessName     : ApplicationFrameHost
+MainWindowTitle : 
+
+Id              : 6244
+ProcessName     : AsusAppService
+MainWindowTitle : 
+
+Id              : 4664
+ProcessName     : AsusOptimization
+MainWindowTitle : 
+
+Id              : 10252
+ProcessName     : AsusOptimizationStartup
+                  Task
+MainWindowTitle : 
+
+Id              : 17968
+ProcessName     : AsusOSD
+MainWindowTitle : 
+
+Id              : 6268
+ProcessName     : AsusSoftwareManager
+MainWindowTitle : 
+
+Id              : 19496
+ProcessName     : AsusSoftwareManagerAgen
+                  t
+MainWindowTitle : 
+
+Id              : 6304
+ProcessName     : AsusSwitch
+MainWindowTitle : 
+
+Id              : 6260
+ProcessName     : AsusSystemAnalysis
+MainWindowTitle : 
+
+Id              : 6252
+ProcessName     : AsusSystemDiagnosis
+MainWindowTitle : 
+
+Id              : 10336
+ProcessName     : audiodg
+MainWindowTitle : 
+
+Id              : 12508
+ProcessName     : backgroundTaskHost
+MainWindowTitle : 
+
+Id              : 25712
+ProcessName     : backgroundTaskHost
+MainWindowTitle : 
+
+Id              : 23540
+ProcessName     : Blip
+MainWindowTitle : 
+
+Id              : 1484
+ProcessName     : ChatGPT
+MainWindowTitle : 
+
+Id              : 3044
+ProcessName     : ChatGPT
+MainWindowTitle : 
+
+Id              : 12612
+ProcessName     : ChatGPT
+MainWindowTitle : 
+
+Id              : 14256
+ProcessName     : ChatGPT
+MainWindowTitle : 
+
+Id              : 19200
+ProcessName     : ChatGPT
+MainWindowTitle : 
+
+Id              : 3140
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 6192
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 8540
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 20404
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 20800
+ProcessName     : chrome
+MainWindowTitle : localhost:8000/api/stat
+                  us - Google Chrome
+
+Id              : 21340
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 22208
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 23596
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 25308
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 28920
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 28948
+ProcessName     : chrome
+MainWindowTitle : 
+
+Id              : 908
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 3376
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 8504
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 12500
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 18588
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 18724
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 21256
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 24852
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 24864
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 25328
+ProcessName     : conhost
+MainWindowTitle : 
+
+Id              : 12228
+ProcessName     : CrossDeviceResume
+MainWindowTitle : 
+
+Id              : 16832
+ProcessName     : CrossDeviceService
+MainWindowTitle : 
+
+Id              : 1476
+ProcessName     : csrss
+MainWindowTitle : 
+
+Id              : 1568
+ProcessName     : csrss
+MainWindowTitle : 
+
+Id              : 5164
+ProcessName     : csrss
+MainWindowTitle : 
+
+Id              : 14232
+ProcessName     : ctfmon
+MainWindowTitle : 
+
+Id              : 15436
+ProcessName     : ctfmon
+MainWindowTitle : 
+
+Id              : 16804
+ProcessName     : dllhost
+MainWindowTitle : 
+
+Id              : 6232
+ProcessName     : DtsApo4Service
+MainWindowTitle : 
+
+Id              : 2072
+ProcessName     : dwm
+MainWindowTitle : 
+
+Id              : 4876
+ProcessName     : dwm
+MainWindowTitle : 
+
+Id              : 6384
+ProcessName     : ELANFPService
+MainWindowTitle : 
+
+Id              : 11856
+ProcessName     : explorer
+MainWindowTitle : 
+
+Id              : 14068
+ProcessName     : FanControl
+MainWindowTitle : 
+
+Id              : 9508
+ProcessName     : FCDBLog
+MainWindowTitle : 
+
+Id              : 12564
+ProcessName     : FileCoAuth
+MainWindowTitle : 
+
+Id              : 22592
+ProcessName     : Files
+MainWindowTitle : 
+
+Id              : 6836
+ProcessName     : FileSyncHelper
+MainWindowTitle : 
+
+Id              : 1912
+ProcessName     : fontdrvhost
+MainWindowTitle : 
+
+Id              : 1916
+ProcessName     : fontdrvhost
+MainWindowTitle : 
+
+Id              : 19860
+ProcessName     : fontdrvhost
+MainWindowTitle : 
+
+Id              : 9276
+ProcessName     : FortiSettings
+MainWindowTitle : 
+
+Id              : 9272
+ProcessName     : FortiSSLVPNdaemon
+MainWindowTitle : 
+
+Id              : 12188
+ProcessName     : FortiTray
+MainWindowTitle : 
+
+Id              : 0
+ProcessName     : Idle
+MainWindowTitle : 
+
+Id              : 6544
+ProcessName     : IntelAudioService
+MainWindowTitle : 
+
+Id              : 2668
+ProcessName     : IntelCpHDCPSvc
+MainWindowTitle : 
+
+Id              : 7452
+ProcessName     : ipf_uf
+MainWindowTitle : 
+
+Id              : 6888
+ProcessName     : ipfsvc
+MainWindowTitle : 
+
+Id              : 6632
+ProcessName     : jhi_service
+MainWindowTitle : 
+
+Id              : 23396
+ProcessName     : language_server_windows
+                  _x64
+MainWindowTitle : 
+
+Id              : 3092
+ProcessName     : LogonUI
+MainWindowTitle : 
+
+Id              : 1724
+ProcessName     : LsaIso
+MainWindowTitle : 
+
+Id              : 1732
+ProcessName     : lsass
+MainWindowTitle : 
+
+Id              : 11200
+ProcessName     : Microsoft.CmdPal.UI
+MainWindowTitle : 
+
+Id              : 21532
+ProcessName     : Move Mouse
+MainWindowTitle : 
+
+Id              : 6516
+ProcessName     : MpDefenderCoreService
+MainWindowTitle : 
+
+Id              : 2156
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 4484
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 6080
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 10900
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 11500
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 11564
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 13212
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 13476
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 19780
+ProcessName     : msedge
+MainWindowTitle : 
+
+Id              : 2880
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 6824
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 6952
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 7528
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 8340
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 8360
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 12216
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 12680
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 12832
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 12932
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 13680
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 13708
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 14120
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 14628
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 14788
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 17360
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 18484
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 20940
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 21084
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 22084
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 23236
+ProcessName     : msedgewebview2
+MainWindowTitle : 
+
+Id              : 6560
+ProcessName     : MsMpEng
+MainWindowTitle : 
+
+Id              : 19152
+ProcessName     : MSPCManager
+MainWindowTitle : 
+
+Id              : 20136
+ProcessName     : MSPCManagerCore
+MainWindowTitle : 
+
+Id              : 8484
+ProcessName     : MSPCManagerService
+MainWindowTitle : 
+
+Id              : 13924
+ProcessName     : ms-teams
+MainWindowTitle : 
+
+Id              : 19700
+ProcessName     : ms-teams
+MainWindowTitle : 
+
+Id              : 7504
+ProcessName     : NgcIso
+MainWindowTitle : 
+
+Id              : 10776
+ProcessName     : NisSrv
+MainWindowTitle : 
+
+Id              : 21452
+ProcessName     : node
+MainWindowTitle : 
+
+Id              : 6776
+ProcessName     : OfficeClickToRun
+MainWindowTitle : 
+
+Id              : 6364
+ProcessName     : OneApp.IGCC.WinService
+MainWindowTitle : 
+
+Id              : 18120
+ProcessName     : OneDrive
+MainWindowTitle : 
+
+Id              : 23304
+ProcessName     : OneDrive
+MainWindowTitle : 
+
+Id              : 17148
+ProcessName     : OneDrive.Sync.Service
+MainWindowTitle : 
+
+Id              : 3428
+ProcessName     : ONENOTEM
+MainWindowTitle : 
+
+Id              : 22836
+ProcessName     : OpenConsole
+MainWindowTitle : 
+
+Id              : 16220
+ProcessName     : PhoneExperienceHost
+MainWindowTitle : 
+
+Id              : 29500
+ProcessName     : powershell
+MainWindowTitle : 
+
+Id              : 12536
+ProcessName     : PowerToys
+MainWindowTitle : 
+
+Id              : 16272
+ProcessName     : PowerToys.AlwaysOnTop
+MainWindowTitle : 
+
+Id              : 16300
+ProcessName     : PowerToys.Awake
+MainWindowTitle : 
+
+Id              : 15388
+ProcessName     : PowerToys.ColorPickerUI
+MainWindowTitle : 
+
+Id              : 6084
+ProcessName     : PowerToys.CropAndLock
+MainWindowTitle : 
+
+Id              : 2304
+ProcessName     : PowerToys.LightSwitchSe
+                  rvice
+MainWindowTitle : 
+
+Id              : 6240
+ProcessName     : PowerToys.Peek.UI
+MainWindowTitle : 
+
+Id              : 7952
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 9292
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 9540
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 9908
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 10420
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 12264
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 13408
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 13436
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 19068
+ProcessName     : pwsh
+MainWindowTitle : 
+
+Id              : 10364
+ProcessName     : pyrefly
+MainWindowTitle : 
+
+Id              : 5532
+ProcessName     : python
+MainWindowTitle : 
+
+Id              : 9112
+ProcessName     : python
+MainWindowTitle : 
+
+Id              : 29676
+ProcessName     : python
+MainWindowTitle : 
+
+Id              : 23936
+ProcessName     : rdpclip
+MainWindowTitle : 
+
+Id              : 328
+ProcessName     : Registry
+MainWindowTitle : 
+
+Id              : 6620
+ProcessName     : RstMwService
+MainWindowTitle : 
+
+Id              : 6684
+ProcessName     : RtkAudUService64
+MainWindowTitle : 
+
+Id              : 9008
+ProcessName     : RtkAudUService64
+MainWindowTitle : 
+
+Id              : 11188
+ProcessName     : RtkAudUService64
+MainWindowTitle : 
+
+Id              : 7588
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 9152
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 11760
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 13904
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 20616
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 20900
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 21352
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 22216
+ProcessName     : RuntimeBroker
+MainWindowTitle : 
+
+Id              : 6352
+ProcessName     : RustDesk
+MainWindowTitle : 
+
+Id              : 16932
+ProcessName     : RustDesk
+MainWindowTitle : 
+
+Id              : 17164
+ProcessName     : RustDesk
+MainWindowTitle : 
+
+Id              : 4752
+ProcessName     : scheduler
+MainWindowTitle : 
+
+Id              : 13144
+ProcessName     : SearchHost
+MainWindowTitle : 
+
+Id              : 15560
+ProcessName     : SearchIndexer
+MainWindowTitle : 
+
+Id              : 284
+ProcessName     : Secure System
+MainWindowTitle : 
+
+Id              : 5988
+ProcessName     : SecurityHealthService
+MainWindowTitle : 
+
+Id              : 6572
+ProcessName     : SecurityHealthSystray
+MainWindowTitle : 
+
+Id              : 1704
+ProcessName     : services
+MainWindowTitle : 
+
+Id              : 2240
+ProcessName     : ShellExperienceHost
+MainWindowTitle : 
+
+Id              : 7944
+ProcessName     : ShellHost
+MainWindowTitle : 
+
+Id              : 5252
+ProcessName     : sihost
+MainWindowTitle : 
+
+Id              : 960
+ProcessName     : smss
+MainWindowTitle : 
+
+Id              : 6020
+ProcessName     : spoolsv
+MainWindowTitle : 
+
+Id              : 12964
+ProcessName     : StartMenuExperienceHost
+MainWindowTitle : 
+
+Id              : 8
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 1416
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 1880
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2176
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2184
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2220
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2248
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2260
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2280
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2288
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2520
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2528
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2576
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2592
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2640
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2700
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2712
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2724
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2740
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2800
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2864
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 2920
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3024
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3060
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3196
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3208
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3328
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3728
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3780
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3800
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3908
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3960
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 3996
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4020
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4048
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4088
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4164
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4196
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4204
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4276
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4320
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4332
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4368
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4396
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4432
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4616
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4656
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4884
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 5052
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 5260
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 5368
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6156
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6180
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6204
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6216
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6228
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6276
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6324
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6332
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 6988
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 7312
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 7436
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 7696
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 8132
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 8200
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 8344
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 8600
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 8880
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 9032
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 9180
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 9472
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 9692
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 10032
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 10436
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 11032
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 11184
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 11256
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 11460
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 11480
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 11968
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 12420
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 12588
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 12796
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 13100
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 14536
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 15520
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 15720
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 17592
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 17780
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 17864
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 18204
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 18884
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 19184
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 19556
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 20696
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 21100
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 25316
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 25692
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 28996
+ProcessName     : svchost
+MainWindowTitle : 
+
+Id              : 4
+ProcessName     : System
+MainWindowTitle : 
+
+Id              : 4160
+ProcessName     : taskhostw
+MainWindowTitle : 
+
+Id              : 15876
+ProcessName     : TextInputHost
+MainWindowTitle : Experiencia de entrada 
+                  de Windows
+
+Id              : 17692
+ProcessName     : TranslateCmdPal
+MainWindowTitle : 
+
+Id              : 16256
+ProcessName     : UniGetUI
+MainWindowTitle : 
+
+Id              : 2848
+ProcessName     : unsecapp
+MainWindowTitle : 
+
+Id              : 23280
+ProcessName     : UserOOBEBroker
+MainWindowTitle : 
+
+Id              : 10068
+ProcessName     : vmcompute
+MainWindowTitle : 
+
+Id              : 3892
+ProcessName     : vmms
+MainWindowTitle : 
+
+Id              : 26120
+ProcessName     : warp
+MainWindowTitle : 
+
+Id              : 27688
+ProcessName     : warp
+MainWindowTitle : ~\AppData\Local\Microso
+                  ft\OneDrive
+
+Id              : 20908
+ProcessName     : WidgetService
+MainWindowTitle : 
+
+Id              : 17496
+ProcessName     : WindowsPackageManagerSe
+                  rver
+MainWindowTitle : 
+
+Id              : 1560
+ProcessName     : wininit
+MainWindowTitle : 
+
+Id              : 1628
+ProcessName     : winlogon
+MainWindowTitle : 
+
+Id              : 8656
+ProcessName     : winlogon
+MainWindowTitle : 
+
+Id              : 9220
+ProcessName     : wlanext
+MainWindowTitle : 
+
+Id              : 15924
+ProcessName     : WmiApSrv
+MainWindowTitle : 
+
+Id              : 9840
+ProcessName     : WmiPrvSE
+MainWindowTitle : 
+
+Id              : 9848
+ProcessName     : WmiPrvSE
+MainWindowTitle : 
+
+Id              : 25276
+ProcessName     : WmiPrvSE
+MainWindowTitle : 
+
+Id              : 6724
+ProcessName     : WMIRegistrationService
+MainWindowTitle : 
+
+Id              : 6552
+ProcessName     : wslservice
+MainWindowTitle : 
+
+Id              : 1452
+ProcessName     : WUDFHost
+MainWindowTitle : 
+
+Id              : 1940
+ProcessName     : WUDFHost
+MainWindowTitle : 
+
+Id              : 4924
+ProcessName     : WUDFHost
+MainWindowTitle : 
+
+Id              : 5524
+ProcessName     : WUDFHost
+MainWindowTitle : 
+
+Id              : 26980
+ProcessName     : WUDFHost
+MainWindowTitle : 
+
+Id              : 16728
+ProcessName     : zerotier_desktop_ui
+MainWindowTitle : 
+
+Id              : 6700
+ProcessName     : zerotier-one_x64
+MainWindowTitle : 
+
+
+

@@ -1,0 +1,326 @@
+﻿
+   Id ProcessName                  MainWi
+                                   ndowTi
+                                   tle   
+   -- -----------                  ------
+ 4696 AggregatorHost                     
+ 7088 Antigravity                  One...
+ 7896 Antigravity                        
+ 8584 Antigravity                        
+10516 Antigravity                        
+10540 Antigravity                        
+11868 Antigravity                        
+11952 Antigravity                        
+15764 Antigravity                        
+16364 Antigravity                        
+17744 Antigravity                        
+18860 Antigravity                        
+21972 Antigravity                        
+22384 Antigravity                        
+22536 Antigravity                        
+19956 AppActions                         
+18256 ApplicationFrameHost               
+ 6244 AsusAppService                     
+ 4664 AsusOptimization                   
+10252 AsusOptimizationStartupTask        
+17968 AsusOSD                            
+ 6268 AsusSoftwareManager                
+19496 AsusSoftwareManagerAgent           
+ 6304 AsusSwitch                         
+ 6260 AsusSystemAnalysis                 
+ 6252 AsusSystemDiagnosis                
+10336 audiodg                            
+ 5448 backgroundTaskHost                 
+12508 backgroundTaskHost                 
+25712 backgroundTaskHost                 
+23540 Blip                               
+ 1484 ChatGPT                            
+ 3044 ChatGPT                            
+12612 ChatGPT                            
+14256 ChatGPT                            
+19200 ChatGPT                            
+ 3140 chrome                             
+ 6192 chrome                             
+ 8540 chrome                             
+20404 chrome                             
+20800 chrome                       loc...
+21340 chrome                             
+22208 chrome                             
+23596 chrome                             
+25308 chrome                             
+28920 chrome                             
+28948 chrome                             
+  908 conhost                            
+ 3376 conhost                            
+ 8504 conhost                            
+12500 conhost                            
+18588 conhost                            
+18724 conhost                            
+21256 conhost                            
+24852 conhost                            
+24864 conhost                            
+25328 conhost                            
+12228 CrossDeviceResume                  
+16832 CrossDeviceService                 
+ 1476 csrss                              
+ 1568 csrss                              
+ 5164 csrss                              
+14232 ctfmon                             
+15436 ctfmon                             
+16804 dllhost                            
+ 6232 DtsApo4Service                     
+ 2072 dwm                                
+ 4876 dwm                                
+ 6384 ELANFPService                      
+11856 explorer                           
+14068 FanControl                         
+ 9508 FCDBLog                            
+12564 FileCoAuth                         
+22592 Files                              
+ 6836 FileSyncHelper                     
+ 1912 fontdrvhost                        
+ 1916 fontdrvhost                        
+19860 fontdrvhost                        
+ 9276 FortiSettings                      
+ 9272 FortiSSLVPNdaemon                  
+12188 FortiTray                          
+    0 Idle                               
+ 6544 IntelAudioService                  
+ 2668 IntelCpHDCPSvc                     
+ 7452 ipf_uf                             
+ 6888 ipfsvc                             
+ 6632 jhi_service                        
+23396 language_server_windows_x64        
+ 3092 LogonUI                            
+ 1724 LsaIso                             
+ 1732 lsass                              
+11200 Microsoft.CmdPal.UI                
+21532 Move Mouse                         
+ 6516 MpDefenderCoreService              
+ 2156 msedge                             
+ 4484 msedge                             
+ 6080 msedge                             
+10900 msedge                             
+11500 msedge                             
+11564 msedge                             
+13212 msedge                             
+13476 msedge                             
+19780 msedge                             
+ 2880 msedgewebview2                     
+ 6824 msedgewebview2                     
+ 6952 msedgewebview2                     
+ 7528 msedgewebview2                     
+ 8340 msedgewebview2                     
+ 8360 msedgewebview2                     
+12216 msedgewebview2                     
+12680 msedgewebview2                     
+12832 msedgewebview2                     
+12932 msedgewebview2                     
+13680 msedgewebview2                     
+13708 msedgewebview2                     
+14120 msedgewebview2                     
+14628 msedgewebview2                     
+14788 msedgewebview2                     
+17360 msedgewebview2                     
+18484 msedgewebview2                     
+20940 msedgewebview2                     
+21084 msedgewebview2                     
+22084 msedgewebview2                     
+23236 msedgewebview2                     
+ 6560 MsMpEng                            
+19152 MSPCManager                        
+20136 MSPCManagerCore                    
+ 8484 MSPCManagerService                 
+13924 ms-teams                           
+19700 ms-teams                           
+ 7504 NgcIso                             
+10776 NisSrv                             
+21452 node                               
+ 6776 OfficeClickToRun                   
+ 6364 OneApp.IGCC.WinService             
+18120 OneDrive                           
+23304 OneDrive                           
+17148 OneDrive.Sync.Service              
+ 3428 ONENOTEM                           
+22836 OpenConsole                        
+16220 PhoneExperienceHost                
+25476 powershell                         
+12536 PowerToys                          
+16272 PowerToys.AlwaysOnTop              
+16300 PowerToys.Awake                    
+15388 PowerToys.ColorPickerUI            
+ 6084 PowerToys.CropAndLock              
+ 2304 PowerToys.LightSwitchService       
+ 6240 PowerToys.Peek.UI                  
+ 7952 pwsh                               
+ 9292 pwsh                               
+ 9540 pwsh                               
+ 9908 pwsh                               
+10420 pwsh                               
+12264 pwsh                               
+13408 pwsh                               
+13436 pwsh                               
+19068 pwsh                               
+10364 pyrefly                            
+ 5532 python                             
+ 9112 python                             
+29676 python                             
+23936 rdpclip                            
+  328 Registry                           
+ 6620 RstMwService                       
+ 6684 RtkAudUService64                   
+ 9008 RtkAudUService64                   
+11188 RtkAudUService64                   
+ 7588 RuntimeBroker                      
+ 9152 RuntimeBroker                      
+11760 RuntimeBroker                      
+13904 RuntimeBroker                      
+20616 RuntimeBroker                      
+20900 RuntimeBroker                      
+21352 RuntimeBroker                      
+22216 RuntimeBroker                      
+ 6352 RustDesk                           
+16932 RustDesk                           
+17164 RustDesk                           
+ 4752 scheduler                          
+13144 SearchHost                         
+15560 SearchIndexer                      
+  284 Secure System                      
+ 5988 SecurityHealthService              
+ 6572 SecurityHealthSystray              
+ 1704 services                           
+ 2240 ShellExperienceHost                
+ 7944 ShellHost                          
+ 5252 sihost                             
+  960 smss                               
+ 6020 spoolsv                            
+12964 StartMenuExperienceHost            
+    8 svchost                            
+ 1416 svchost                            
+ 1880 svchost                            
+ 2176 svchost                            
+ 2184 svchost                            
+ 2220 svchost                            
+ 2248 svchost                            
+ 2260 svchost                            
+ 2280 svchost                            
+ 2288 svchost                            
+ 2520 svchost                            
+ 2528 svchost                            
+ 2576 svchost                            
+ 2592 svchost                            
+ 2640 svchost                            
+ 2700 svchost                            
+ 2712 svchost                            
+ 2724 svchost                            
+ 2740 svchost                            
+ 2800 svchost                            
+ 2864 svchost                            
+ 2920 svchost                            
+ 3024 svchost                            
+ 3060 svchost                            
+ 3196 svchost                            
+ 3208 svchost                            
+ 3328 svchost                            
+ 3728 svchost                            
+ 3780 svchost                            
+ 3800 svchost                            
+ 3908 svchost                            
+ 3960 svchost                            
+ 3996 svchost                            
+ 4020 svchost                            
+ 4048 svchost                            
+ 4088 svchost                            
+ 4164 svchost                            
+ 4196 svchost                            
+ 4204 svchost                            
+ 4276 svchost                            
+ 4320 svchost                            
+ 4332 svchost                            
+ 4368 svchost                            
+ 4396 svchost                            
+ 4432 svchost                            
+ 4616 svchost                            
+ 4656 svchost                            
+ 4884 svchost                            
+ 5052 svchost                            
+ 5260 svchost                            
+ 5368 svchost                            
+ 6156 svchost                            
+ 6180 svchost                            
+ 6204 svchost                            
+ 6216 svchost                            
+ 6228 svchost                            
+ 6276 svchost                            
+ 6324 svchost                            
+ 6332 svchost                            
+ 6988 svchost                            
+ 7312 svchost                            
+ 7436 svchost                            
+ 7696 svchost                            
+ 8132 svchost                            
+ 8200 svchost                            
+ 8344 svchost                            
+ 8600 svchost                            
+ 8880 svchost                            
+ 9032 svchost                            
+ 9180 svchost                            
+ 9472 svchost                            
+ 9692 svchost                            
+10032 svchost                            
+10436 svchost                            
+11032 svchost                            
+11184 svchost                            
+11460 svchost                            
+11480 svchost                            
+11968 svchost                            
+12420 svchost                            
+12588 svchost                            
+12796 svchost                            
+13100 svchost                            
+14536 svchost                            
+15520 svchost                            
+15720 svchost                            
+17592 svchost                            
+17780 svchost                            
+17864 svchost                            
+18204 svchost                            
+18884 svchost                            
+19184 svchost                            
+19556 svchost                            
+20696 svchost                            
+21320 svchost                            
+25316 svchost                            
+25692 svchost                            
+    4 System                             
+ 4160 taskhostw                          
+15876 TextInputHost                Exp...
+17692 TranslateCmdPal                    
+16256 UniGetUI                           
+ 2848 unsecapp                           
+23280 UserOOBEBroker                     
+10068 vmcompute                          
+ 3892 vmms                               
+26120 warp                               
+27688 warp                         ~\A...
+20908 WidgetService                      
+17496 WindowsPackageManagerServer        
+ 1560 wininit                            
+ 1628 winlogon                           
+ 8656 winlogon                           
+ 9220 wlanext                            
+15924 WmiApSrv                           
+ 9840 WmiPrvSE                           
+ 9848 WmiPrvSE                           
+25276 WmiPrvSE                           
+ 6724 WMIRegistrationService             
+ 6552 wslservice                         
+ 1452 WUDFHost                           
+ 1940 WUDFHost                           
+ 4924 WUDFHost                           
+ 5524 WUDFHost                           
+26980 WUDFHost                           
+16728 zerotier_desktop_ui                
+ 6700 zerotier-one_x64                   
+
+

@@ -220,9 +220,27 @@ class OneDriveChecker:
                     return OneDriveStatus.PAUSED, f"Paused/Error ({ps_status})"
 
                 # 2. Check for explicit SYNC (Confirmation to keep waiting)
-                sync_keywords = ["sincronizando", "syncing", "procesando", "processing", "comprobando", "checking", "cargando", "uploading", "descargando", "downloading"]
+                sync_keywords = ["sincronizando", "syncing", "procesando", "processing", "comprobando", "checking", "cargando", "uploading", "descargando", "downloading", "pendiente", "pending"]
                 if any(k in ps_lower for k in sync_keywords):
-                     return OneDriveStatus.OK, f"Active (Syncing... {age:.0f}s)"
+                     status_detail = f"Active (Syncing... {age:.0f}s)"
+                     
+                     # Check if we have been syncing for too long
+                     if age > SYNC_TIMEOUT:
+                         if self.check_auth_window():
+                             return OneDriveStatus.AUTH_REQUIRED, "Authentication Required (Window Detected)"
+                         
+                         # Heuristic: If stuck in "Pending" for > SYNC_TIMEOUT, it's likely Auth Required
+                         # especially if "pendiente" is the status.
+                         if "pendiente" in ps_lower or "pending" in ps_lower:
+                             logger.warning(f"Active Check: Stuck in 'Pending' for {age:.0f}s. Assuming Auth Required.")
+                             return OneDriveStatus.AUTH_REQUIRED, f"Auth Required (Stuck in Pending > {SYNC_TIMEOUT}s)"
+                         
+                         return OneDriveStatus.PAUSED, f"Stalled (Syncing > {SYNC_TIMEOUT}s)"
+                     
+                     if self.check_auth_window():
+                         return OneDriveStatus.AUTH_REQUIRED, "Authentication Required (Window Detected)"
+                     
+                     return OneDriveStatus.OK, status_detail
 
                 # 3. Check for explicit AVAILABLE (Local but Synced)
                 available_keywords = ["disponible", "available", "ok", "listo", "ready"]
@@ -236,14 +254,49 @@ class OneDriveChecker:
 
             # If no explicit Pause or Sync/Available detected, use the Timeout mechanism as safety net
             if age > SYNC_TIMEOUT:
+                # If stalled, check for Auth Window before declaring PAUSED
+                if self.check_auth_window():
+                     return OneDriveStatus.AUTH_REQUIRED, "Authentication Required (Window Detected)"
+            
                 logger.warning(f"Active Check: Canary stalled for {age:.0f}s. PowerShell: '{ps_status}'. OneDrive likely PAUSED.")
                 return OneDriveStatus.PAUSED, f"Paused (Sync Pending > {SYNC_TIMEOUT}s)"
             
             # Still within grace period
             return OneDriveStatus.OK, f"Active (Syncing... {age:.0f}s)"
 
+    def check_auth_window(self) -> bool:
+        """Check if a OneDrive authentication window is present."""
+        try:
+            # Look for typical Sign In window titles
+            cmd = "Get-Process | Where-Object { $_.MainWindowTitle -match 'Sign in|Iniciar sesión|Microsoft OneDrive|Contraseña|Password' } | Select-Object -ExpandProperty MainWindowTitle"
+            
+            result = subprocess.run(
+                ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", cmd],
+                capture_output=True,
+                text=True,
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
+            )
+            
+            if result.returncode == 0:
+                titles = result.stdout.strip().split('\n')
+                # Filter out empty strings and check if we have any matches
+                msg = [t.strip() for t in titles if t.strip()]
+                if msg:
+                     logger.warning(f"Auth Window Detected: {msg}")
+                     return True
+            return False
+        except Exception as e:
+            logger.error(f"Error checking auth window: {e}")
+            return False
+
     def get_full_status(self) -> tuple[OneDriveStatus, bool, Optional[str]]:
         """Get complete OneDrive status (Headless)."""
+        
+        # 0. Check if account is still configured (Registry Check)
+        # This detects if the user has logged out (Registry key removed)
+        if not self.verify_registry_account():
+            return OneDriveStatus.NOT_FOUND, False, "Account Config Missing (Logged Out)"
+
         process_running = self.check_process()
 
         if not process_running:
@@ -258,9 +311,9 @@ class OneDriveChecker:
              if self.log_path.exists():
                  log_mtime = self.log_path.stat().st_mtime
                  log_age = time.time() - log_mtime
-                 if log_age > 300: # 5 minutes
-                     logger.warning(f"Process found but Log is dead ({log_age:.0f}s > 300s). Assuming Instance Killed.")
-                     return OneDriveStatus.NOT_RUNNING, False, "Process ghost / Instance killed"
+                 if log_age > 3600: # 1 hour (was 5 mins)
+                     logger.warning(f"Process found but Log is stale ({log_age:.0f}s > 3600s). Proceeding anyway.")
+                     # return OneDriveStatus.NOT_RUNNING, False, "Process ghost / Instance killed"
         except Exception as e:
              logger.warning(f"Could not verify log age: {e}")
 
