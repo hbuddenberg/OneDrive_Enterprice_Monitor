@@ -78,8 +78,16 @@ def run_monitor() -> None:
     else:
         logger.warning("⚠ Account not found in registry - may not be configured")
 
+    # Init DB
+    from src.shared.database import init_db, log_status
+    init_db()
+    
     check_count = 0
     last_log_msg = ""
+    
+    last_db_status = None
+    last_db_time = 0.0
+    HEARTBEAT_INTERVAL = 300 # 5 minutes
 
     while True:
         try:
@@ -106,6 +114,22 @@ def run_monitor() -> None:
                 last_log_msg = current_log_msg
             
             check_count += 1
+
+            # --- Database Logging ---
+            current_time = time.time()
+            is_change = (status != last_db_status)
+            
+            if is_change or (current_time - last_db_time > HEARTBEAT_INTERVAL):
+                # Ensure we capture detail if present, or just status value
+                db_msg = status_detail if status_detail else status.value
+                log_status(status.value, db_msg, is_change)
+                last_db_time = current_time
+                last_db_status = status
+                if is_change:
+                     logger.debug("DB: Status change stored.")
+                else:
+                     logger.debug("DB: Heartbeat stored.")
+            # ------------------------
 
             # Write to file
             write_status_atomic(report, status_path)

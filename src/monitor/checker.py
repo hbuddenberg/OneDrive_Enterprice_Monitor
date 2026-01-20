@@ -36,13 +36,31 @@ class OneDriveChecker:
         self.stalled_since = 0.0
 
     def check_process(self) -> bool:
-        """Check if OneDrive.exe is running."""
-        for proc in psutil.process_iter(["name"]):
+        """Check if the specific OneDrive process for this account is running."""
+        target_is_personal = "personal" in self.config.target.folder.lower()
+        
+        for proc in psutil.process_iter(["name", "cmdline"]):
             try:
                 if proc.info["name"] and proc.info["name"].lower() == "onedrive.exe":
-                    return True
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                    cmdline = proc.info.get("cmdline", [])
+                    if not cmdline:
+                        continue
+                        
+                    cmd_str = " ".join(cmdline).lower()
+                    
+                    # If monitoring Business/Enterprise
+                    if not target_is_personal:
+                        # Ignore explicitly Personal instances
+                        if "/client=personal" in cmd_str:
+                            continue
+                        return True
+                    else:
+                        # Monitoring Personal
+                        if "/client=personal" in cmd_str:
+                            return True
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                 continue
+                
         return False
 
     def _get_shell_status_ps(self, file_path: Path) -> Optional[str]:
