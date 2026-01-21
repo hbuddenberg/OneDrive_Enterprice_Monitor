@@ -82,17 +82,39 @@ def run_monitor() -> None:
     from src.shared.database import init_db, log_status
     init_db()
     
+    # Write Initial Status (Mitigation for empty/corrupt files)
+    logger.info("Initializing status file...")
+    initial_report = StatusReport(
+        timestamp=datetime.now(),
+        account_email=config.target.email,
+        account_folder=config.target.folder,
+        status=OneDriveStatus.NOT_RUNNING,
+        status_detail="Initializing...",
+        process_running=False,
+        message="Monitor starting..."
+    )
+    write_status_atomic(initial_report, status_path)
+    
     check_count = 0
     last_log_msg = ""
     
     last_db_status = None
     last_db_time = 0.0
     HEARTBEAT_INTERVAL = 300 # 5 minutes
+    
+    out_of_sync_since_ts = None
 
     while True:
         try:
             # Get current status
             status, process_running, status_detail = checker.get_full_status()
+            
+            # Track Out-of-Sync Start Time
+            if status == OneDriveStatus.OK:
+                out_of_sync_since_ts = None
+            else:
+                 if out_of_sync_since_ts is None:
+                     out_of_sync_since_ts = datetime.now()
 
             # Build report
             report = StatusReport(
@@ -103,6 +125,7 @@ def run_monitor() -> None:
                 status_detail=status_detail,
                 process_running=process_running,
                 message=_get_status_message(status),
+                out_of_sync_since=out_of_sync_since_ts
             )
 
             # Log status (deduplicated)

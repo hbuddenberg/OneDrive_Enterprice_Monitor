@@ -107,6 +107,20 @@ async def dashboard(request: Request) -> HTMLResponse:
     except Exception:
         formatted_time = timestamp
 
+    # Format Not Synced Since
+    not_sync_raw = status.get("out_of_sync_since")
+    not_sync_display = ""
+    if not_sync_raw and current_status != "OK":
+        try:
+            # It comes as string from JSON
+            if isinstance(not_sync_raw, str):
+                 ns_dt = datetime.fromisoformat(not_sync_raw.replace("Z", "+00:00"))
+            else:
+                 ns_dt = not_sync_raw # Should basically not happen with JSON
+            not_sync_display = ns_dt.strftime("%H:%M:%S")
+        except Exception:
+            not_sync_display = str(not_sync_raw)
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,6 +170,9 @@ async def dashboard(request: Request) -> HTMLResponse:
                         <dt class="text-gray-400 text-sm">Last Update</dt>
                         <dd class="font-mono text-sm">{formatted_time}</dd>
                     </div>
+                    
+                    {'<div class="md:col-span-2 bg-red-900/30 p-2 rounded border border-red-500/30"><dt class="text-red-400 text-xs uppercase font-bold">⚠️ Not Synced Since</dt><dd class="font-mono text-xl text-red-300">' + not_sync_display + '</dd></div>' if not_sync_display else ''}
+
                     <div class="md:col-span-2">
                         <dt class="text-gray-400 text-sm">Folder</dt>
                         <dd class="font-mono text-sm truncate" title="{status.get('account_folder', 'N/A')}">{status.get('account_folder', 'N/A')}</dd>

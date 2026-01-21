@@ -29,6 +29,7 @@ class StatusReport(BaseModel):
     status_detail: Optional[str] = None
     process_running: bool
     message: Optional[str] = None
+    out_of_sync_since: Optional[datetime] = None
 
     class Config:
         use_enum_values = True
