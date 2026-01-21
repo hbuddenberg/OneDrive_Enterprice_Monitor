@@ -57,13 +57,43 @@ class DashboardConfig(BaseModel):
     port: int = 8000
 
 
+
+class EmailConfig(BaseModel):
+    enabled: bool = False
+    smtp_server: str = ""
+    smtp_port: int = 587
+    sender_email: str = ""
+    sender_password: str = ""
+    recipient_email: str = ""
+
+class TeamsConfig(BaseModel):
+    enabled: bool = False
+    webhook_url: str = ""
+
+class SlackConfig(BaseModel):
+    enabled: bool = False
+    webhook_url: str = ""
+
+class NotificationChannels(BaseModel):
+    email: EmailConfig = EmailConfig()
+    teams: TeamsConfig = TeamsConfig()
+    slack: SlackConfig = SlackConfig()
+
+class NotificationConfig(BaseModel):
+    enabled: bool = True
+    cooldown_minutes: int = 60
+    failed_remediation_delay_seconds: int = 300
+    channels: NotificationChannels = NotificationChannels()
+
 class AppConfig(BaseModel):
     """Root application configuration."""
 
     target: TargetConfig
     monitor: MonitorConfig = MonitorConfig()
     alerting: AlertingConfig = AlertingConfig()
+    notifications: NotificationConfig = NotificationConfig()
     dashboard: DashboardConfig = DashboardConfig()
+
 
 
 def load_config(config_path: Optional[Path] = None) -> AppConfig:

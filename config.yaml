@@ -14,17 +14,29 @@ target:
     log_path: "C:\\Users\\hansbuddenberg\\AppData\\Local\\Microsoft\\OneDrive\\logs\\Business1\\SyncDiagnostics.log"
     canary_file: ".monitor_canary"
 
-# Alerting (optional - enable and configure as needed)
+# Notifications (Multi-channel)
+notifications:
+  enabled: true
+  cooldown_minutes: 60
+  failed_remediation_delay_seconds: 120  # Time to wait after restart before notifying failure
+  channels:
+    email:
+      enabled: false
+      smtp_server: "smtp.office365.com"
+      smtp_port: 587
+      sender_email: "monitor@example.com"
+      sender_password: "your_password"
+      recipient_email: "admin@example.com"
+    teams:
+      enabled: false
+      webhook_url: "https://outlook.office.com/webhook/..."
+    slack:
+      enabled: false
+      webhook_url: "https://hooks.slack.com/services/..."
+
+# Alerting (Legacy - see notifications)
 alerting:
   enabled: false
-  # smtp:
-  #   host: smtp.example.com
-  #   port: 587
-  #   user: user@example.com
-  #   password_env: SMTP_PASSWORD  # Read password from environment variable
-  #   to: ["admin@example.com"]
-  # webhook:
-  #   url: https://hooks.slack.com/services/XXX
 
 # Dashboard settings
 dashboard:
