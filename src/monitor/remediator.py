@@ -49,6 +49,12 @@ class RemediationAction:
         # 4. Act
         if status == OneDriveStatus.NOT_RUNNING:
             return self._restart_onedrive()
+        
+        if status == OneDriveStatus.AUTH_REQUIRED:
+            return self._focus_auth_window()
+
+        if status == OneDriveStatus.PAUSED:
+             return self._handle_paused(time_in_state)
             
         return False
 
@@ -104,3 +110,48 @@ class RemediationAction:
         except Exception as e:
             logger.error(f"REMEDIATION: Failed to start process: {e}")
             return False
+
+    def _focus_auth_window(self) -> bool:
+        """Attempt to bring the OneDrive Sign In window to the foreground."""
+        logger.warning("REMEDIATION: Attempting to focus Auth Window...")
+        try:
+            # PowerShell script to find and focus window
+            ps_script = """
+            $wshell = New-Object -ComObject WScript.Shell
+            $proc = Get-Process | Where-Object { $_.MainWindowTitle -match 'Sign in|Iniciar sesión|Microsoft OneDrive|Contraseña|Password' } | Select-Object -First 1
+            if ($proc) {
+                $wshell.AppActivate($proc.Id)
+                Write-Output "Focused"
+            }
+            """
+            result = subprocess.run(
+                ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", ps_script],
+                capture_output=True, text=True,
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
+            )
+            
+            if "Focused" in result.stdout:
+                logger.info("REMEDIATION: Authentication window brought to foreground.")
+                self.cooldown_ends = datetime.now() + timedelta(seconds=10) # Short cooldown
+                return True
+            else:
+                logger.warning("REMEDIATION: Could not find auth window to focus.")
+                return False
+                
+        except Exception as e:
+            logger.error(f"REMEDIATION: Failed to focus window: {e}")
+            return False
+
+    def _handle_paused(self, duration: float) -> bool:
+        """Handle long pauses."""
+        # Warn if paused for > 2 hours
+        if duration > 7200: # 2 hours
+             # We trigger this only once per 'incident' effectively due to cooldown or we can just log
+             # Cooldown handles frequency
+             logger.warning(f"REMEDIATION: OneDrive has been PAUSED for {duration/3600:.1f} hours.")
+             # Here we would send a specific alert if we had a direct notification mechanism
+             # For now, logging it as a warning triggers the general Alerter if configured
+             
+             self.cooldown_ends = datetime.now() + timedelta(minutes=30) # Remind every 30 mins
+             return True
+        return False
