@@ -59,6 +59,8 @@ def run_monitor() -> None:
     config = get_config()
     checker = OneDriveChecker()
     alerter = Alerter()
+    from src.monitor.remediator import RemediationAction
+    remediator = RemediationAction()
 
     status_path = Path(config.monitor.status_file)
     interval = config.monitor.check_interval_seconds
@@ -159,6 +161,10 @@ def run_monitor() -> None:
 
             # Send alert if needed
             alerter.send_alert(report)
+
+            # --- Remediation (Auto-Healing) ---
+            remediator.act(status)
+            # ----------------------------------
 
         except Exception as e:
             logger.error(f"Error during status check: {e}", exc_info=True)
