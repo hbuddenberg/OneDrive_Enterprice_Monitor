@@ -31,24 +31,73 @@ class RemediationAction:
         self.last_remediation_time: Optional[datetime] = None
         self.notification_sent_for_incident: bool = False
 
-    def act(self, status: OneDriveStatus) -> bool:
+    def act(self, status: OneDriveStatus, outage_start_time: Optional[datetime] = None) -> bool:
         """Attempt to fix the current status if critical. Returns True if action taken."""
         now = datetime.now()
         
-        # 1. Update Persistence Tracker
+        # 1. Update Persistence Tracker & Immediate Notifications
         if status != self.last_status:
-            self.last_status = status
-            self.status_first_seen = now
-            self.notification_sent_for_incident = False # New status, new incident
-            # If we just switched to OK, reset counters immediately
+            # Check for resolution (state changed to OK)
             if status == OneDriveStatus.OK:
+                if self.notification_sent_for_incident:
+                    outage_str = outage_start_time.strftime("%Y-%m-%d %H:%M:%S") if outage_start_time else "Unknown"
+                    now_str = now.strftime("%Y-%m-%d %H:%M:%S")
+                    try:
+                        self.notifier.send_resolution_notification(outage_str, now_str)
+                        logger.info("RESOLUTION: Sent resolution notification immediately.")
+                    except Exception as e:
+                        logger.error(f"Failed to send resolution notification: {e}")
+                    self.notification_sent_for_incident = False
                 self.reset_counters()
+
+            # Check for NEW critical state
+            # (We wait for persistence in Step 2 to notify)
+            pass
+
+            self.last_status = status
+            
+            # If we have a historical outage time (e.g. from DB on startup), use it
+            if outage_start_time and outage_start_time < now:
+                 self.status_first_seen = outage_start_time
+                 # If we just started up and found historical error, ensure we marked it as notified?
+                 # logic above handles "last_status is None" -> Notify.
+            else:
+                 self.status_first_seen = now
+            # self.notification_sent_for_incident = False # KEEP IT TRUE if we are just flapping between bad states? 
+            # No, if status changes (e.g. Pause -> Auth), it's a new "incident" type? 
+            # Or should we treat it as one continuous outage?
+            # User wants "Resolution" when it goes to OK.
+            # If we go Error A -> Error B -> OK.
+            # We sent Error A. 
+            # If we reset here, we might send Error B.
+            # If we don't reset, we won't send Error B (assuming check checks flag).
+            
+            # Let's reset on OK only mainly. But if we change error type, we probably want to notify again eventually?
+            # For simplicity, if status changes to anything other than OK, we reset the flag?
+            # If we go Error A (Notified) -> Error B. Should we notify Error B? Yes.
+            # Counter reset is now handled above.
+            pass
+            
             return False
             
         # 2. Check Duration
         time_in_state = (now - self.status_first_seen).total_seconds()
         if time_in_state < self.REQUIRED_PERSISTENCE:
             return False
+
+        # PERSISTENCE REACHED - Status is confirmed bad
+
+        # 3. Notify Error (if not yet notified)
+        if not self.notification_sent_for_incident:
+             # Double check we are in a bad state (we passed persistence check)
+             if status != OneDriveStatus.OK:
+                outage_str = outage_start_time.strftime("%Y-%m-%d %H:%M:%S") if outage_start_time else self.status_first_seen.strftime("%Y-%m-%d %H:%M:%S")
+                try:
+                    self.notifier.send_error_notification(status.value, outage_str)
+                    logger.info(f"ALERT: Sent error notification for {status.value} after persistence ({time_in_state:.1f}s).")
+                    self.notification_sent_for_incident = True
+                except Exception as e:
+                    logger.error(f"Failed to send error notification: {e}")
 
         from src.shared.config import get_config
         self.config = get_config()
@@ -84,7 +133,10 @@ class RemediationAction:
                  if not self.notification_sent_for_incident:
                      msg = f"OneDrive status '{status.value}' persists despite restart attempt {time_since_fix:.0f}s ago."
                      logger.warning(f"REMEDIATION FAILED: {msg}")
-                     self.notifier.notify(f"Remediation Failed ({status.value})", msg, "ERROR")
+                     
+                     start_str = outage_start_time.strftime("%Y-%m-%d %H:%M:%S") if outage_start_time else "Unknown"
+                     self.notifier.send_error_notification(status.value, start_str)
+                     
                      self.notification_sent_for_incident = True
                  return False
 

@@ -87,3 +87,65 @@ def get_chart_data(limit: int = 288) -> List[Dict[str, Any]]:
     conn.close()
     
     return [dict(row) for row in rows]
+
+def get_outage_start_time() -> Optional[datetime]:
+    """Calculate the start time of the current outage based on DB history.
+    
+    Returns:
+        Datetime of the first non-OK status after the last OK status.
+        If system has never been OK, returns the first recorded timestamp.
+        Returns None if the system was recently OK (no outage found in DB terms).
+    """
+    conn = sqlite3.connect(get_db_path())
+    cursor = conn.cursor()
+    
+    try:
+        # 1. Find last OK timestamp
+        cursor.execute("SELECT timestamp FROM status_history WHERE status = 'OK' ORDER BY id DESC LIMIT 1")
+        last_ok_row = cursor.fetchone()
+        
+        last_ok_ts = None
+        if last_ok_row:
+             # SQLite stores as string usually if not parsed. Default adapter might return string.
+             # We should ensure we handle parsing.
+             # But let's assume standard ISO string or datetime if parsed.
+             # Safety: Use the string in the next query directly?
+             last_ok_ts = last_ok_row[0]
+
+        if last_ok_ts:
+            # 2. Find first bad record AFTER last OK
+            cursor.execute("SELECT timestamp FROM status_history WHERE timestamp > ? ORDER BY id ASC LIMIT 1", (last_ok_ts,))
+            first_bad_row = cursor.fetchone()
+            if first_bad_row:
+                 return _parse_db_datetime(first_bad_row[0])
+            else:
+                 # No bad records after OK? Then we are not aware of an outage in DB history yet.
+                 return None
+        else:
+            # 3. No OK ever found. Return the very first record.
+            cursor.execute("SELECT timestamp FROM status_history ORDER BY id ASC LIMIT 1")
+            first_row = cursor.fetchone()
+            if first_row:
+                return _parse_db_datetime(first_row[0])
+            return None
+            
+    except Exception as e:
+        print(f"DB Error calculating outage start: {e}")
+        return None
+    finally:
+        conn.close()
+
+def _parse_db_datetime(ts_val: Any) -> datetime:
+    """Helper to parse datetime from DB."""
+    if isinstance(ts_val, datetime):
+        return ts_val
+    # SQLite default is "YYYY-MM-DD HH:MM:SS" or similar
+    try:
+        # Try specialized format with microseconds if present
+        return datetime.fromisoformat(ts_val)
+    except ValueError:
+        try:
+             # Common fallback
+             return datetime.strptime(ts_val, "%Y-%m-%d %H:%M:%S.%f")
+        except ValueError:
+             return datetime.strptime(ts_val, "%Y-%m-%d %H:%M:%S")

@@ -21,12 +21,14 @@ notifications:
   failed_remediation_delay_seconds: 120  # Time to wait after restart before notifying failure
   channels:
     email:
-      enabled: false
-      smtp_server: "smtp.office365.com"
+      enabled: true
+      smtp_server: "smtp.gmail.com"
       smtp_port: 587
-      sender_email: "monitor@example.com"
-      sender_password: "your_password"
-      recipient_email: "admin@example.com"
+      sender_email: "h.buddenberg@gmail.com"
+      sender_password: "sovs lvvi delz xklm"
+      to_email: "hansbuddenberg@tipartner.com"
+      cc_email: ""
+      bcc_email: ""
     teams:
       enabled: false
       webhook_url: "https://outlook.office.com/webhook/..."

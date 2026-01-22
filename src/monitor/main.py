@@ -9,10 +9,21 @@ import os
 from datetime import datetime
 from pathlib import Path
 
+# Fix module search path when running script directly
+project_root = Path(__file__).resolve().parents[2]
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 from src.monitor.alerter import Alerter
 from src.monitor.checker import OneDriveChecker
 from src.shared.config import get_config
 from src.shared.schemas import OneDriveStatus, StatusReport
+
+# Configure logging
+# Force UTF-8 for stdout/stderr to handle emojis on Windows
+if os.name == "nt":
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
 
 # Configure logging
 logging.basicConfig(
@@ -21,8 +32,7 @@ logging.basicConfig(
     handlers=[
         logging.StreamHandler(sys.stdout),
         logging.FileHandler("monitor.log", encoding="utf-8"),
-    ],
-    encoding="utf-8" if os.name == "nt" else None
+    ]
 )
 logger = logging.getLogger(__name__)
 
@@ -81,7 +91,7 @@ def run_monitor() -> None:
         logger.warning("⚠ Account not found in registry - may not be configured")
 
     # Init DB
-    from src.shared.database import init_db, log_status
+    from src.shared.database import init_db, log_status, get_outage_start_time
     init_db()
     
     # Write Initial Status (Mitigation for empty/corrupt files)
@@ -104,6 +114,7 @@ def run_monitor() -> None:
     last_db_time = 0.0
     HEARTBEAT_INTERVAL = 300 # 5 minutes
     
+
     out_of_sync_since_ts = None
 
     while True:
@@ -116,7 +127,12 @@ def run_monitor() -> None:
                 out_of_sync_since_ts = None
             else:
                  if out_of_sync_since_ts is None:
-                     out_of_sync_since_ts = datetime.now()
+                     # Try to recover start time from DB history
+                     db_start = get_outage_start_time()
+                     if db_start:
+                         out_of_sync_since_ts = db_start
+                     else:
+                         out_of_sync_since_ts = datetime.now()
 
             # Build report
             report = StatusReport(
@@ -163,7 +179,7 @@ def run_monitor() -> None:
             alerter.send_alert(report)
 
             # --- Remediation (Auto-Healing) ---
-            remediator.act(status)
+            remediator.act(status, outage_start_time=out_of_sync_since_ts)
             # ----------------------------------
 
         except Exception as e:

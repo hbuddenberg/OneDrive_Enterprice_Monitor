@@ -64,7 +64,9 @@ class EmailConfig(BaseModel):
     smtp_port: int = 587
     sender_email: str = ""
     sender_password: str = ""
-    recipient_email: str = ""
+    to_email: str = ""
+    cc_email: Optional[str] = None
+    bcc_email: Optional[str] = None
 
 class TeamsConfig(BaseModel):
     enabled: bool = False
