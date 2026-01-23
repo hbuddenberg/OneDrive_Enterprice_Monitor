@@ -3,9 +3,9 @@
 Runs both the Monitor and Dashboard concurrently using asyncio.
 
 Usage:
-    uv run onedrive_monitor           # Run both monitor and dashboard
-    uv run onedrive_monitor monitor   # Run only the monitor
-    uv run onedrive_monitor dashboard # Run only the dashboard (with reload)
+    uv run onedrive_business           # Run both monitor and dashboard
+    uv run onedrive_business monitor   # Run only the monitor
+    uv run onedrive_business dashboard # Run only the dashboard (with reload)
 """
 
 import argparse

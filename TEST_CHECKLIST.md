@@ -19,15 +19,15 @@
 
 **Terminal 1 - Dashboard:**
 ```powershell
-cd D:\Desarrollos\OneDrive_Enterprice_Monitor
-uv run python -m src.dashboard.main
+cd D:\Desarrollos\OneDrive_Business_Monitor
+uv run onedrive_business dashboard
 ```
 - [ ] Dashboard accesible en http://localhost:8000
 
 **Terminal 2 - Monitor:**
 ```powershell
-cd D:\Desarrollos\OneDrive_Enterprice_Monitor
-uv run python -m src.monitor.main
+cd D:\Desarrollos\OneDrive_Business_Monitor
+uv run onedrive_business monitor
 ```
 - [ ] Monitor iniciado sin errores
 

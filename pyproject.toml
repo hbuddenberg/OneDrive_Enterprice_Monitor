@@ -1,9 +1,9 @@
 [project]
-name = "onedrive-monitor"
-version = "0.1.0"
-description = "Add your description here"
+name = "onedrive-business-monitor"
+version = "1.2.0"
+description = "Enterprise OneDrive for Business monitoring system with notifications and dashboard"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.128.0",
     "httpx>=0.28.1",
@@ -12,10 +12,21 @@ dependencies = [
     "pywinauto>=0.6.9",
     "pyyaml>=6.0.3",
     "uvicorn>=0.40.0",
+    "pywin32>=308",
 ]
 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
 [project.scripts]
-onedrive_monitor = "src.main:cli"
+onedrive_business = "src.main:cli"
+
+[tool.uv]
+package = true
 
 [tool.setuptools.packages.find]
 where = ["."]

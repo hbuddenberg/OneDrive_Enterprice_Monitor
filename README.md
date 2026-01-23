@@ -47,8 +47,8 @@ Sistema de monitoreo empresarial para OneDrive for Business que detecta estados 
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/hbuddenberg/OneDrive_Enterprice_Monitor.git
-cd OneDrive_Enterprice_Monitor
+git clone https://github.com/hbuddenberg/OneDrive_Business_Monitor.git
+cd OneDrive_Business_Monitor
 
 # Instalar dependencias con UV
 uv sync
@@ -153,7 +153,7 @@ Las plantillas HTML están en `src/shared/templates/`:
 ## 📁 Estructura del Proyecto
 
 ```
-OneDrive_Enterprice_Monitor/
+OneDrive_Business_Monitor/
 ├── src/
 │   ├── monitor/
 │   │   ├── main.py        # Entry point del monitor
