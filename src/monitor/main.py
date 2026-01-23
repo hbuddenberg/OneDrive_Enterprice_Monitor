@@ -76,34 +76,34 @@ def run_monitor() -> None:
     interval = config.monitor.check_interval_seconds
 
     logger.info("=" * 60)
-    logger.info("OneDrive Business Monitor Starting")
-    logger.info(f"Target Account: {config.target.email}")
-    logger.info(f"Target Folder: {config.target.folder}")
-    logger.info(f"Check Interval: {interval}s")
-    logger.info(f"Status File: {status_path.absolute()}")
-    logger.info(f"Alerting Enabled: {config.alerting.enabled}")
+    logger.info("Monitor OneDrive Empresarial Iniciando")
+    logger.info(f"Cuenta Objetivo: {config.target.email}")
+    logger.info(f"Carpeta Objetivo: {config.target.folder}")
+    logger.info(f"Intervalo de Verificación: {interval}s")
+    logger.info(f"Archivo de Estado: {status_path.absolute()}")
+    logger.info(f"Alertas Habilitadas: {config.alerting.enabled}")
     logger.info("=" * 60)
 
-    # Verify account exists in registry
+    # Verificar que la cuenta existe en el registro
     if checker.verify_registry_account():
-        logger.info("✓ Account verified in Windows Registry")
+        logger.info("✓ Cuenta verificada en el Registro de Windows")
     else:
-        logger.warning("⚠ Account not found in registry - may not be configured")
+        logger.warning("⚠ Cuenta no encontrada en el registro - puede no estar configurada")
 
-    # Init DB
+    # Inicializar BD
     from src.shared.database import init_db, log_status, get_outage_start_time
     init_db()
     
-    # Write Initial Status (Mitigation for empty/corrupt files)
-    logger.info("Initializing status file...")
+    # Escribir Estado Inicial (Mitigación para archivos vacíos/corruptos)
+    logger.info("Inicializando archivo de estado...")
     initial_report = StatusReport(
         timestamp=datetime.now(),
         account_email=config.target.email,
         account_folder=config.target.folder,
         status=OneDriveStatus.NOT_RUNNING,
-        status_detail="Initializing...",
+        status_detail="Inicializando...",
         process_running=False,
-        message="Monitor starting..."
+        message="Monitor iniciando..."
     )
     write_status_atomic(initial_report, status_path)
     
@@ -190,21 +190,21 @@ def run_monitor() -> None:
 
 
 def _get_status_message(status: OneDriveStatus) -> str:
-    """Get human-readable message for status."""
+    """Obtiene mensaje legible para el estado."""
     messages = {
-        OneDriveStatus.OK: "OneDrive is up to date",
-        OneDriveStatus.SYNCING: "OneDrive is syncing files",
-        OneDriveStatus.PAUSED: "OneDrive sync is paused",
-        OneDriveStatus.AUTH_REQUIRED: "⚠️ OneDrive requires re-authentication! Please sign in.",
-        OneDriveStatus.ERROR: "❌ OneDrive has encountered an error",
-        OneDriveStatus.NOT_RUNNING: "OneDrive.exe is not running",
-        OneDriveStatus.NOT_FOUND: "OneDrive Business icon not found in system tray",
+        OneDriveStatus.OK: "OneDrive está actualizado",
+        OneDriveStatus.SYNCING: "OneDrive está sincronizando archivos",
+        OneDriveStatus.PAUSED: "La sincronización de OneDrive está pausada",
+        OneDriveStatus.AUTH_REQUIRED: "⚠️ ¡OneDrive requiere re-autenticación! Por favor inicie sesión.",
+        OneDriveStatus.ERROR: "❌ OneDrive ha encontrado un error",
+        OneDriveStatus.NOT_RUNNING: "OneDrive.exe no está ejecutándose",
+        OneDriveStatus.NOT_FOUND: "Icono de OneDrive Empresarial no encontrado en la bandeja del sistema",
     }
-    return messages.get(status, "Unknown status")
+    return messages.get(status, "Estado desconocido")
 
 
 def _get_status_emoji(status: OneDriveStatus) -> str:
-    """Get emoji for status logging."""
+    """Obtiene emoji para el logging de estado."""
     emojis = {
         OneDriveStatus.OK: "✅",
         OneDriveStatus.SYNCING: "🔄",

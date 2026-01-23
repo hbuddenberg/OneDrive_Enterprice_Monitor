@@ -193,7 +193,7 @@ class OneDriveChecker:
         # Ensure canary exists
         if not self.canary_path.exists():
             self._write_canary()
-            return OneDriveStatus.OK, "Initializing (Canary Created)"
+            return OneDriveStatus.OK, "Inicializando (Canary Creado)"
 
         # Check Attributes
         is_cloud = self._check_canary_attributes_changed()
@@ -202,7 +202,7 @@ class OneDriveChecker:
              mtime = self.canary_path.stat().st_mtime
         except FileNotFoundError:
              self._write_canary()
-             return OneDriveStatus.OK, "Initializing (Canary Missing)"
+             return OneDriveStatus.OK, "Inicializando (Canary Faltante)"
 
         age = current_time - mtime
         
@@ -216,11 +216,11 @@ class OneDriveChecker:
             # But is it STALE?
             if age > PROBE_INTERVAL:
                 # Force a new check by modifying the file
-                logger.info(f"Active Check: Probing... (Canary age {age:.0f}s > {PROBE_INTERVAL}s)")
+                logger.info(f"Verificación Activa: Sondeando... (Edad del canary {age:.0f}s > {PROBE_INTERVAL}s)")
                 self._write_canary() # This removes ReparsePoint, makes it local
-                return OneDriveStatus.OK, "Active (Probing...)"
+                return OneDriveStatus.OK, "Activo (Sondeando...)"
             
-            return OneDriveStatus.OK, f"Active (Synced {age:.0f}s ago)"
+            return OneDriveStatus.OK, f"Activo (Sincronizado hace {age:.0f}s)"
         
         else:
             # It is Local (Not Synced yet)
@@ -234,29 +234,29 @@ class OneDriveChecker:
                 # 1. Check for explicit PAUSE or ERROR
                 paused_keywords = ["pausado", "paused", "detenido", "stopped", "error", "fallo", "failed", "atencion", "attention"]
                 if any(k in ps_lower for k in paused_keywords):
-                    logger.warning(f"Active Check: Early Detection! PowerShell says '{ps_status}'. Declaring PAUSED/ERROR.")
-                    return OneDriveStatus.PAUSED, f"Paused/Error ({ps_status})"
+                    logger.warning(f"Verificación Activa: ¡Detección Temprana! PowerShell dice '{ps_status}'. Declarando PAUSADO/ERROR.")
+                    return OneDriveStatus.PAUSED, f"Pausado/Error ({ps_status})"
 
                 # 2. Check for explicit SYNC (Confirmation to keep waiting)
                 sync_keywords = ["sincronizando", "syncing", "procesando", "processing", "comprobando", "checking", "cargando", "uploading", "descargando", "downloading", "pendiente", "pending"]
                 if any(k in ps_lower for k in sync_keywords):
-                     status_detail = f"Active (Syncing... {age:.0f}s)"
+                     status_detail = f"Activo (Sincronizando... {age:.0f}s)"
                      
                      # Check if we have been syncing for too long
                      if age > SYNC_TIMEOUT:
                          if self.check_auth_window():
-                             return OneDriveStatus.AUTH_REQUIRED, "Authentication Required (Window Detected)"
+                             return OneDriveStatus.AUTH_REQUIRED, "Autenticación Requerida (Ventana Detectada)"
                          
-                         # Heuristic: If stuck in "Pending" for > SYNC_TIMEOUT, it's likely Auth Required
-                         # especially if "pendiente" is the status.
+                         # "Pending" status just means OneDrive is busy - NOT auth required
+                         # Only report PAUSED if truly stalled, otherwise keep as SYNCING
                          if "pendiente" in ps_lower or "pending" in ps_lower:
-                             logger.warning(f"Active Check: Stuck in 'Pending' for {age:.0f}s. Assuming Auth Required.")
-                             return OneDriveStatus.AUTH_REQUIRED, f"Auth Required (Stuck in Pending > {SYNC_TIMEOUT}s)"
+                             logger.info(f"Verificación Activa: Archivo en 'Pendiente' por {age:.0f}s. OneDrive ocupado.")
+                             return OneDriveStatus.SYNCING, f"Sincronizando (Pendiente {age:.0f}s)"
                          
-                         return OneDriveStatus.PAUSED, f"Stalled (Syncing > {SYNC_TIMEOUT}s)"
+                         return OneDriveStatus.PAUSED, f"Estancado (Sincronizando > {SYNC_TIMEOUT}s)"
                      
                      if self.check_auth_window():
-                         return OneDriveStatus.AUTH_REQUIRED, "Authentication Required (Window Detected)"
+                         return OneDriveStatus.AUTH_REQUIRED, "Autenticación Requerida (Ventana Detectada)"
                      
                      return OneDriveStatus.OK, status_detail
 
@@ -265,22 +265,22 @@ class OneDriveChecker:
                 if any(k in ps_lower for k in available_keywords):
                      # It is Synced (Local). Check if we need to re-probe.
                      if age > PROBE_INTERVAL:
-                         logger.info(f"Active Check: Probing 'Available' file... (Canary age {age:.0f}s > {PROBE_INTERVAL}s)")
+                         logger.info(f"Verificación Activa: Sondeando archivo 'Disponible'... (Edad del canary {age:.0f}s > {PROBE_INTERVAL}s)")
                          self._write_canary()
-                         return OneDriveStatus.OK, "Active (Probing...)"
-                     return OneDriveStatus.OK, f"Active (Local & Synced {age:.0f}s)"
+                         return OneDriveStatus.OK, "Activo (Sondeando...)"
+                     return OneDriveStatus.OK, f"Activo (Local y Sincronizado {age:.0f}s)"
 
             # If no explicit Pause or Sync/Available detected, use the Timeout mechanism as safety net
             if age > SYNC_TIMEOUT:
                 # If stalled, check for Auth Window before declaring PAUSED
                 if self.check_auth_window():
-                     return OneDriveStatus.AUTH_REQUIRED, "Authentication Required (Window Detected)"
+                     return OneDriveStatus.AUTH_REQUIRED, "Autenticación Requerida (Ventana Detectada)"
             
-                logger.warning(f"Active Check: Canary stalled for {age:.0f}s. PowerShell: '{ps_status}'. OneDrive likely PAUSED.")
-                return OneDriveStatus.PAUSED, f"Paused (Sync Pending > {SYNC_TIMEOUT}s)"
+                logger.warning(f"Verificación Activa: Canary estancado por {age:.0f}s. PowerShell: '{ps_status}'. OneDrive probablemente PAUSADO.")
+                return OneDriveStatus.PAUSED, f"Pausado (Sincronización Pendiente > {SYNC_TIMEOUT}s)"
             
             # Still within grace period
-            return OneDriveStatus.OK, f"Active (Syncing... {age:.0f}s)"
+            return OneDriveStatus.OK, f"Activo (Sincronizando... {age:.0f}s)"
 
     def check_auth_window(self) -> bool:
         """Check if a OneDrive authentication window is present."""
@@ -313,7 +313,7 @@ class OneDriveChecker:
         # 0. Check if account is still configured (Registry Check)
         # This detects if the user has logged out (Registry key removed)
         if not self.verify_registry_account():
-            return OneDriveStatus.NOT_FOUND, False, "Account Config Missing (Logged Out)"
+            return OneDriveStatus.NOT_FOUND, False, "Configuración de Cuenta Faltante (Sesión Cerrada)"
 
         process_running = self.check_process()
 

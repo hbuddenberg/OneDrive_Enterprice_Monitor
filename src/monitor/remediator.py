@@ -172,7 +172,7 @@ class RemediationAction:
         # Check limits
         if self.restart_attempts >= self.MAX_RESTARTS_PER_HOUR:
             logger.warning(f"REMEDIATION: Max restarts ({self.MAX_RESTARTS_PER_HOUR}/hr) reached. Skipping fix.")
-            self.notifier.notify("Remediation Skipped", "Max restarts per hour reached. Manual intervention required.", "ERROR")
+            self.notifier.notify("Remediación Omitida", "Se alcanzó el máximo de reinicios por hora. Se requiere intervención manual.", "ERROR")
             return False
 
         logger.warning(f"REMEDIATION: Force Restart triggered due to {reason_status.value}...")
@@ -201,7 +201,7 @@ class RemediationAction:
         
         if not target_exe:
             logger.error("REMEDIATION: Could not find OneDrive.exe in standard locations.")
-            self.notifier.notify("Remediation Error", "Could not find OneDrive binary to restart.", "ERROR")
+            self.notifier.notify("Error de Remediación", "No se encontró el binario de OneDrive para reiniciar.", "ERROR")
             return False
 
         try:
@@ -215,5 +215,5 @@ class RemediationAction:
             return True
         except Exception as e:
             logger.error(f"REMEDIATION: Failed to start process: {e}")
-            self.notifier.notify("Remediation Error", f"Failed to start OneDrive: {e}", "ERROR")
+            self.notifier.notify("Error de Remediación", f"Error al iniciar OneDrive: {e}", "ERROR")
             return False

@@ -1,96 +1,193 @@
+"""Notification module for OneDrive Monitor.
+
+Sends notifications via email, Teams, and Slack when status changes occur.
+"""
+
 import logging
 import smtplib
-import json
 import httpx
+from datetime import datetime, timedelta
+from typing import Optional
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
 from src.shared.config import get_config
+from src.shared.templates import render_status_notification, render_resolution_notification
 
 logger = logging.getLogger(__name__)
 
+
 class Notifier:
+    """Handles sending notifications through multiple channels."""
+    
     def __init__(self):
         self.config = get_config().notifications
+        self._account = get_config().target.email
+        self._last_notification_time: Optional[datetime] = None
+
+    def _in_cooldown(self) -> bool:
+        """Check if we're still in notification cooldown period."""
+        if self._last_notification_time is None:
+            return False
+        
+        cooldown_minutes = self.config.cooldown_minutes
+        cooldown_ends = self._last_notification_time + timedelta(minutes=cooldown_minutes)
+        
+        if datetime.now() < cooldown_ends:
+            remaining = (cooldown_ends - datetime.now()).seconds // 60
+            logger.debug(f"NOTIFIER: In cooldown, {remaining} minutes remaining")
+            return True
+        return False
+
+    def _update_cooldown(self):
+        """Update the last notification time."""
+        self._last_notification_time = datetime.now()
+
+    def send_status_notification(self, status: str, timestamp: str = None, message: str = "") -> None:
+        """Send a notification for a status change.
+        
+        Args:
+            status: The OneDrive status (AUTH_REQUIRED, ERROR, NOT_RUNNING, etc.)
+            timestamp: When the status occurred
+            message: Additional context message
+        """
+        # Determine notification level based on status
+        critical_statuses = {"AUTH_REQUIRED", "ERROR", "NOT_RUNNING"}
+        warning_statuses = {"PAUSED", "NOT_FOUND"}
+        
+        if status.upper() in critical_statuses:
+            level = "ERROR"
+            emoji = "🚨"
+        elif status.upper() in warning_statuses:
+            level = "WARNING"
+            emoji = "⚠️"
+        else:
+            level = "INFO"
+            emoji = "ℹ️"
+        
+        subject = f"{emoji} Monitor OneDrive - {status}"
+        
+        # Render HTML template
+        email_html = render_status_notification(
+            status=status,
+            account=self._account,
+            timestamp=timestamp or datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            message=message
+        )
+        
+        # Plain text for webhooks
+        plain_message = f"{emoji} Estado OneDrive: {status}. Cuenta: {self._account}. {message}"
+        
+        self.notify(subject, plain_message, level=level, email_html=email_html)
 
     def send_error_notification(self, status: str, outage_start_time: str = None) -> None:
-        """Send a notification about a critical error."""
-        subject = f"🚨 ERROR: OneDrive Monitor - {status}"
+        """Envía una notificación sobre un error crítico.
         
-        start_time_str = f"Since: {outage_start_time}" if outage_start_time else "Time: Unknown"
-        
-        # Email Template
-        email_body = f"""
-        <html>
-            <body>
-                <h2 style="color: #d9534f;">OneDrive Critical Alert</h2>
-                <p><strong>Status:</strong> {status}</p>
-                <p><strong>{start_time_str}</strong></p>
-                <p>Monitor has attempted auto-remediation but the issue persists.</p>
-                <hr>
-                <p><em>OneDrive Enterprise Monitor</em></p>
-            </body>
-        </html>
+        Args:
+            status: El estado de error
+            outage_start_time: Cuándo comenzó el problema
         """
-        
-        # Plain text for others
-        message = f"🚨 ERROR: OneDrive is {status}. {start_time_str}. Remediation failed."
-        
-        # We manually call notify to pass the HTML
-        self.notify(subject, message, level="ERROR", email_html=email_body)
+        self.send_status_notification(
+            status=status,
+            timestamp=outage_start_time,
+            message="Se intentó auto-remediación pero el problema persiste."
+        )
 
     def send_resolution_notification(self, outage_start_time: str = None, outage_end_time: str = None) -> None:
-        """Send a notification that the issue has been resolved."""
-        subject = "✅ RESOLVED: OneDrive Monitor - System OK"
+        """Envía una notificación de que el problema ha sido resuelto.
         
-        start_msg = f"Outage Start: {outage_start_time}" if outage_start_time else ""
-        end_msg = f"Recovered At: {outage_end_time}" if outage_end_time else ""
-        
-        email_body = f"""
-        <html>
-            <body>
-                <h2 style="color: #5cb85c;">System Recovered</h2>
-                <p>OneDrive status is back to <strong>OK</strong>.</p>
-                <p>{start_msg}</p>
-                <p>{end_msg}</p>
-                <hr>
-                <p><em>OneDrive Enterprise Monitor</em></p>
-            </body>
-        </html>
+        Args:
+            outage_start_time: Cuándo comenzó la interrupción
+            outage_end_time: Cuándo se restauró el servicio
         """
+        subject = "✅ RESUELTO: Monitor OneDrive - Sistema OK"
         
-        message = f"✅ RESOLVED: OneDrive is back online. {start_msg} - {end_msg}"
+        start_time = outage_start_time or "Desconocido"
+        end_time = outage_end_time or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        self.notify(subject, message, level="INFO", email_html=email_body)
+        # Calculate duration
+        duration = self._calculate_duration(outage_start_time, outage_end_time)
+        
+        # Render HTML template
+        email_html = render_resolution_notification(
+            account=self._account,
+            outage_start=start_time,
+            outage_end=end_time,
+            duration=duration
+        )
+        
+        # Plain text for webhooks
+        plain_message = f"✅ OneDrive está de vuelta en línea. Interrupción: {start_time} - {end_time} ({duration})"
+        
+        self.notify(subject, plain_message, level="INFO", email_html=email_html)
+
+    def _calculate_duration(self, start: str, end: str) -> str:
+        """Calculate human-readable duration between two timestamps."""
+        if not start or not end:
+            return "N/A"
+        
+        try:
+            start_dt = datetime.fromisoformat(start)
+            end_dt = datetime.fromisoformat(end)
+            delta = end_dt - start_dt
+            
+            hours, remainder = divmod(int(delta.total_seconds()), 3600)
+            minutes, seconds = divmod(remainder, 60)
+            
+            if delta.days > 0:
+                return f"{delta.days}d {hours}h {minutes}m"
+            elif hours > 0:
+                return f"{hours}h {minutes}m"
+            else:
+                return f"{minutes}m {seconds}s"
+        except Exception:
+            return "N/A"
 
     def notify(self, subject: str, message: str, level: str = "WARNING", email_html: str = None):
-        """Send notification via all enabled channels."""
+        """Send notification via all enabled channels.
+        
+        Args:
+            subject: Notification subject
+            message: Plain text message (for webhooks)
+            level: Severity level (ERROR, WARNING, INFO)
+            email_html: Optional HTML content for email
+        """
         if not self.config.enabled:
+            logger.debug("NOTIFIER: Notifications disabled in config")
             return
 
         if self._in_cooldown():
-            logger.info("Notification suppressed due to cooldown.")
+            logger.info("NOTIFIER: Notification suppressed due to cooldown.")
             return
 
         logger.info(f"NOTIFIER: Processing notification: {subject}")
+        success = False
 
         if self.config.channels.email.enabled:
-            self._send_email(subject, email_html if email_html else message, is_html=bool(email_html))
+            if self._send_email(subject, email_html if email_html else message, is_html=bool(email_html)):
+                success = True
             
         if self.config.channels.teams.enabled:
-            self._send_teams(subject, message, level)
+            if self._send_teams(subject, message, level):
+                success = True
             
         if self.config.channels.slack.enabled:
-            self._send_slack(subject, message, level)
+            if self._send_slack(subject, message, level):
+                success = True
 
-    def _send_email(self, subject: str, body: str, is_html: bool = False):
+        # Update cooldown only if at least one notification was sent
+        if success:
+            self._update_cooldown()
+
+    def _send_email(self, subject: str, body: str, is_html: bool = False) -> bool:
+        """Envía notificación por email."""
         cfg = self.config.channels.email
         try:
             msg = MIMEMultipart()
             msg['From'] = cfg.sender_email
             msg['To'] = cfg.to_email
-            msg['Subject'] = f"[OneDrive Monitor] {subject}"
+            msg['Subject'] = f"[Monitor OneDrive] {subject}"
             
-            # Helper to parse list from comma-separated string or list
             def parse_recipients(val):
                 if not val:
                     return []
@@ -98,28 +195,24 @@ class Notifier:
                     return val
                 return [e.strip() for e in val.split(',') if e.strip()]
 
-            # Handle CC
             cc_addrs = parse_recipients(cfg.cc_email)
             if cc_addrs:
                 msg['Cc'] = ", ".join(cc_addrs)
             
-            # Handle BCC
             bcc_addrs = parse_recipients(cfg.bcc_email)
 
             if is_html:
-                msg.attach(MIMEText(body, 'html'))
+                msg.attach(MIMEText(body, 'html', 'utf-8'))
             else:
-                msg.attach(MIMEText(body, 'plain'))
+                msg.attach(MIMEText(body, 'plain', 'utf-8'))
             
-            # Combine all recipients for envelope
             to_addrs = parse_recipients(cfg.to_email)
             all_recipients = to_addrs + cc_addrs + bcc_addrs
 
             server = smtplib.SMTP(cfg.smtp_server, cfg.smtp_port)
             server.starttls()
             server.login(cfg.sender_email, cfg.sender_password)
-            text = msg.as_string()
-            server.sendmail(cfg.sender_email, all_recipients, text)
+            server.sendmail(cfg.sender_email, all_recipients, msg.as_string())
             server.quit()
             
             log_msg = f"Email sent to {cfg.to_email}"
@@ -128,18 +221,21 @@ class Notifier:
             if bcc_addrs:
                 log_msg += f" (BCC: {len(bcc_addrs)})"
             logger.info(f"NOTIFIER: {log_msg}")
+            return True
 
         except Exception as e:
             logger.error(f"NOTIFIER: Failed to send email: {e}")
+            return False
 
-    def _send_teams(self, subject: str, message: str, level: str):
+    def _send_teams(self, subject: str, message: str, level: str) -> bool:
+        """Send Teams webhook notification."""
         cfg = self.config.channels.teams
         try:
-            color = "FF0000" if level == "ERROR" else "FFA500"
+            colors = {"ERROR": "FF0000", "WARNING": "FFA500", "INFO": "00FF00"}
             payload = {
                 "@type": "MessageCard",
                 "@context": "http://schema.org/extensions",
-                "themeColor": color,
+                "themeColor": colors.get(level, "808080"),
                 "summary": subject,
                 "sections": [{
                     "activityTitle": subject,
@@ -149,22 +245,29 @@ class Notifier:
             response = httpx.post(cfg.webhook_url, json=payload, timeout=10)
             if response.status_code == 200:
                 logger.info("NOTIFIER: Teams notification sent.")
+                return True
             else:
                 logger.error(f"NOTIFIER: Teams failed with {response.status_code}: {response.text}")
+                return False
         except Exception as e:
             logger.error(f"NOTIFIER: Failed to send Teams webhook: {e}")
+            return False
 
-    def _send_slack(self, subject: str, message: str, level: str):
+    def _send_slack(self, subject: str, message: str, level: str) -> bool:
+        """Send Slack webhook notification."""
         cfg = self.config.channels.slack
         try:
-            icon = ":rotating_light:" if level == "ERROR" else ":warning:"
+            icons = {"ERROR": ":rotating_light:", "WARNING": ":warning:", "INFO": ":white_check_mark:"}
             payload = {
-                "text": f"{icon} *{subject}*\n{message}"
+                "text": f"{icons.get(level, ':bell:')} *{subject}*\n{message}"
             }
             response = httpx.post(cfg.webhook_url, json=payload, timeout=10)
             if response.status_code == 200:
                 logger.info("NOTIFIER: Slack notification sent.")
+                return True
             else:
                 logger.error(f"NOTIFIER: Slack failed with {response.status_code}: {response.text}")
+                return False
         except Exception as e:
             logger.error(f"NOTIFIER: Failed to send Slack webhook: {e}")
+            return False

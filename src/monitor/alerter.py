@@ -100,19 +100,19 @@ class Alerter:
                 )
                 return False
 
-            subject = f"[OneDrive Alert] {report.status} - {report.account_email}"
-            body = f"""OneDrive Business Monitor Alert
+            subject = f"[Alerta OneDrive] {report.status} - {report.account_email}"
+            body = f"""Alerta del Monitor OneDrive Empresarial
 
-Status: {report.status}
-Account: {report.account_email}
-Folder: {report.account_folder}
-Time: {report.timestamp}
+Estado: {report.status}
+Cuenta: {report.account_email}
+Carpeta: {report.account_folder}
+Hora: {report.timestamp}
 
 Tooltip: {report.tooltip_text or 'N/A'}
-Message: {report.message or 'N/A'}
+Mensaje: {report.message or 'N/A'}
 
 ---
-This is an automated alert from OneDrive Business Monitor.
+Esta es una alerta automática del Monitor OneDrive Empresarial.
 """
 
             msg = MIMEText(body)
@@ -144,16 +144,16 @@ This is an automated alert from OneDrive Business Monitor.
                 return False
 
             payload = {
-                "text": f"🚨 OneDrive Alert: {report.status}",
+                "text": f"🚨 Alerta OneDrive: {report.status}",
                 "blocks": [
                     {
                         "type": "section",
                         "text": {
                             "type": "mrkdwn",
-                            "text": f"*OneDrive Business Monitor Alert*\n\n"
-                            f"*Status:* `{report.status}`\n"
-                            f"*Account:* {report.account_email}\n"
-                            f"*Time:* {report.timestamp}\n"
+                            "text": f"*Alerta del Monitor OneDrive Empresarial*\n\n"
+                            f"*Estado:* `{report.status}`\n"
+                            f"*Cuenta:* {report.account_email}\n"
+                            f"*Hora:* {report.timestamp}\n"
                             f"*Tooltip:* {report.tooltip_text or 'N/A'}",
                         },
                     }

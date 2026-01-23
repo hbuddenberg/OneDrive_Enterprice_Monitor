@@ -1,4 +1,4 @@
-"""OneDrive Business Monitor Dashboard - FastAPI Application."""
+"""OneDrive Business Monitor Dashboard - Aplicación FastAPI."""
 
 import json
 import logging
@@ -16,21 +16,21 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(
-    title="OneDrive Business Monitor Dashboard",
-    description="Monitor OneDrive for Business sync status",
+    title="Monitor OneDrive Empresarial - Dashboard",
+    description="Monitor del estado de sincronización de OneDrive para Empresas",
     version="1.0.0",
 )
 
 
 def get_status() -> dict[str, Any]:
-    """Read current status from status.json."""
+    """Lee el estado actual desde status.json."""
     config = get_config()
     status_path = Path(config.monitor.status_file)
 
     if not status_path.exists():
         return {
             "status": "UNKNOWN",
-            "message": "Status file not found. Is the monitor running?",
+            "message": "Archivo de estado no encontrado. ¿Está ejecutándose el monitor?",
             "timestamp": datetime.now().isoformat(),
             "account_email": config.target.email,
             "account_folder": config.target.folder,
@@ -42,10 +42,10 @@ def get_status() -> dict[str, Any]:
         with open(status_path, encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
-        logger.error(f"Error reading status file: {e}")
+        logger.error(f"Error al leer archivo de estado: {e}")
         return {
             "status": "ERROR",
-            "message": f"Error reading status file: {e}",
+            "message": f"Error al leer archivo de estado: {e}",
             "timestamp": datetime.now().isoformat(),
             "account_email": config.target.email,
             "account_folder": config.target.folder,
@@ -56,12 +56,12 @@ def get_status() -> dict[str, Any]:
 
 @app.get("/api/status")
 async def api_status() -> dict[str, Any]:
-    """Get current OneDrive status as JSON."""
+    """Obtiene el estado actual de OneDrive como JSON."""
     return get_status()
 
 @app.get("/api/history")
 async def api_history():
-    """Get recent status history."""
+    """Obtiene el historial reciente de estados."""
     try:
         return get_recent_history(limit=50)
     except Exception as e:
@@ -69,7 +69,7 @@ async def api_history():
 
 @app.get("/api/chart-data")
 async def api_chart():
-    """Get data for the status chart."""
+    """Obtiene los datos para el gráfico de estados."""
     try:
         return get_chart_data()
     except Exception as e:
@@ -78,28 +78,28 @@ async def api_chart():
 
 @app.get("/", response_class=HTMLResponse)
 async def dashboard(request: Request) -> HTMLResponse:
-    """Render the dashboard HTML page."""
+    """Renderiza la página HTML del dashboard."""
     status = get_status()
     config = get_config()
 
-    # Status-specific styling
+    # Estilos específicos por estado
     status_styles = {
-        "OK": ("bg-green-500", "✅", "All files synchronized"),
-        "SYNCING": ("bg-blue-500", "🔄", "Syncing files..."),
-        "PAUSED": ("bg-yellow-500", "⏸️", "Sync paused"),
-        "AUTH_REQUIRED": ("bg-red-600", "🔐", "Authentication required!"),
-        "ERROR": ("bg-red-500", "❌", "Sync error"),
-        "NOT_RUNNING": ("bg-gray-500", "💀", "OneDrive not running"),
-        "NOT_FOUND": ("bg-orange-500", "🔍", "Account not found"),
-        "UNKNOWN": ("bg-gray-400", "❓", "Status unknown"),
+        "OK": ("bg-green-500", "✅", "Todos los archivos sincronizados"),
+        "SYNCING": ("bg-blue-500", "🔄", "Sincronizando archivos..."),
+        "PAUSED": ("bg-yellow-500", "⏸️", "Sincronización pausada"),
+        "AUTH_REQUIRED": ("bg-red-600", "🔐", "¡Autenticación requerida!"),
+        "ERROR": ("bg-red-500", "❌", "Error de sincronización"),
+        "NOT_RUNNING": ("bg-gray-500", "💀", "OneDrive no está ejecutándose"),
+        "NOT_FOUND": ("bg-orange-500", "🔍", "Cuenta no encontrada"),
+        "UNKNOWN": ("bg-gray-400", "❓", "Estado desconocido"),
     }
 
     current_status = status.get("status", "UNKNOWN")
     bg_class, emoji, status_text = status_styles.get(
-        current_status, ("bg-gray-400", "❓", "Unknown")
+        current_status, ("bg-gray-400", "❓", "Desconocido")
     )
 
-    # Format timestamp
+    # Formatear timestamp
     timestamp = status.get("timestamp", "")
     try:
         dt = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
@@ -107,28 +107,28 @@ async def dashboard(request: Request) -> HTMLResponse:
     except Exception:
         formatted_time = timestamp
 
-    # Format Not Synced Since
+    # Formatear No Sincronizado Desde
     not_sync_raw = status.get("out_of_sync_since")
     not_sync_display = ""
     if not_sync_raw and current_status != "OK":
         try:
-            # It comes as string from JSON
+            # Viene como string desde JSON
             if isinstance(not_sync_raw, str):
                  ns_dt = datetime.fromisoformat(not_sync_raw.replace("Z", "+00:00"))
             else:
-                 ns_dt = not_sync_raw # Should basically not happen with JSON
+                 ns_dt = not_sync_raw # Básicamente no debería pasar con JSON
             not_sync_display = ns_dt.strftime("%H:%M:%S")
         except Exception:
             not_sync_display = str(not_sync_raw)
 
     html = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Auto-refresh page every 60s as backup, but JS will update data -->
+    <!-- Auto-refresh de la página cada 60s como respaldo, pero JS actualizará los datos -->
     <meta http-equiv="refresh" content="60"> 
-    <title>OneDrive Monitor - {current_status}</title>
+    <title>Monitor OneDrive - {current_status}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -144,12 +144,12 @@ async def dashboard(request: Request) -> HTMLResponse:
 <body class="bg-gray-900 text-white min-h-screen">
     <div class="container mx-auto px-4 py-8">
         <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold mb-2">🌐 OneDrive Business Monitor</h1>
-            <p class="text-gray-400">Monitoring: {config.target.email}</p>
+            <h1 class="text-3xl font-bold mb-2">🌐 Monitor OneDrive Empresarial</h1>
+            <p class="text-gray-400">Monitoreando: {config.target.email}</p>
         </header>
 
         <div class="max-w-4xl mx-auto space-y-6">
-            <!-- Status Card -->
+            <!-- Tarjeta de Estado -->
             <div class="{bg_class} rounded-xl p-8 shadow-2xl {'pulse' if current_status in ['SYNCING', 'AUTH_REQUIRED'] else ''}">
                 <div class="text-center">
                     <span class="text-6xl mb-4 block">{emoji}</span>
@@ -158,51 +158,51 @@ async def dashboard(request: Request) -> HTMLResponse:
                 </div>
             </div>
 
-            <!-- Details Card -->
+            <!-- Tarjeta de Detalles -->
             <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
-                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📊 Details</h3>
+                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📊 Detalles</h3>
                 <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <dt class="text-gray-400 text-sm">Account</dt>
+                        <dt class="text-gray-400 text-sm">Cuenta</dt>
                         <dd class="font-mono text-sm">{status.get('account_email', 'N/A')}</dd>
                     </div>
                     <div>
-                        <dt class="text-gray-400 text-sm">Last Update</dt>
+                        <dt class="text-gray-400 text-sm">Última Actualización</dt>
                         <dd class="font-mono text-sm">{formatted_time}</dd>
                     </div>
                     
-                    {'<div class="md:col-span-2 bg-red-900/30 p-2 rounded border border-red-500/30"><dt class="text-red-400 text-xs uppercase font-bold">⚠️ Not Synced Since</dt><dd class="font-mono text-xl text-red-300">' + not_sync_display + '</dd></div>' if not_sync_display else ''}
+                    {'<div class="md:col-span-2 bg-red-900/30 p-2 rounded border border-red-500/30"><dt class="text-red-400 text-xs uppercase font-bold">⚠️ Sin Sincronizar Desde</dt><dd class="font-mono text-xl text-red-300">' + not_sync_display + '</dd></div>' if not_sync_display else ''}
 
                     <div class="md:col-span-2">
-                        <dt class="text-gray-400 text-sm">Folder</dt>
+                        <dt class="text-gray-400 text-sm">Carpeta</dt>
                         <dd class="font-mono text-sm truncate" title="{status.get('account_folder', 'N/A')}">{status.get('account_folder', 'N/A')}</dd>
                     </div>
                 </dl>
             </div>
 
-            <!-- Activity Chart -->
+            <!-- Gráfico de Actividad -->
             <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
-                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📈 Activity</h3>
+                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📈 Actividad</h3>
                 <div class="relative h-64 w-full">
                     <canvas id="activityChart"></canvas>
                 </div>
             </div>
 
-            <!-- History Table -->
+            <!-- Tabla de Historial -->
             <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
-                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📜 Recent History</h3>
+                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📜 Historial Reciente</h3>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-400">
                         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
                             <tr>
-                                <th class="px-3 py-2">Time</th>
-                                <th class="px-3 py-2">Status</th>
-                                <th class="px-3 py-2">Message</th>
+                                <th class="px-3 py-2">Hora</th>
+                                <th class="px-3 py-2">Estado</th>
+                                <th class="px-3 py-2">Mensaje</th>
                             </tr>
                         </thead>
                         <tbody id="historyTableBody">
-                            <!-- JS will populate -->
-                            <tr><td colspan="3" class="text-center py-4">Loading...</td></tr>
+                            <!-- JS lo poblará -->
+                            <tr><td colspan="3" class="text-center py-4">Cargando...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -210,13 +210,13 @@ async def dashboard(request: Request) -> HTMLResponse:
 
             <!-- Footer -->
             <footer class="text-center mt-8 text-gray-500 text-sm">
-                <p>Data auto-refreshes every 30s | <a href="/api/status" class="underline hover:text-white">JSON API</a></p>
+                <p>Los datos se actualizan cada 30s | <a href="/api/status" class="underline hover:text-white">API JSON</a></p>
             </footer>
         </div>
     </div>
 
     <script>
-        // Status Scoring for Chart
+        // Puntuación de Estados para el Gráfico
         const STATUS_SCORES = {{
             'OK': 1, 'SYNCING': 0.8, 'PAUSED': 0.5, 
             'AUTH_REQUIRED': 0.2, 'NOT_RUNNING': 0, 'ERROR': 0, 'UNKNOWN': -0.1
@@ -236,7 +236,7 @@ async def dashboard(request: Request) -> HTMLResponse:
                     data: {{
                         labels: labels,
                         datasets: [{{
-                            label: 'Health Score',
+                            label: 'Puntuación de Salud',
                             data: points,
                             borderColor: '#3b82f6',
                             tension: 0.1,
@@ -253,7 +253,7 @@ async def dashboard(request: Request) -> HTMLResponse:
                                 ticks: {{
                                     callback: function(value) {{
                                         if(value === 1) return 'OK';
-                                        if(value === 0.5) return 'PAUSED';
+                                        if(value === 0.5) return 'PAUSADO';
                                         if(value === 0) return 'ERROR';
                                         return '';
                                     }}
@@ -262,7 +262,7 @@ async def dashboard(request: Request) -> HTMLResponse:
                         }}
                     }}
                 }});
-            }} catch(e) {{ console.error("Chart load error", e); }}
+            }} catch(e) {{ console.error("Error al cargar gráfico", e); }}
         }}
 
         async function loadHistory() {{
@@ -289,14 +289,14 @@ async def dashboard(request: Request) -> HTMLResponse:
                     `;
                     tbody.appendChild(tr);
                 }});
-            }} catch(e) {{ console.error("History load error", e); }}
+            }} catch(e) {{ console.error("Error al cargar historial", e); }}
         }}
 
-        // Init
+        // Inicializar
         loadChart();
         loadHistory();
         
-        // Refresh Table periodically
+        // Refrescar tabla periódicamente
         setInterval(loadHistory, 30000);
     </script>
 </body>
@@ -306,11 +306,11 @@ async def dashboard(request: Request) -> HTMLResponse:
 
 
 def run_dashboard() -> None:
-    """Run the dashboard server."""
+    """Ejecuta el servidor del dashboard."""
     import uvicorn
 
     config = get_config()
-    logger.info(f"Starting dashboard on http://{config.dashboard.host}:{config.dashboard.port}")
+    logger.info(f"Iniciando dashboard en http://{config.dashboard.host}:{config.dashboard.port}")
     uvicorn.run(
         "src.dashboard.main:app",
         host=config.dashboard.host,
