@@ -17,6 +17,7 @@ class OneDriveStatus(str, Enum):
     ERROR = "ERROR"  # Sync error
     NOT_RUNNING = "NOT_RUNNING"  # OneDrive.exe not running
     NOT_FOUND = "NOT_FOUND"  # Target account icon not found in tray
+    UNKNOWN = "UNKNOWN"  # Unknown/unrecognized status
 
 
 class StatusReport(BaseModel):

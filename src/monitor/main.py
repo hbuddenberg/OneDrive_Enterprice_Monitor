@@ -94,18 +94,26 @@ def run_monitor() -> None:
     from src.shared.database import init_db, log_status, get_outage_start_time
     init_db()
     
-    # Escribir Estado Inicial (Mitigación para archivos vacíos/corruptos)
-    logger.info("Inicializando archivo de estado...")
+    # Obtener estado inicial REAL antes de inicializar
+    logger.info("Obteniendo estado inicial...")
+    initial_status, initial_process_running, initial_detail = checker.get_full_status()
+    
+    # Escribir Estado Inicial
+    logger.info(f"Estado inicial detectado: {initial_status.value}")
     initial_report = StatusReport(
         timestamp=datetime.now(),
         account_email=config.target.email,
         account_folder=config.target.folder,
-        status=OneDriveStatus.NOT_RUNNING,
-        status_detail="Inicializando...",
-        process_running=False,
-        message="Monitor iniciando..."
+        status=initial_status,
+        status_detail=initial_detail,
+        process_running=initial_process_running,
+        message=_get_status_message(initial_status)
     )
     write_status_atomic(initial_report, status_path)
+    
+    # NOTA: La notificación de inicio se envía después de que el estado persista
+    # Esto lo maneja el Remediator con is_first_run=True
+    logger.info("Esperando persistencia del estado inicial para enviar notificación...")
     
     check_count = 0
     last_log_msg = ""
