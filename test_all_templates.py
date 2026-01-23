@@ -116,7 +116,7 @@ def send_template_email(status: str, notifier: Notifier, config) -> bool:
                 outage_end=outage_end,
                 duration="15m 0s"
             )
-            subject = f"[Monitor OneDrive] ✅ RESUELTO - Problema Resuelto"
+            subject = f"✅ RESUELTO - Problema Resuelto"
         else:
             # Templates normales de status
             email_html = render_status_notification(
@@ -125,7 +125,7 @@ def send_template_email(status: str, notifier: Notifier, config) -> bool:
                 timestamp=timestamp,
                 message=data["message"]
             )
-            subject = f"[Monitor OneDrive] {data['emoji']} TEST: {status} - {data['description']}"
+            subject = f"{data['emoji']} TEST: {status} - {data['description']}"
         
         # Enviar email con HTML
         success = notifier._send_email(subject, email_html, is_html=True)

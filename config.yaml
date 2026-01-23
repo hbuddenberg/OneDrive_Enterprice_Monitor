@@ -26,7 +26,7 @@ notifications:
       smtp_port: 587
       sender_email: "h.buddenberg@gmail.com"
       sender_password: "sovs lvvi delz xklm"
-      to_email: "hansbuddenberg@tipartner.com"
+      to_email: "hansbuddenberg@tipartner.com, pabloperez@tipartner.com"
       cc_email: ""
       bcc_email: ""
     teams:
