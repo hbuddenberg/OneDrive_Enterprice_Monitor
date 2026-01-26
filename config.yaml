@@ -13,7 +13,7 @@ monitor:
   active_check_timeout_seconds: 20
   log_path: "C:\\Users\\hansbuddenberg\\AppData\\Local\\Microsoft\\OneDrive\\logs\\Business1\\SyncDiagnostics.log"
   canary_file: ".monitor_canary"
-  restart_on_startup: true
+  restart_on_startup: false
   restart_wait_seconds: 10
 
 # Notifications (Multi-channel)
@@ -45,4 +45,4 @@ alerting:
 # Dashboard settings
 dashboard:
   host: "0.0.0.0"
-  port: 8000
+  port: 2048

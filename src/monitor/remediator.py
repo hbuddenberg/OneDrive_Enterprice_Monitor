@@ -84,6 +84,17 @@ class RemediationAction:
             else:
                 timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
+            # Solo enviar OK aquí si es el primer arranque (is_first_run)
+            if notify and tipo == "OK" and not self.is_first_run:
+                # Ya se notificó OK en persistencia, no reenviar aquí
+                logger.info("OK: Notificación OK ya enviada en persistencia, se omite en cambio de estado.")
+                self.last_status = status
+                if outage_start_time and outage_start_time < now:
+                    self.status_first_seen = outage_start_time
+                else:
+                    self.status_first_seen = now
+                return False
+
             if notify:
                 try:
                     if tipo == "RESOLVED":
@@ -106,46 +117,27 @@ class RemediationAction:
                             message=f"Sincronizando archivos despues de {time_in_state:.0f}s"
                         )
                         logger.info(f"SYNCING: Sent notification for {status.value} after persistence ({time_in_state:.1f}s).")
-                        # Marcar como notificado para evitar que la rama de persistencia
-                        # vuelva a enviar otra notificación SYNCING más tarde.
                         self.notification_sent_for_incident = True
                         self.is_first_run = False
                     elif tipo == "OK":
-                        self.notifier.send_status_notification(
-                            status="OK",
-                            timestamp=timestamp_str,
-                            message="Sistema funcionando correctamente"
-                        )
-                        logger.info(f"OK: Sent OK notification after persistence ({time_in_state:.1f}s).")
+                        # Solo enviar OK si es primer arranque
+                        if self.is_first_run:
+                            self.notifier.send_status_notification(
+                                status="OK",
+                                timestamp=timestamp_str,
+                                message="Sistema funcionando correctamente"
+                            )
+                            logger.info(f"OK: Sent OK notification after persistence ({time_in_state:.1f}s).")
                         self.notification_sent_for_incident = False
                         self.is_first_run = False
                 except Exception as e:
                     logger.error(f"Failed to send status notification: {e}")
 
             self.last_status = status
-            
-            # If we have a historical outage time (e.g. from DB on startup), use it
             if outage_start_time and outage_start_time < now:
-                 self.status_first_seen = outage_start_time
-                 # If we just started up and found historical error, ensure we marked it as notified?
-                 # logic above handles "last_status is None" -> Notify.
+                self.status_first_seen = outage_start_time
             else:
-                 self.status_first_seen = now
-            # self.notification_sent_for_incident = False # KEEP IT TRUE if we are just flapping between bad states? 
-            # No, if status changes (e.g. Pause -> Auth), it's a new "incident" type? 
-            # Or should we treat it as one continuous outage?
-            # User wants "Resolution" when it goes to OK.
-            # If we go Error A -> Error B -> OK.
-            # We sent Error A. 
-            # If we reset here, we might send Error B.
-            # If we don't reset, we won't send Error B (assuming check checks flag).
-            
-            # Let's reset on OK only mainly. But if we change error type, we probably want to notify again eventually?
-            # For simplicity, if status changes to anything other than OK, we reset the flag?
-            # If we go Error A (Notified) -> Error B. Should we notify Error B? Yes.
-            # Counter reset is now handled above.
-            pass
-            
+                self.status_first_seen = now
             return False
             
         # 2. Check Duration (per-state persistence time)
