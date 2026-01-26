@@ -1,0 +1,2531 @@
+[
+    {
+        "label": "runpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "runpy",
+        "description": "runpy",
+        "detail": "runpy",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sysconfig",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sysconfig",
+        "description": "sysconfig",
+        "detail": "sysconfig",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "winreg",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "winreg",
+        "description": "winreg",
+        "detail": "winreg",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "isExtraImport": true,
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_recent_history",
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "isExtraImport": true,
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_chart_data",
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "isExtraImport": true,
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "smtplib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "smtplib",
+        "description": "smtplib",
+        "detail": "smtplib",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEText",
+        "importPath": "email.mime.text",
+        "description": "email.mime.text",
+        "isExtraImport": true,
+        "detail": "email.mime.text",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEText",
+        "importPath": "email.mime.text",
+        "description": "email.mime.text",
+        "isExtraImport": true,
+        "detail": "email.mime.text",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StatusReport",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StatusReport",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "isExtraImport": true,
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "psutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psutil",
+        "description": "psutil",
+        "detail": "psutil",
+        "documentation": {}
+    },
+    {
+        "label": "win32api",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "win32api",
+        "description": "win32api",
+        "detail": "win32api",
+        "documentation": {}
+    },
+    {
+        "label": "win32con",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "win32con",
+        "description": "win32con",
+        "detail": "win32con",
+        "documentation": {}
+    },
+    {
+        "label": "Alerter",
+        "importPath": "src.monitor.alerter",
+        "description": "src.monitor.alerter",
+        "isExtraImport": true,
+        "detail": "src.monitor.alerter",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveChecker",
+        "importPath": "src.monitor.checker",
+        "description": "src.monitor.checker",
+        "isExtraImport": true,
+        "detail": "src.monitor.checker",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveChecker",
+        "importPath": "src.monitor.checker",
+        "description": "src.monitor.checker",
+        "isExtraImport": true,
+        "detail": "src.monitor.checker",
+        "documentation": {}
+    },
+    {
+        "label": "Notifier",
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "isExtraImport": true,
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "Notifier",
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "isExtraImport": true,
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "Notifier",
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "isExtraImport": true,
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "Notifier",
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "isExtraImport": true,
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "Notifier",
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "isExtraImport": true,
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "httpx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "httpx",
+        "description": "httpx",
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEMultipart",
+        "importPath": "email.mime.multipart",
+        "description": "email.mime.multipart",
+        "isExtraImport": true,
+        "detail": "email.mime.multipart",
+        "documentation": {}
+    },
+    {
+        "label": "render_status_notification",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_resolution_notification",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_status_notification",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_resolution_notification",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "STATUS_TEMPLATES",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "STATUS_TEMPLATES",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES_DIR",
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "isExtraImport": true,
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "signal",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "signal",
+        "description": "signal",
+        "detail": "signal",
+        "documentation": {}
+    },
+    {
+        "label": "win32com.client",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "win32com.client",
+        "description": "win32com.client",
+        "detail": "win32com.client",
+        "documentation": {}
+    },
+    {
+        "label": "Desktop",
+        "importPath": "pywinauto",
+        "description": "pywinauto",
+        "isExtraImport": true,
+        "detail": "pywinauto",
+        "documentation": {}
+    },
+    {
+        "label": "Desktop",
+        "importPath": "pywinauto",
+        "description": "pywinauto",
+        "isExtraImport": true,
+        "detail": "pywinauto",
+        "documentation": {}
+    },
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "stat",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "stat",
+        "description": "stat",
+        "detail": "stat",
+        "documentation": {}
+    },
+    {
+        "label": "webbrowser",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "webbrowser",
+        "description": "webbrowser",
+        "detail": "webbrowser",
+        "documentation": {}
+    },
+    {
+        "label": "RemediationAction",
+        "importPath": "src.monitor.remediator",
+        "description": "src.monitor.remediator",
+        "isExtraImport": true,
+        "detail": "src.monitor.remediator",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"onedrive-monitor\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"onedrive-monitor\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"onedrive-monitor\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"onedrive-monitor\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV_PROMPT\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV_PROMPT\"] = \"onedrive-monitor\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "Tee",
+        "kind": 6,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "class Tee:\n    def __init__(self, file):\n        self.f = file\n    def write(self, what):\n        if self.f is not None:\n            try:\n                self.f.write(what.replace(\"\\n\", \"\\r\\n\"))\n            except OSError:\n                pass\n        tee_f.write(what)",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_root_hkey",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_root_hkey():\n    try:\n        winreg.OpenKey(\n            winreg.HKEY_LOCAL_MACHINE, root_key_name, 0, winreg.KEY_CREATE_SUB_KEY\n        )\n        return winreg.HKEY_LOCAL_MACHINE\n    except OSError:\n        # Either not exist, or no permissions to create subkey means\n        # must be HKCU\n        return winreg.HKEY_CURRENT_USER",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "create_shortcut",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def create_shortcut(\n    path, description, filename, arguments=\"\", workdir=\"\", iconpath=\"\", iconindex=0\n):\n    import pythoncom\n    from win32com.shell import shell\n    ilink = pythoncom.CoCreateInstance(\n        shell.CLSID_ShellLink,\n        None,\n        pythoncom.CLSCTX_INPROC_SERVER,\n        shell.IID_IShellLink,",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_special_folder_path",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_special_folder_path(path_name):\n    from win32com.shell import shell, shellcon\n    for maybe in \"\"\"\n        CSIDL_COMMON_STARTMENU CSIDL_STARTMENU CSIDL_COMMON_APPDATA\n        CSIDL_LOCAL_APPDATA CSIDL_APPDATA CSIDL_COMMON_DESKTOPDIRECTORY\n        CSIDL_DESKTOPDIRECTORY CSIDL_COMMON_STARTUP CSIDL_STARTUP\n        CSIDL_COMMON_PROGRAMS CSIDL_PROGRAMS CSIDL_PROGRAM_FILES_COMMON\n        CSIDL_PROGRAM_FILES CSIDL_FONTS\"\"\".split():\n        if maybe == path_name:\n            csidl = getattr(shellcon, maybe)",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "CopyTo",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def CopyTo(desc, src, dest):\n    import win32api\n    import win32con\n    while 1:\n        try:\n            win32api.CopyFile(src, dest, 0)\n            return\n        except win32api.error as details:\n            if details.winerror == 5:  # access denied - user not admin.\n                raise",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "LoadSystemModule",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def LoadSystemModule(lib_dir, modname):\n    # See if this is a debug build.\n    import importlib.machinery\n    import importlib.util\n    suffix = \"_d\" if \"_d.pyd\" in importlib.machinery.EXTENSION_SUFFIXES else \"\"\n    filename = \"%s%d%d%s.dll\" % (\n        modname,\n        sys.version_info.major,\n        sys.version_info.minor,\n        suffix,",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "SetPyKeyVal",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def SetPyKeyVal(key_name, value_name, value):\n    root_hkey = get_root_hkey()\n    root_key = winreg.OpenKey(root_hkey, root_key_name)\n    try:\n        my_key = winreg.CreateKey(root_key, key_name)\n        try:\n            winreg.SetValueEx(my_key, value_name, 0, winreg.REG_SZ, value)\n            if verbose:\n                print(f\"-> {root_key_name}\\\\{key_name}[{value_name}]={value!r}\")\n        finally:",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "UnsetPyKeyVal",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def UnsetPyKeyVal(key_name, value_name, delete_key=False):\n    root_hkey = get_root_hkey()\n    root_key = winreg.OpenKey(root_hkey, root_key_name)\n    try:\n        my_key = winreg.OpenKey(root_key, key_name, 0, winreg.KEY_SET_VALUE)\n        try:\n            winreg.DeleteValue(my_key, value_name)\n            if verbose:\n                print(f\"-> DELETE {root_key_name}\\\\{key_name}[{value_name}]\")\n        finally:",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterCOMObjects",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterCOMObjects(register=True):\n    import win32com.server.register\n    if register:\n        func = win32com.server.register.RegisterClasses\n    else:\n        func = win32com.server.register.UnregisterClasses\n    flags = {}\n    if not verbose:\n        flags[\"quiet\"] = 1\n    for module, klass_name in com_modules:",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterHelpFile",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterHelpFile(register=True, lib_dir=None):\n    if lib_dir is None:\n        lib_dir = sysconfig.get_paths()[\"platlib\"]\n    if register:\n        # Register the .chm help file.\n        chm_file = os.path.join(lib_dir, \"PyWin32.chm\")\n        if os.path.isfile(chm_file):\n            # This isn't recursive, so if 'Help' doesn't exist, we croak\n            SetPyKeyVal(\"Help\", None, None)\n            SetPyKeyVal(\"Help\\\\Pythonwin Reference\", None, chm_file)",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterPythonwin",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterPythonwin(register=True, lib_dir=None):\n    \"\"\"Add (or remove) Pythonwin to context menu for python scripts.\n    ??? Should probably also add Edit command for pys files also.\n    Also need to remove these keys on uninstall, but there's no function\n    to add registry entries to uninstall log ???\n    \"\"\"\n    import os\n    if lib_dir is None:\n        lib_dir = sysconfig.get_paths()[\"platlib\"]\n    classes_root = get_root_hkey()",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_shortcuts_folder",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_shortcuts_folder():\n    if get_root_hkey() == winreg.HKEY_LOCAL_MACHINE:\n        try:\n            fldr = get_special_folder_path(\"CSIDL_COMMON_PROGRAMS\")\n        except OSError:\n            # No CSIDL_COMMON_PROGRAMS on this platform\n            fldr = get_special_folder_path(\"CSIDL_PROGRAMS\")\n    else:\n        # non-admin install - always goes in this user's start menu.\n        fldr = get_special_folder_path(\"CSIDL_PROGRAMS\")",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_system_dir",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_system_dir():\n    import win32api  # we assume this exists.\n    try:\n        import pythoncom\n        import win32process\n        from win32com.shell import shell, shellcon\n        try:\n            if win32process.IsWow64Process():\n                return shell.SHGetSpecialFolderPath(0, shellcon.CSIDL_SYSTEMX86)\n            return shell.SHGetSpecialFolderPath(0, shellcon.CSIDL_SYSTEM)",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "fixup_dbi",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def fixup_dbi():\n    # We used to have a dbi.pyd with our .pyd files, but now have a .py file.\n    # If the user didn't uninstall, they will find the .pyd which will cause\n    # problems - so handle that.\n    import win32api\n    import win32con\n    pyd_name = os.path.join(os.path.dirname(win32api.__file__), \"dbi.pyd\")\n    pyd_d_name = os.path.join(os.path.dirname(win32api.__file__), \"dbi_d.pyd\")\n    py_name = os.path.join(os.path.dirname(win32con.__file__), \"dbi.py\")\n    for this_pyd in (pyd_name, pyd_d_name):",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "install",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def install(lib_dir):\n    import traceback\n    # The .pth file is now installed as a regular file.\n    # Create the .pth file in the site-packages dir, and use only relative paths\n    # We used to write a .pth directly to sys.prefix - clobber it.\n    if os.path.isfile(os.path.join(sys.prefix, \"pywin32.pth\")):\n        os.unlink(os.path.join(sys.prefix, \"pywin32.pth\"))\n    # The .pth may be new and therefore not loaded in this session.\n    # Setup the paths just in case.\n    for name in \"win32 win32\\\\lib Pythonwin\".split():",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "uninstall",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def uninstall(lib_dir):\n    # First ensure our system modules are loaded from pywin32_system, so\n    # we can remove the ones we copied...\n    LoadSystemModule(lib_dir, \"pywintypes\")\n    LoadSystemModule(lib_dir, \"pythoncom\")\n    try:\n        RegisterCOMObjects(False)\n    except Exception as why:\n        print(f\"Failed to unregister COM objects: {why}\")\n    try:",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "verify_destination",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def verify_destination(location: str) -> str:\n    location = os.path.abspath(location)\n    if not os.path.isdir(location):\n        raise argparse.ArgumentTypeError(\n            f'Path \"{location}\" is not an existing directory!'\n        )\n    return location\ndef main():\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=\"\"\"A post-install script for the pywin32 extensions.\n    * Typical usage:\n    > python -m pywin32_postinstall -install\n    * or (shorter but you don't have control over which python environment is used)\n    > pywin32_postinstall -install\n    You need to execute this script, with a '-install' parameter,\n    to ensure the environment is setup correctly to install COM objects, services, etc.",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "tee_f",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "tee_f = open(\n    os.path.join(\n        tempfile.gettempdir(),  # Send output somewhere so it can be found if necessary...\n        \"pywin32_postinstall.log\",\n    ),\n    \"w\",\n)\nclass Tee:\n    def __init__(self, file):\n        self.f = file",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "sys.stderr",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "sys.stderr = Tee(sys.stderr)\nsys.stdout = Tee(sys.stdout)\ncom_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "sys.stdout",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "sys.stdout = Tee(sys.stdout)\ncom_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'\nsilent = 0",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "com_modules",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "com_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'\nsilent = 0\n# Verbosity of output messages.",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "silent",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "silent = 0\n# Verbosity of output messages.\nverbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ndef get_root_hkey():\n    try:\n        winreg.OpenKey(\n            winreg.HKEY_LOCAL_MACHINE, root_key_name, 0, winreg.KEY_CREATE_SUB_KEY\n        )\n        return winreg.HKEY_LOCAL_MACHINE",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "verbose",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "verbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ndef get_root_hkey():\n    try:\n        winreg.OpenKey(\n            winreg.HKEY_LOCAL_MACHINE, root_key_name, 0, winreg.KEY_CREATE_SUB_KEY\n        )\n        return winreg.HKEY_LOCAL_MACHINE\n    except OSError:\n        # Either not exist, or no permissions to create subkey means",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "root_key_name",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_postinstall",
+        "description": ".venv.Scripts.pywin32_postinstall",
+        "peekOfCode": "root_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ndef get_root_hkey():\n    try:\n        winreg.OpenKey(\n            winreg.HKEY_LOCAL_MACHINE, root_key_name, 0, winreg.KEY_CREATE_SUB_KEY\n        )\n        return winreg.HKEY_LOCAL_MACHINE\n    except OSError:\n        # Either not exist, or no permissions to create subkey means\n        # must be HKCU",
+        "detail": ".venv.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "run_test",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_testall",
+        "description": ".venv.Scripts.pywin32_testall",
+        "peekOfCode": "def run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()\n    result = subprocess.run(cmd, check=False, cwd=dirname)\n    print(f\"*** Test script '{script}' exited with {result.returncode}\")\n    sys.stdout.flush()\n    if result.returncode:",
+        "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "find_and_run",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_testall",
+        "description": ".venv.Scripts.pywin32_testall",
+        "peekOfCode": "def find_and_run(possible_locations, extras):\n    for maybe in possible_locations:\n        if os.path.isfile(maybe):\n            run_test(maybe, extras)\n            break\n    else:\n        raise RuntimeError(\n            \"Failed to locate a test script in one of %s\" % possible_locations\n        )\ndef main():",
+        "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": ".venv.Scripts.pywin32_testall",
+        "description": ".venv.Scripts.pywin32_testall",
+        "peekOfCode": "def main():\n    import argparse\n    code_directories = [project_root] + site_packages\n    parser = argparse.ArgumentParser(\n        description=\"A script to trigger tests in all subprojects of PyWin32.\"\n    )\n    parser.add_argument(\n        \"-no-user-interaction\",\n        default=False,\n        action=\"store_true\",",
+        "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_testall",
+        "description": ".venv.Scripts.pywin32_testall",
+        "peekOfCode": "project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))\nsite_packages = [site.getusersitepackages()] + site.getsitepackages()\nfailures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras",
+        "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "site_packages",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_testall",
+        "description": ".venv.Scripts.pywin32_testall",
+        "peekOfCode": "site_packages = [site.getusersitepackages()] + site.getsitepackages()\nfailures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)",
+        "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "failures",
+        "kind": 5,
+        "importPath": ".venv.Scripts.pywin32_testall",
+        "description": ".venv.Scripts.pywin32_testall",
+        "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
+        "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "get_status",
+        "kind": 2,
+        "importPath": "src.dashboard.main",
+        "description": "src.dashboard.main",
+        "peekOfCode": "def get_status() -> dict[str, Any]:\n    \"\"\"Lee el estado actual desde status.json.\"\"\"\n    config = get_config()\n    status_path = Path(config.monitor.status_file)\n    if not status_path.exists():\n        return {\n            \"status\": \"UNKNOWN\",\n            \"message\": \"Archivo de estado no encontrado. ¿Está ejecutándose el monitor?\",\n            \"timestamp\": datetime.now().isoformat(),\n            \"account_email\": config.target.email,",
+        "detail": "src.dashboard.main",
+        "documentation": {}
+    },
+    {
+        "label": "run_dashboard",
+        "kind": 2,
+        "importPath": "src.dashboard.main",
+        "description": "src.dashboard.main",
+        "peekOfCode": "def run_dashboard() -> None:\n    \"\"\"Ejecuta el servidor del dashboard.\"\"\"\n    import uvicorn\n    config = get_config()\n    logger.info(f\"Iniciando dashboard en http://{config.dashboard.host}:{config.dashboard.port}\")\n    uvicorn.run(\n        \"src.dashboard.main:app\",\n        host=config.dashboard.host,\n        port=config.dashboard.port,\n        reload=False,",
+        "detail": "src.dashboard.main",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.dashboard.main",
+        "description": "src.dashboard.main",
+        "peekOfCode": "logger = logging.getLogger(__name__)\napp = FastAPI(\n    title=\"Monitor OneDrive Empresarial - Dashboard\",\n    description=\"Monitor del estado de sincronización de OneDrive para Empresas\",\n    version=\"1.0.0\",\n)\ndef get_status() -> dict[str, Any]:\n    \"\"\"Lee el estado actual desde status.json.\"\"\"\n    config = get_config()\n    status_path = Path(config.monitor.status_file)",
+        "detail": "src.dashboard.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "src.dashboard.main",
+        "description": "src.dashboard.main",
+        "peekOfCode": "app = FastAPI(\n    title=\"Monitor OneDrive Empresarial - Dashboard\",\n    description=\"Monitor del estado de sincronización de OneDrive para Empresas\",\n    version=\"1.0.0\",\n)\ndef get_status() -> dict[str, Any]:\n    \"\"\"Lee el estado actual desde status.json.\"\"\"\n    config = get_config()\n    status_path = Path(config.monitor.status_file)\n    if not status_path.exists():",
+        "detail": "src.dashboard.main",
+        "documentation": {}
+    },
+    {
+        "label": "Alerter",
+        "kind": 6,
+        "importPath": "src.monitor.alerter",
+        "description": "src.monitor.alerter",
+        "peekOfCode": "class Alerter:\n    \"\"\"Send alerts via SMTP or webhook when critical status changes occur.\"\"\"\n    def __init__(self) -> None:\n        self.config = get_config()\n        self._last_alerted_status: Optional[OneDriveStatus] = None\n    def should_alert(self, status: OneDriveStatus) -> bool:\n        \"\"\"Determine if an alert should be sent.\n        Args:\n            status: Current OneDrive status.\n        Returns:",
+        "detail": "src.monitor.alerter",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.monitor.alerter",
+        "description": "src.monitor.alerter",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass Alerter:\n    \"\"\"Send alerts via SMTP or webhook when critical status changes occur.\"\"\"\n    def __init__(self) -> None:\n        self.config = get_config()\n        self._last_alerted_status: Optional[OneDriveStatus] = None\n    def should_alert(self, status: OneDriveStatus) -> bool:\n        \"\"\"Determine if an alert should be sent.\n        Args:\n            status: Current OneDrive status.",
+        "detail": "src.monitor.alerter",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveChecker",
+        "kind": 6,
+        "importPath": "src.monitor.checker",
+        "description": "src.monitor.checker",
+        "peekOfCode": "class OneDriveChecker:\n    \"\"\"Check OneDrive for Business status via Process and File Attributes (Headless).\"\"\"\n    def __init__(self) -> None:\n        self.config = get_config()\n        # tooltip_prefix is no longer used for detection, but kept in config if needed later\n        # Active Check State\n        self.log_path = Path(os.path.expandvars(self.config.monitor.log_path))\n        self.canary_path = Path(self.config.target.folder) / self.config.monitor.canary_file\n        self.last_log_mtime = 0.0\n        self.last_canary_write_time = 0.0",
+        "detail": "src.monitor.checker",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.monitor.checker",
+        "description": "src.monitor.checker",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass OneDriveChecker:\n    \"\"\"Check OneDrive for Business status via Process and File Attributes (Headless).\"\"\"\n    def __init__(self) -> None:\n        self.config = get_config()\n        # tooltip_prefix is no longer used for detection, but kept in config if needed later\n        # Active Check State\n        self.log_path = Path(os.path.expandvars(self.config.monitor.log_path))\n        self.canary_path = Path(self.config.target.folder) / self.config.monitor.canary_file\n        self.last_log_mtime = 0.0",
+        "detail": "src.monitor.checker",
+        "documentation": {}
+    },
+    {
+        "label": "write_status_atomic",
+        "kind": 2,
+        "importPath": "src.monitor.main",
+        "description": "src.monitor.main",
+        "peekOfCode": "def write_status_atomic(report: StatusReport, path: Path) -> None:\n    \"\"\"Write status report to file atomically.\n    Uses write-to-temp-then-rename to avoid partial reads.\n    Args:\n        report: The status report to write.\n        path: The target file path.\n    \"\"\"\n    # Write to temp file first\n    temp_fd, temp_path = tempfile.mkstemp(suffix=\".json\", dir=path.parent)\n    try:",
+        "detail": "src.monitor.main",
+        "documentation": {}
+    },
+    {
+        "label": "run_monitor",
+        "kind": 2,
+        "importPath": "src.monitor.main",
+        "description": "src.monitor.main",
+        "peekOfCode": "def run_monitor() -> None:\n    \"\"\"Run the OneDrive monitor loop.\"\"\"\n    config = get_config()\n    checker = OneDriveChecker()\n    alerter = Alerter()\n    from src.monitor.remediator import RemediationAction\n    remediator = RemediationAction()\n    status_path = Path(config.monitor.status_file)\n    interval = config.monitor.check_interval_seconds\n    logger.info(\"=\" * 60)",
+        "detail": "src.monitor.main",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": "src.monitor.main",
+        "description": "src.monitor.main",
+        "peekOfCode": "project_root = Path(__file__).resolve().parents[2]\nif str(project_root) not in sys.path:\n    sys.path.insert(0, str(project_root))\nfrom src.monitor.alerter import Alerter\nfrom src.monitor.checker import OneDriveChecker\nfrom src.shared.config import get_config\nfrom src.shared.schemas import OneDriveStatus, StatusReport\n# Configure logging\n# Force UTF-8 for stdout/stderr to handle emojis on Windows\nif os.name == \"nt\":",
+        "detail": "src.monitor.main",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.monitor.main",
+        "description": "src.monitor.main",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef write_status_atomic(report: StatusReport, path: Path) -> None:\n    \"\"\"Write status report to file atomically.\n    Uses write-to-temp-then-rename to avoid partial reads.\n    Args:\n        report: The status report to write.\n        path: The target file path.\n    \"\"\"\n    # Write to temp file first\n    temp_fd, temp_path = tempfile.mkstemp(suffix=\".json\", dir=path.parent)",
+        "detail": "src.monitor.main",
+        "documentation": {}
+    },
+    {
+        "label": "RemediationAction",
+        "kind": 6,
+        "importPath": "src.monitor.remediator",
+        "description": "src.monitor.remediator",
+        "peekOfCode": "class RemediationAction:\n    def __init__(self):\n        self.cooldown_ends: Optional[datetime] = None\n        self.restart_attempts: int = 0\n        self.last_restart_hour: int = datetime.now().hour\n        self.COOLDOWN_SECONDS = 60\n        self.MAX_RESTARTS_PER_HOUR = 3\n        # Persistence tracking\n        self.last_status: Optional[OneDriveStatus] = None\n        self.status_first_seen: Optional[datetime] = None",
+        "detail": "src.monitor.remediator",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.monitor.remediator",
+        "description": "src.monitor.remediator",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RemediationAction:\n    def __init__(self):\n        self.cooldown_ends: Optional[datetime] = None\n        self.restart_attempts: int = 0\n        self.last_restart_hour: int = datetime.now().hour\n        self.COOLDOWN_SECONDS = 60\n        self.MAX_RESTARTS_PER_HOUR = 3\n        # Persistence tracking\n        self.last_status: Optional[OneDriveStatus] = None",
+        "detail": "src.monitor.remediator",
+        "documentation": {}
+    },
+    {
+        "label": "TargetConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class TargetConfig(BaseModel):\n    \"\"\"Target OneDrive account configuration.\"\"\"\n    email: str\n    folder: str\nclass MonitorConfig(BaseModel):\n    \"\"\"Monitor settings.\"\"\"\n    check_interval_seconds: int = 60\n    status_file: str = \"./status.json\"\n    active_check_enabled: bool = True\n    active_check_interval_seconds: int = 30",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "MonitorConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class MonitorConfig(BaseModel):\n    \"\"\"Monitor settings.\"\"\"\n    check_interval_seconds: int = 60\n    status_file: str = \"./status.json\"\n    active_check_enabled: bool = True\n    active_check_interval_seconds: int = 30\n    active_check_timeout_seconds: int = 20\n    log_path: str = \"C:\\\\Users\\\\hansbuddenberg\\\\AppData\\\\Local\\\\Microsoft\\\\OneDrive\\\\logs\\\\Business1\\\\SyncDiagnostics.log\"\n    canary_file: str = \".monitor_canary\"\nclass SmtpConfig(BaseModel):",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "SmtpConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class SmtpConfig(BaseModel):\n    \"\"\"SMTP alerting configuration.\"\"\"\n    host: str\n    port: int = 587\n    user: str\n    password_env: str  # Environment variable name for password\n    to: list[str]\nclass WebhookConfig(BaseModel):\n    \"\"\"Webhook alerting configuration.\"\"\"\n    url: str",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "WebhookConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class WebhookConfig(BaseModel):\n    \"\"\"Webhook alerting configuration.\"\"\"\n    url: str\nclass AlertingConfig(BaseModel):\n    \"\"\"Alerting configuration.\"\"\"\n    enabled: bool = False\n    smtp: Optional[SmtpConfig] = None\n    webhook: Optional[WebhookConfig] = None\nclass DashboardConfig(BaseModel):\n    \"\"\"Dashboard settings.\"\"\"",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "AlertingConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class AlertingConfig(BaseModel):\n    \"\"\"Alerting configuration.\"\"\"\n    enabled: bool = False\n    smtp: Optional[SmtpConfig] = None\n    webhook: Optional[WebhookConfig] = None\nclass DashboardConfig(BaseModel):\n    \"\"\"Dashboard settings.\"\"\"\n    host: str = \"0.0.0.0\"\n    port: int = 8000\nclass EmailConfig(BaseModel):",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "DashboardConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class DashboardConfig(BaseModel):\n    \"\"\"Dashboard settings.\"\"\"\n    host: str = \"0.0.0.0\"\n    port: int = 8000\nclass EmailConfig(BaseModel):\n    enabled: bool = False\n    smtp_server: str = \"\"\n    smtp_port: int = 587\n    sender_email: str = \"\"\n    sender_password: str = \"\"",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "EmailConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class EmailConfig(BaseModel):\n    enabled: bool = False\n    smtp_server: str = \"\"\n    smtp_port: int = 587\n    sender_email: str = \"\"\n    sender_password: str = \"\"\n    to_email: str = \"\"\n    cc_email: Optional[str] = None\n    bcc_email: Optional[str] = None\nclass TeamsConfig(BaseModel):",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "TeamsConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class TeamsConfig(BaseModel):\n    enabled: bool = False\n    webhook_url: str = \"\"\nclass SlackConfig(BaseModel):\n    enabled: bool = False\n    webhook_url: str = \"\"\nclass NotificationChannels(BaseModel):\n    email: EmailConfig = EmailConfig()\n    teams: TeamsConfig = TeamsConfig()\n    slack: SlackConfig = SlackConfig()",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "SlackConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class SlackConfig(BaseModel):\n    enabled: bool = False\n    webhook_url: str = \"\"\nclass NotificationChannels(BaseModel):\n    email: EmailConfig = EmailConfig()\n    teams: TeamsConfig = TeamsConfig()\n    slack: SlackConfig = SlackConfig()\nclass NotificationConfig(BaseModel):\n    enabled: bool = True\n    cooldown_minutes: int = 60",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationChannels",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class NotificationChannels(BaseModel):\n    email: EmailConfig = EmailConfig()\n    teams: TeamsConfig = TeamsConfig()\n    slack: SlackConfig = SlackConfig()\nclass NotificationConfig(BaseModel):\n    enabled: bool = True\n    cooldown_minutes: int = 60\n    failed_remediation_delay_seconds: int = 300\n    channels: NotificationChannels = NotificationChannels()\nclass AppConfig(BaseModel):",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class NotificationConfig(BaseModel):\n    enabled: bool = True\n    cooldown_minutes: int = 60\n    failed_remediation_delay_seconds: int = 300\n    channels: NotificationChannels = NotificationChannels()\nclass AppConfig(BaseModel):\n    \"\"\"Root application configuration.\"\"\"\n    target: TargetConfig\n    monitor: MonitorConfig = MonitorConfig()\n    alerting: AlertingConfig = AlertingConfig()",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "kind": 6,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "class AppConfig(BaseModel):\n    \"\"\"Root application configuration.\"\"\"\n    target: TargetConfig\n    monitor: MonitorConfig = MonitorConfig()\n    alerting: AlertingConfig = AlertingConfig()\n    notifications: NotificationConfig = NotificationConfig()\n    dashboard: DashboardConfig = DashboardConfig()\ndef load_config(config_path: Optional[Path] = None) -> AppConfig:\n    \"\"\"Load configuration from YAML file.\n    Args:",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "load_config",
+        "kind": 2,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "def load_config(config_path: Optional[Path] = None) -> AppConfig:\n    \"\"\"Load configuration from YAML file.\n    Args:\n        config_path: Path to config.yaml. Defaults to ./config.yaml.\n    Returns:\n        Parsed AppConfig object.\n    \"\"\"\n    if config_path is None:\n        config_path = Path(__file__).parent.parent.parent / \"config.yaml\"\n    with open(config_path, encoding=\"utf-8\") as f:",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "kind": 2,
+        "importPath": "src.shared.config",
+        "description": "src.shared.config",
+        "peekOfCode": "def get_config() -> AppConfig:\n    \"\"\"Get or load the application configuration.\"\"\"\n    global _config\n    if _config is None:\n        _config = load_config()\n    return _config",
+        "detail": "src.shared.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_db_path",
+        "kind": 2,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "def get_db_path() -> str:\n    # Use the root of the project ideally, or relative to this file\n    # Assuming this run from root\n    return DB_NAME\ndef init_db():\n    \"\"\"Initialize the database table.\"\"\"\n    conn = sqlite3.connect(get_db_path())\n    cursor = conn.cursor()\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS status_history (",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "init_db",
+        "kind": 2,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "def init_db():\n    \"\"\"Initialize the database table.\"\"\"\n    conn = sqlite3.connect(get_db_path())\n    cursor = conn.cursor()\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS status_history (\n        id INTEGER PRIMARY KEY AUTOINCREMENT,\n        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,\n        status TEXT NOT NULL,\n        message TEXT,",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "log_status",
+        "kind": 2,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "def log_status(status: str, message: str, is_change: bool = False):\n    \"\"\"Log a status entry to the database.\"\"\"\n    try:\n        conn = sqlite3.connect(get_db_path())\n        cursor = conn.cursor()\n        cursor.execute('''\n        INSERT INTO status_history (timestamp, status, message, is_change)\n        VALUES (?, ?, ?, ?)\n        ''', (datetime.now(), status, message, is_change))\n        conn.commit()",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_recent_history",
+        "kind": 2,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "def get_recent_history(limit: int = 50) -> List[Dict[str, Any]]:\n    \"\"\"Get the most recent N history entries.\"\"\"\n    conn = sqlite3.connect(get_db_path())\n    conn.row_factory = sqlite3.Row\n    cursor = conn.cursor()\n    cursor.execute('''\n    SELECT id, timestamp, status, message, is_change\n    FROM status_history\n    ORDER BY id DESC\n    LIMIT ?",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_chart_data",
+        "kind": 2,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "def get_chart_data(limit: int = 288) -> List[Dict[str, Any]]:\n    \"\"\"Get data for the chart (approx 24h at 5min intervals = 288 points).\n    Order by timestamp ASC for the chart.\n    \"\"\"\n    conn = sqlite3.connect(get_db_path())\n    conn.row_factory = sqlite3.Row\n    cursor = conn.cursor()\n    # We want chronological order for the chart\n    cursor.execute('''\n    SELECT timestamp, status, message",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_outage_start_time",
+        "kind": 2,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "def get_outage_start_time() -> Optional[datetime]:\n    \"\"\"Calculate the start time of the current outage based on DB history.\n    Returns:\n        Datetime of the first non-OK status after the last OK status.\n        If system has never been OK, returns the first recorded timestamp.\n        Returns None if the system was recently OK (no outage found in DB terms).\n    \"\"\"\n    conn = sqlite3.connect(get_db_path())\n    cursor = conn.cursor()\n    try:",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "DB_NAME",
+        "kind": 5,
+        "importPath": "src.shared.database",
+        "description": "src.shared.database",
+        "peekOfCode": "DB_NAME = \"onedrive_monitor.db\"\ndef get_db_path() -> str:\n    # Use the root of the project ideally, or relative to this file\n    # Assuming this run from root\n    return DB_NAME\ndef init_db():\n    \"\"\"Initialize the database table.\"\"\"\n    conn = sqlite3.connect(get_db_path())\n    cursor = conn.cursor()\n    cursor.execute('''",
+        "detail": "src.shared.database",
+        "documentation": {}
+    },
+    {
+        "label": "Notifier",
+        "kind": 6,
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "peekOfCode": "class Notifier:\n    \"\"\"Handles sending notifications through multiple channels.\"\"\"\n    def __init__(self):\n        self.config = get_config().notifications\n        self._account = get_config().target.email\n        self._last_notification_time: Optional[datetime] = None\n    def _in_cooldown(self) -> bool:\n        \"\"\"Check if we're still in notification cooldown period.\"\"\"\n        cooldown_minutes = self.config.cooldown_minutes\n        # Si cooldown es 0, nunca hay cooldown",
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.shared.notifier",
+        "description": "src.shared.notifier",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass Notifier:\n    \"\"\"Handles sending notifications through multiple channels.\"\"\"\n    def __init__(self):\n        self.config = get_config().notifications\n        self._account = get_config().target.email\n        self._last_notification_time: Optional[datetime] = None\n    def _in_cooldown(self) -> bool:\n        \"\"\"Check if we're still in notification cooldown period.\"\"\"\n        cooldown_minutes = self.config.cooldown_minutes",
+        "detail": "src.shared.notifier",
+        "documentation": {}
+    },
+    {
+        "label": "OneDriveStatus",
+        "kind": 6,
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "peekOfCode": "class OneDriveStatus(str, Enum):\n    \"\"\"Possible OneDrive sync statuses.\"\"\"\n    OK = \"OK\"  # Up to date\n    SYNCING = \"SYNCING\"  # Currently syncing\n    PAUSED = \"PAUSED\"  # Sync paused\n    AUTH_REQUIRED = \"AUTH_REQUIRED\"  # Re-authentication needed (critical!)\n    ERROR = \"ERROR\"  # Sync error\n    NOT_RUNNING = \"NOT_RUNNING\"  # OneDrive.exe not running\n    NOT_FOUND = \"NOT_FOUND\"  # Target account icon not found in tray\n    UNKNOWN = \"UNKNOWN\"  # Unknown/unrecognized status",
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StatusReport",
+        "kind": 6,
+        "importPath": "src.shared.schemas",
+        "description": "src.shared.schemas",
+        "peekOfCode": "class StatusReport(BaseModel):\n    \"\"\"Status report written to status.json.\"\"\"\n    timestamp: datetime\n    account_email: str\n    account_folder: str\n    status: OneDriveStatus\n    status_detail: Optional[str] = None\n    process_running: bool\n    message: Optional[str] = None\n    out_of_sync_since: Optional[datetime] = None",
+        "detail": "src.shared.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "load_template",
+        "kind": 2,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "def load_template(template_name: str) -> Optional[str]:\n    \"\"\"Load a template file from the templates directory.\n    Args:\n        template_name: Name of the template file (e.g., 'error.html')\n    Returns:\n        Template content as string, or None if not found.\n    \"\"\"\n    template_path = TEMPLATES_DIR / template_name\n    try:\n        if template_path.exists():",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "get_template_for_status",
+        "kind": 2,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "def get_template_for_status(status: str) -> str:\n    \"\"\"Get the appropriate template for a given status.\n    Args:\n        status: OneDrive status string (e.g., 'AUTH_REQUIRED', 'ERROR')\n    Returns:\n        Template content as string.\n    \"\"\"\n    template_name = STATUS_TEMPLATES.get(status.upper(), FALLBACK_TEMPLATE)\n    template = load_template(template_name)\n    if template is None:",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "kind": 2,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "def render_template(\n    status: str,\n    account: str = \"\",\n    timestamp: str = None,\n    message: str = \"\",\n    outage_start: str = None,\n    outage_end: str = None,\n    duration: str = \"\",\n    **extra_vars\n) -> str:",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_status_notification",
+        "kind": 2,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "def render_status_notification(\n    status: str,\n    account: str,\n    timestamp: str = None,\n    message: str = \"\"\n) -> str:\n    \"\"\"Render a notification template for a status change.\n    Args:\n        status: The new OneDrive status\n        account: Account email",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_resolution_notification",
+        "kind": 2,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "def render_resolution_notification(\n    account: str,\n    outage_start: str,\n    outage_end: str,\n    duration: str = \"\"\n) -> str:\n    \"\"\"Render a resolution notification template.\n    Args:\n        account: Account email\n        outage_start: When the outage started",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "list_available_templates",
+        "kind": 2,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "def list_available_templates() -> list[str]:\n    \"\"\"List all available template files.\n    Returns:\n        List of template filenames.\n    \"\"\"\n    if not TEMPLATES_DIR.exists():\n        return []\n    return [f.name for f in TEMPLATES_DIR.glob(\"*.html\")]\ndef _get_fallback_template() -> str:\n    \"\"\"Return a basic fallback template when no file template is available.\"\"\"",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Templates directory\nTEMPLATES_DIR = Path(__file__).parent / \"templates\"\n# Template mapping by status\nSTATUS_TEMPLATES = {\n    \"AUTH_REQUIRED\": \"auth_required.html\",\n    \"ERROR\": \"error.html\",\n    \"NOT_RUNNING\": \"not_running.html\",\n    \"PAUSED\": \"paused.html\",\n    \"SYNCING\": \"syncing.html\",",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES_DIR",
+        "kind": 5,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "TEMPLATES_DIR = Path(__file__).parent / \"templates\"\n# Template mapping by status\nSTATUS_TEMPLATES = {\n    \"AUTH_REQUIRED\": \"auth_required.html\",\n    \"ERROR\": \"error.html\",\n    \"NOT_RUNNING\": \"not_running.html\",\n    \"PAUSED\": \"paused.html\",\n    \"SYNCING\": \"syncing.html\",\n    \"OK\": \"ok.html\",\n    \"NOT_FOUND\": \"not_found.html\",",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "STATUS_TEMPLATES",
+        "kind": 5,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "STATUS_TEMPLATES = {\n    \"AUTH_REQUIRED\": \"auth_required.html\",\n    \"ERROR\": \"error.html\",\n    \"NOT_RUNNING\": \"not_running.html\",\n    \"PAUSED\": \"paused.html\",\n    \"SYNCING\": \"syncing.html\",\n    \"OK\": \"ok.html\",\n    \"NOT_FOUND\": \"not_found.html\",\n    \"UNKNOWN\": \"unknown.html\",\n    \"RESOLVED\": \"resolved.html\",",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "FALLBACK_TEMPLATE",
+        "kind": 5,
+        "importPath": "src.shared.templates",
+        "description": "src.shared.templates",
+        "peekOfCode": "FALLBACK_TEMPLATE = \"unknown.html\"\ndef load_template(template_name: str) -> Optional[str]:\n    \"\"\"Load a template file from the templates directory.\n    Args:\n        template_name: Name of the template file (e.g., 'error.html')\n    Returns:\n        Template content as string, or None if not found.\n    \"\"\"\n    template_path = TEMPLATES_DIR / template_name\n    try:",
+        "detail": "src.shared.templates",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def cli() -> None:\n    \"\"\"CLI entry point for the package.\n    Usage:\n        uv run onedrive_monitor           # Run both monitor and dashboard\n        uv run onedrive_monitor monitor   # Run only the monitor\n        uv run onedrive_monitor dashboard # Run only the dashboard (with reload)\n    \"\"\"\n    parser = argparse.ArgumentParser(\n        prog=\"onedrive_monitor\",\n        description=\"OneDrive Business Monitor - Monitor and Dashboard\",",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "project_root = Path(__file__).resolve().parents[1]\nif str(project_root) not in sys.path:\n    sys.path.insert(0, str(project_root))\n# Force UTF-8 for stdout/stderr on Windows\nif os.name == \"nt\":\n    sys.stdout.reconfigure(encoding='utf-8')\n    sys.stderr.reconfigure(encoding='utf-8')\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nasync def run_monitor_async() -> None:\n    \"\"\"Run the monitor in a thread to not block the event loop.\"\"\"\n    from src.monitor.main import run_monitor\n    logger.info(\"🔍 Starting OneDrive Monitor...\")\n    try:\n        # Run the blocking monitor loop in a thread\n        await asyncio.to_thread(run_monitor)\n    except Exception as e:\n        logger.error(f\"Monitor error: {e}\")",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "dump_columns",
+        "kind": 2,
+        "importPath": "debug_columns",
+        "description": "debug_columns",
+        "peekOfCode": "def dump_columns():\n    path = r\"C:\\Users\\hansbuddenberg\\OneDrive - tipartner\"\n    name = \".monitor_canary\"\n    if not os.path.exists(os.path.join(path, name)):\n        print(\"Canary file not found!\")\n        return\n    shell = win32com.client.Dispatch(\"Shell.Application\")\n    folder = shell.Namespace(path)\n    item = folder.ParseName(name)\n    print(f\"--- Details for {name} ---\")",
+        "detail": "debug_columns",
+        "documentation": {}
+    },
+    {
+        "label": "found",
+        "kind": 5,
+        "importPath": "debug_processes",
+        "description": "debug_processes",
+        "peekOfCode": "found = False\nfor proc in psutil.process_iter(['pid', 'name', 'cmdline']):\n    try:\n        if proc.info['name'] and 'onedrive' in proc.info['name'].lower():\n            print(f\"PID: {proc.info['pid']}\")\n            print(f\"Name: {proc.info['name']}\")\n            print(f\"CmdLine: {proc.info['cmdline']}\")\n            print(\"-\" * 20)\n            found = True\n    except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):",
+        "detail": "debug_processes",
+        "documentation": {}
+    },
+    {
+        "label": "dump_registry",
+        "kind": 2,
+        "importPath": "debug_registry",
+        "description": "debug_registry",
+        "peekOfCode": "def dump_registry():\n    path = r\"Software\\Microsoft\\OneDrive\\Accounts\"\n    print(f\"Opening {path}...\")\n    try:\n        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, path) as key:\n            info = winreg.QueryInfoKey(key)\n            print(f\"Found {info[0]} subkeys.\")\n            for i in range(info[0]):\n                subkey_name = winreg.EnumKey(key, i)\n                print(f\"\\n--- Subkey: {subkey_name} ---\")",
+        "detail": "debug_registry",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "debug_registry",
+        "description": "debug_registry",
+        "peekOfCode": "logger = logging.getLogger(\"RegistryDebug\")\ndef dump_registry():\n    path = r\"Software\\Microsoft\\OneDrive\\Accounts\"\n    print(f\"Opening {path}...\")\n    try:\n        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, path) as key:\n            info = winreg.QueryInfoKey(key)\n            print(f\"Found {info[0]} subkeys.\")\n            for i in range(info[0]):\n                subkey_name = winreg.EnumKey(key, i)",
+        "detail": "debug_registry",
+        "documentation": {}
+    },
+    {
+        "label": "list_tray_icons",
+        "kind": 2,
+        "importPath": "debug_tray",
+        "description": "debug_tray",
+        "peekOfCode": "def list_tray_icons():\n    \"\"\"List all icons in the system tray with legacy accessible properties.\"\"\"\n    desktop = Desktop(backend=\"uia\")\n    output_lines = []\n    output_lines.append(\"=\" * 60)\n    output_lines.append(\"SYSTEM TRAY ICON EXPLORER (LEGACY)\")\n    output_lines.append(\"=\" * 60)\n    try:\n        taskbar = desktop.window(class_name=\"Shell_TrayWnd\")\n        output_lines.append(\"\\n=== All OneDrive elements in taskbar ===\")",
+        "detail": "debug_tray",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "dummy_auth_window",
+        "description": "dummy_auth_window",
+        "peekOfCode": "def main():\n    root = tk.Tk()\n    root.title(\"Microsoft OneDrive - Iniciar sesión\")\n    root.geometry(\"400x300\")\n    label = tk.Label(root, text=\"Dummy Auth Window\\nWaiting for focus...\", font=(\"Arial\", 14))\n    label.pack(expand=True)\n    # Bring to back initially\n    root.iconify()\n    root.update()\n    time.sleep(1)",
+        "detail": "dummy_auth_window",
+        "documentation": {}
+    },
+    {
+        "label": "list_files",
+        "kind": 2,
+        "importPath": "list_config_files",
+        "description": "list_config_files",
+        "peekOfCode": "def list_files():\n    local_app_data = os.environ.get(\"LOCALAPPDATA\")\n    if not local_app_data:\n        print(\"LOCALAPPDATA not found\")\n        return\n    base_path = Path(local_app_data) / \"Microsoft\" / \"OneDrive\"\n    output_lines = []\n    output_lines.append(\"ONEDRIVE FILE DISCOVERY\")\n    output_lines.append(\"=\" * 60)\n    # 1. Scan Settings",
+        "detail": "list_config_files",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    print(\"Hello from onedrive-monitor!\")\nif __name__ == \"__main__\":\n    main()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "refresh_icon",
+        "kind": 2,
+        "importPath": "refresh_tray",
+        "description": "refresh_tray",
+        "peekOfCode": "def refresh_icon():\n    desktop = Desktop(backend=\"uia\")\n    taskbar = desktop.window(class_name=\"Shell_TrayWnd\")\n    print(\"Searching for OneDrive icon...\", file=sys.stderr)\n    found = False\n    for ctrl in taskbar.descendants():\n        try:\n            name = ctrl.window_text()\n            if name and \"onedrive\" in name.lower() and \"tipartner\" in name.lower():\n                print(f\"Found icon: {name}\", file=sys.stderr)",
+        "detail": "refresh_tray",
+        "documentation": {}
+    },
+    {
+        "label": "print_header",
+        "kind": 2,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "def print_header(title: str) -> None:\n    print(f\"\\n{'=' * 60}\")\n    print(f\"  {title}\")\n    print(f\"{'=' * 60}\")\ndef print_status(emoji: str, status: str, message: str) -> None:\n    print(f\"  {emoji} {status}: {message}\")\ndef send_template_email(status: str, notifier: Notifier, config) -> bool:\n    \"\"\"Envía un email de prueba para un status específico.\"\"\"\n    data = TEST_DATA.get(status)\n    if not data:",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "print_status",
+        "kind": 2,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "def print_status(emoji: str, status: str, message: str) -> None:\n    print(f\"  {emoji} {status}: {message}\")\ndef send_template_email(status: str, notifier: Notifier, config) -> bool:\n    \"\"\"Envía un email de prueba para un status específico.\"\"\"\n    data = TEST_DATA.get(status)\n    if not data:\n        print(f\"  ❌ Status '{status}' no encontrado en TEST_DATA\")\n        return False\n    account = config.target.email\n    timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "send_template_email",
+        "kind": 2,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "def send_template_email(status: str, notifier: Notifier, config) -> bool:\n    \"\"\"Envía un email de prueba para un status específico.\"\"\"\n    data = TEST_DATA.get(status)\n    if not data:\n        print(f\"  ❌ Status '{status}' no encontrado en TEST_DATA\")\n        return False\n    account = config.target.email\n    timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    print(f\"\\n  📧 Enviando: {data['emoji']} {status}\")\n    print(f\"     Descripción: {data['description']}\")",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "preview_template",
+        "kind": 2,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "def preview_template(status: str, config) -> None:\n    \"\"\"Muestra un preview del template sin enviar.\"\"\"\n    data = TEST_DATA.get(status)\n    if not data:\n        print(f\"  ❌ Status '{status}' no encontrado\")\n        return\n    account = config.target.email\n    timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    print(f\"\\n  {data['emoji']} {status}\")\n    print(f\"     Template: {STATUS_TEMPLATES.get(status, 'N/A')}\")",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        description=\"Test completo de los 9 templates de email\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n    )\n    parser.add_argument(\n        \"--preview\", \"-p\",\n        action=\"store_true\",\n        help=\"Solo mostrar preview sin enviar emails\"\n    )",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "project_root = Path(__file__).resolve().parent\nif str(project_root) not in sys.path:\n    sys.path.insert(0, str(project_root))\nfrom src.shared.config import get_config\nfrom src.shared.notifier import Notifier\nfrom src.shared.templates import (\n    render_status_notification,\n    render_resolution_notification,\n    STATUS_TEMPLATES,\n)",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "TEST_DATA",
+        "kind": 5,
+        "importPath": "test_all_templates",
+        "description": "test_all_templates",
+        "peekOfCode": "TEST_DATA = {\n    \"AUTH_REQUIRED\": {\n        \"emoji\": \"🔐\",\n        \"description\": \"Autenticación Requerida\",\n        \"message\": \"OneDrive requiere que inicie sesión nuevamente para continuar sincronizando.\",\n    },\n    \"ERROR\": {\n        \"emoji\": \"❌\",\n        \"description\": \"Error de Sincronización\",\n        \"message\": \"Se detectó un error durante la sincronización. Error: Conexión perdida con el servidor.\",",
+        "detail": "test_all_templates",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_attributes",
+        "kind": 2,
+        "importPath": "test_attrib_monitor",
+        "description": "test_attrib_monitor",
+        "peekOfCode": "def get_file_attributes(path):\n    try:\n        attrs = win32api.GetFileAttributes(path)\n        attr_list = []\n        if attrs & win32con.FILE_ATTRIBUTE_ARCHIVE: attr_list.append(\"ARCHIVE\")\n        if attrs & win32con.FILE_ATTRIBUTE_HIDDEN: attr_list.append(\"HIDDEN\")\n        if attrs & win32con.FILE_ATTRIBUTE_SYSTEM: attr_list.append(\"SYSTEM\")\n        if attrs & win32con.FILE_ATTRIBUTE_READONLY: attr_list.append(\"READONLY\")\n        if attrs & win32con.FILE_ATTRIBUTE_OFFLINE: attr_list.append(\"OFFLINE\")\n        if attrs & win32con.FILE_ATTRIBUTE_TEMPORARY: attr_list.append(\"TEMPORARY\")",
+        "detail": "test_attrib_monitor",
+        "documentation": {}
+    },
+    {
+        "label": "FILE_PATH",
+        "kind": 5,
+        "importPath": "test_attrib_monitor",
+        "description": "test_attrib_monitor",
+        "peekOfCode": "FILE_PATH = r\"C:\\Users\\hansbuddenberg\\OneDrive - tipartner\\.test_attrib_monitor\"\ndef get_file_attributes(path):\n    try:\n        attrs = win32api.GetFileAttributes(path)\n        attr_list = []\n        if attrs & win32con.FILE_ATTRIBUTE_ARCHIVE: attr_list.append(\"ARCHIVE\")\n        if attrs & win32con.FILE_ATTRIBUTE_HIDDEN: attr_list.append(\"HIDDEN\")\n        if attrs & win32con.FILE_ATTRIBUTE_SYSTEM: attr_list.append(\"SYSTEM\")\n        if attrs & win32con.FILE_ATTRIBUTE_READONLY: attr_list.append(\"READONLY\")\n        if attrs & win32con.FILE_ATTRIBUTE_OFFLINE: attr_list.append(\"OFFLINE\")",
+        "detail": "test_attrib_monitor",
+        "documentation": {}
+    },
+    {
+        "label": "start_time",
+        "kind": 5,
+        "importPath": "test_attrib_monitor",
+        "description": "test_attrib_monitor",
+        "peekOfCode": "start_time = time.time()\nwhile time.time() - start_time < 30:\n    print(f\"T+{time.time()-start_time:.1f}s: {get_file_attributes(FILE_PATH)}\")\n    time.sleep(0.5)\nprint(\"Step 2: Deleting file...\")\ntry:\n    os.remove(FILE_PATH)\n    print(\"Deleted.\")\nexcept Exception as e:\n    print(f\"Delete failed: {e}\")",
+        "detail": "test_attrib_monitor",
+        "documentation": {}
+    },
+    {
+        "label": "test_email",
+        "kind": 2,
+        "importPath": "test_email",
+        "description": "test_email",
+        "peekOfCode": "def test_email():\n    print(\"Loading configuration...\")\n    try:\n        config = get_config()\n        email_conf = config.notifications.channels.email\n        print(f\"SMTP Server: {email_conf.smtp_server}:{email_conf.smtp_port}\")\n        print(f\"Sender: {email_conf.sender_email}\")\n        print(f\"To: {email_conf.to_email}\")\n        print(f\"CC: {email_conf.cc_email}\")\n        print(f\"BCC: {email_conf.bcc_email}\")",
+        "detail": "test_email",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_email",
+        "description": "test_email",
+        "peekOfCode": "logger = logging.getLogger(\"test_email\")\ndef test_email():\n    print(\"Loading configuration...\")\n    try:\n        config = get_config()\n        email_conf = config.notifications.channels.email\n        print(f\"SMTP Server: {email_conf.smtp_server}:{email_conf.smtp_port}\")\n        print(f\"Sender: {email_conf.sender_email}\")\n        print(f\"To: {email_conf.to_email}\")\n        print(f\"CC: {email_conf.cc_email}\")",
+        "detail": "test_email",
+        "documentation": {}
+    },
+    {
+        "label": "print_header",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def print_header(title: str) -> None:\n    \"\"\"Imprime encabezado de sección.\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(f\"  {title}\")\n    print(\"=\" * 60)\ndef print_result(success: bool, message: str) -> None:\n    \"\"\"Imprime resultado de prueba.\"\"\"\n    icon = \"✅\" if success else \"❌\"\n    print(f\"{icon} {message}\")\ndef get_notifier() -> Notifier:",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "print_result",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def print_result(success: bool, message: str) -> None:\n    \"\"\"Imprime resultado de prueba.\"\"\"\n    icon = \"✅\" if success else \"❌\"\n    print(f\"{icon} {message}\")\ndef get_notifier() -> Notifier:\n    \"\"\"Obtiene instancia de Notifier sin cooldown para pruebas.\"\"\"\n    notifier = Notifier()\n    # Bypass cooldown para pruebas\n    notifier._last_notification_time = None\n    return notifier",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "get_notifier",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def get_notifier() -> Notifier:\n    \"\"\"Obtiene instancia de Notifier sin cooldown para pruebas.\"\"\"\n    notifier = Notifier()\n    # Bypass cooldown para pruebas\n    notifier._last_notification_time = None\n    return notifier\ndef test_startup_notification() -> bool:\n    \"\"\"\n    Prueba 1: Email al iniciar el monitor.\n    Simula el envío de un email de estado inicial cuando el monitor arranca.",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "test_startup_notification",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def test_startup_notification() -> bool:\n    \"\"\"\n    Prueba 1: Email al iniciar el monitor.\n    Simula el envío de un email de estado inicial cuando el monitor arranca.\n    Debería enviar el estado actual (puede ser OK o cualquier otro).\n    \"\"\"\n    print_header(\"PRUEBA 1: Notificación de Inicio\")\n    config = get_config()\n    notifier = get_notifier()\n    # Simular estado inicial al arranque",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "test_error_notification",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def test_error_notification(status: str = \"AUTH_REQUIRED\") -> bool:\n    \"\"\"\n    Prueba 2: Email cuando ocurre un estado NO OK.\n    Simula la detección de un problema con OneDrive y el envío\n    de la notificación de error correspondiente.\n    \"\"\"\n    print_header(f\"PRUEBA 2: Notificación de Error ({status})\")\n    config = get_config()\n    notifier = get_notifier()\n    account = config.target.email",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "test_resolution_notification",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def test_resolution_notification() -> bool:\n    \"\"\"\n    Prueba 3: Email cuando se resuelve el problema (vuelve a OK).\n    Simula que OneDrive volvió a funcionar correctamente después\n    de un período de error.\n    \"\"\"\n    print_header(\"PRUEBA 3: Notificación de Resolución\")\n    config = get_config()\n    notifier = get_notifier()\n    account = config.target.email",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "test_full_cycle",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def test_full_cycle() -> bool:\n    \"\"\"\n    Prueba de ciclo completo: Inicio -> Error -> Resolución.\n    Simula un ciclo completo de vida del monitor:\n    1. El monitor inicia\n    2. Se detecta un error\n    3. El error se resuelve\n    Incluye pequeñas pausas para simular el paso del tiempo.\n    \"\"\"\n    print_header(\"PRUEBA COMPLETA: Ciclo Inicio → Error → Resolución\")",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "test_all_error_states",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def test_all_error_states() -> bool:\n    \"\"\"\n    Prueba todos los estados de error posibles.\n    \"\"\"\n    print_header(\"PRUEBA: Todos los Estados de Error\")\n    error_states = [\"AUTH_REQUIRED\", \"ERROR\", \"NOT_RUNNING\", \"PAUSED\"]\n    results = []\n    for status in error_states:\n        print(f\"\\n--- Probando {status} ---\")\n        success = test_error_notification(status)",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "show_config",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def show_config() -> None:\n    \"\"\"Muestra la configuración actual de notificaciones.\"\"\"\n    print_header(\"CONFIGURACIÓN ACTUAL\")\n    config = get_config()\n    print(f\"  Email Habilitado: {config.notifications.channels.email.enabled}\")\n    print(f\"  Servidor SMTP: {config.notifications.channels.email.smtp_server}\")\n    print(f\"  Puerto SMTP: {config.notifications.channels.email.smtp_port}\")\n    print(f\"  Remitente: {config.notifications.channels.email.sender_email}\")\n    print(f\"  Destinatario: {config.notifications.channels.email.to_email}\")\n    print(f\"  Cuenta Monitoreada: {config.target.email}\")",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        description=\"Test de escenarios de envío de correo electrónico\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        epilog=\"\"\"\nEjemplos:\n  python test_email_scenarios.py startup      # Email de inicio\n  python test_email_scenarios.py error        # Email de error (AUTH_REQUIRED)\n  python test_email_scenarios.py resolution   # Email de resolución\n  python test_email_scenarios.py full         # Ciclo completo",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": "test_email_scenarios",
+        "description": "test_email_scenarios",
+        "peekOfCode": "project_root = Path(__file__).resolve().parent\nif str(project_root) not in sys.path:\n    sys.path.insert(0, str(project_root))\nfrom src.shared.config import get_config\nfrom src.shared.notifier import Notifier\nfrom src.shared.schemas import OneDriveStatus\ndef print_header(title: str) -> None:\n    \"\"\"Imprime encabezado de sección.\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(f\"  {title}\")",
+        "detail": "test_email_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "Colors",
+        "kind": 6,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "class Colors:\n    RED = '\\033[91m'\n    GREEN = '\\033[92m'\n    YELLOW = '\\033[93m'\n    BLUE = '\\033[94m'\n    CYAN = '\\033[96m'\n    BOLD = '\\033[1m'\n    END = '\\033[0m'\ndef print_header(title: str) -> None:\n    \"\"\"Imprime encabezado de sección.\"\"\"",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_header",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_header(title: str) -> None:\n    \"\"\"Imprime encabezado de sección.\"\"\"\n    print(f\"\\n{Colors.CYAN}{'=' * 60}{Colors.END}\")\n    print(f\"{Colors.BOLD}  {title}{Colors.END}\")\n    print(f\"{Colors.CYAN}{'=' * 60}{Colors.END}\")\ndef print_status(status: str, detail: str, process_running: bool) -> None:\n    \"\"\"Imprime el estado actual con colores.\"\"\"\n    status_colors = {\n        \"OK\": Colors.GREEN,\n        \"SYNCING\": Colors.BLUE,",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_status",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_status(status: str, detail: str, process_running: bool) -> None:\n    \"\"\"Imprime el estado actual con colores.\"\"\"\n    status_colors = {\n        \"OK\": Colors.GREEN,\n        \"SYNCING\": Colors.BLUE,\n        \"PAUSED\": Colors.YELLOW,\n        \"AUTH_REQUIRED\": Colors.RED,\n        \"ERROR\": Colors.RED,\n        \"NOT_RUNNING\": Colors.RED,\n        \"NOT_FOUND\": Colors.YELLOW,",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_step",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_step(step: int, total: int, message: str) -> None:\n    \"\"\"Imprime paso actual.\"\"\"\n    print(f\"\\n{Colors.YELLOW}[{step}/{total}] {message}{Colors.END}\")\ndef print_success(message: str) -> None:\n    \"\"\"Imprime mensaje de éxito.\"\"\"\n    print(f\"{Colors.GREEN}✅ {message}{Colors.END}\")\ndef print_error(message: str) -> None:\n    \"\"\"Imprime mensaje de error.\"\"\"\n    print(f\"{Colors.RED}❌ {message}{Colors.END}\")\ndef print_warning(message: str) -> None:",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_success",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_success(message: str) -> None:\n    \"\"\"Imprime mensaje de éxito.\"\"\"\n    print(f\"{Colors.GREEN}✅ {message}{Colors.END}\")\ndef print_error(message: str) -> None:\n    \"\"\"Imprime mensaje de error.\"\"\"\n    print(f\"{Colors.RED}❌ {message}{Colors.END}\")\ndef print_warning(message: str) -> None:\n    \"\"\"Imprime advertencia.\"\"\"\n    print(f\"{Colors.YELLOW}⚠️  {message}{Colors.END}\")\ndef print_info(message: str) -> None:",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_error",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_error(message: str) -> None:\n    \"\"\"Imprime mensaje de error.\"\"\"\n    print(f\"{Colors.RED}❌ {message}{Colors.END}\")\ndef print_warning(message: str) -> None:\n    \"\"\"Imprime advertencia.\"\"\"\n    print(f\"{Colors.YELLOW}⚠️  {message}{Colors.END}\")\ndef print_info(message: str) -> None:\n    \"\"\"Imprime información.\"\"\"\n    print(f\"{Colors.BLUE}ℹ️  {message}{Colors.END}\")\ndef get_current_status() -> tuple:",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_warning",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_warning(message: str) -> None:\n    \"\"\"Imprime advertencia.\"\"\"\n    print(f\"{Colors.YELLOW}⚠️  {message}{Colors.END}\")\ndef print_info(message: str) -> None:\n    \"\"\"Imprime información.\"\"\"\n    print(f\"{Colors.BLUE}ℹ️  {message}{Colors.END}\")\ndef get_current_status() -> tuple:\n    \"\"\"Obtiene el estado actual de OneDrive usando el checker.\"\"\"\n    checker = OneDriveChecker()\n    status, process_running, detail = checker.get_full_status()",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_info",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def print_info(message: str) -> None:\n    \"\"\"Imprime información.\"\"\"\n    print(f\"{Colors.BLUE}ℹ️  {message}{Colors.END}\")\ndef get_current_status() -> tuple:\n    \"\"\"Obtiene el estado actual de OneDrive usando el checker.\"\"\"\n    checker = OneDriveChecker()\n    status, process_running, detail = checker.get_full_status()\n    return status.value, detail, process_running\ndef read_status_file() -> dict:\n    \"\"\"Lee el archivo status.json del monitor.\"\"\"",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_status",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def get_current_status() -> tuple:\n    \"\"\"Obtiene el estado actual de OneDrive usando el checker.\"\"\"\n    checker = OneDriveChecker()\n    status, process_running, detail = checker.get_full_status()\n    return status.value, detail, process_running\ndef read_status_file() -> dict:\n    \"\"\"Lee el archivo status.json del monitor.\"\"\"\n    status_path = Path(\"status.json\")\n    if status_path.exists():\n        try:",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "read_status_file",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def read_status_file() -> dict:\n    \"\"\"Lee el archivo status.json del monitor.\"\"\"\n    status_path = Path(\"status.json\")\n    if status_path.exists():\n        try:\n            return json.loads(status_path.read_text(encoding=\"utf-8\"))\n        except Exception:\n            return {}\n    return {}\ndef wait_for_status(expected_status: str, timeout: int = 60, check_interval: int = 5) -> bool:",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "wait_for_status",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def wait_for_status(expected_status: str, timeout: int = 60, check_interval: int = 5) -> bool:\n    \"\"\"\n    Espera hasta que el monitor detecte el estado esperado.\n    Args:\n        expected_status: Estado esperado (OK, NOT_RUNNING, etc.)\n        timeout: Tiempo máximo de espera en segundos\n        check_interval: Intervalo entre verificaciones\n    Returns:\n        True si se detectó el estado, False si timeout\n    \"\"\"",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "find_onedrive_exe",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def find_onedrive_exe() -> Path:\n    \"\"\"Encuentra la ruta del ejecutable de OneDrive.\"\"\"\n    paths = [\n        Path(os.environ.get(\"LOCALAPPDATA\", \"\")) / \"Microsoft/OneDrive/OneDrive.exe\",\n        Path(\"C:/Program Files/Microsoft OneDrive/OneDrive.exe\"),\n        Path(\"C:/Program Files (x86)/Microsoft OneDrive/OneDrive.exe\"),\n    ]\n    for p in paths:\n        if p.exists():\n            return p",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "kill_onedrive",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def kill_onedrive() -> bool:\n    \"\"\"Mata el proceso OneDrive.exe.\"\"\"\n    print_header(\"MATANDO PROCESO ONEDRIVE\")\n    try:\n        result = subprocess.run(\n            [\"taskkill\", \"/F\", \"/IM\", \"OneDrive.exe\"],\n            capture_output=True,\n            text=True,\n            creationflags=subprocess.CREATE_NO_WINDOW\n        )",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "start_onedrive",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def start_onedrive() -> bool:\n    \"\"\"Inicia OneDrive.exe.\"\"\"\n    print_header(\"INICIANDO ONEDRIVE\")\n    exe_path = find_onedrive_exe()\n    if not exe_path:\n        print_error(\"No se encontró OneDrive.exe\")\n        return False\n    print_info(f\"Ejecutable: {exe_path}\")\n    try:\n        subprocess.Popen(",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "pause_onedrive",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def pause_onedrive() -> bool:\n    \"\"\"\n    Pausa la sincronización de OneDrive.\n    Nota: OneDrive no tiene API pública para pausar.\n    Usamos PowerShell para simular click en el menú del sistema.\n    \"\"\"\n    print_header(\"PAUSANDO SINCRONIZACIÓN\")\n    # Método 1: Crear archivo grande para forzar sync largo\n    # Método 2: Usar AutoHotkey/PowerShell para click en tray\n    # Método 3: Modificar registry (riesgoso)",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "resume_onedrive",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def resume_onedrive() -> bool:\n    \"\"\"\n    Reanuda la sincronización de OneDrive.\n    \"\"\"\n    print_header(\"REANUDANDO SINCRONIZACIÓN\")\n    print_info(\"Opciones para reanudar OneDrive:\")\n    print(\"  1. Click derecho en icono de OneDrive en bandeja del sistema\")\n    print(\"  2. Seleccionar 'Reanudar sincronización'\")\n    print()\n    # Si OneDrive no está corriendo, iniciarlo",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "monitor_status",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def monitor_status(duration: int = 60) -> None:\n    \"\"\"\n    Monitorea el estado de OneDrive sin modificar nada.\n    Args:\n        duration: Duración del monitoreo en segundos\n    \"\"\"\n    print_header(\"MONITOREANDO ESTADO DE ONEDRIVE\")\n    print_info(f\"Monitoreando por {duration} segundos (Ctrl+C para detener)\")\n    print()\n    start_time = time.time()",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "test_kill_and_detect",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def test_kill_and_detect() -> bool:\n    \"\"\"\n    Test: Mata OneDrive y verifica que el monitor detecte NOT_RUNNING.\n    \"\"\"\n    print_header(\"TEST: KILL → NOT_RUNNING\")\n    # Paso 1: Verificar estado inicial\n    print_step(1, 3, \"Verificando estado inicial...\")\n    status, detail, process = get_current_status()\n    print_status(status, detail, process)\n    if not process:",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "test_restart_and_detect",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def test_restart_and_detect() -> bool:\n    \"\"\"\n    Test: Reinicia OneDrive y verifica que vuelva a OK.\n    \"\"\"\n    print_header(\"TEST: RESTART → OK\")\n    # Paso 1: Verificar que esté detenido\n    print_step(1, 3, \"Verificando estado actual...\")\n    status, detail, process = get_current_status()\n    print_status(status, detail, process)\n    # Paso 2: Iniciar OneDrive",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "test_full_cycle",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def test_full_cycle() -> bool:\n    \"\"\"\n    Test de ciclo completo:\n    1. Kill → NOT_RUNNING\n    2. Restart → OK\n    3. (Opcional) Pause → PAUSED\n    4. (Opcional) Resume → OK\n    \"\"\"\n    print_header(\"🔄 TEST DE CICLO COMPLETO\")\n    print()",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "show_status_file",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def show_status_file() -> None:\n    \"\"\"Muestra el contenido del archivo status.json.\"\"\"\n    print_header(\"ARCHIVO STATUS.JSON\")\n    status = read_status_file()\n    if status:\n        print(json.dumps(status, indent=2, ensure_ascii=False))\n    else:\n        print_warning(\"Archivo status.json no encontrado o vacío\")\ndef main():\n    parser = argparse.ArgumentParser(",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        description=\"Test de Integración - Simulación de Estados de OneDrive\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        epilog=\"\"\"\nEjemplos:\n  python test_integration.py monitor      # Solo monitorear (no modifica nada)\n  python test_integration.py kill         # Mata OneDrive\n  python test_integration.py restart      # Reinicia OneDrive\n  python test_integration.py cycle        # Ciclo completo de pruebas",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": "test_integration",
+        "description": "test_integration",
+        "peekOfCode": "project_root = Path(__file__).resolve().parent\nif str(project_root) not in sys.path:\n    sys.path.insert(0, str(project_root))\nfrom src.monitor.checker import OneDriveChecker\nfrom src.shared.config import get_config\n# Colores para terminal\nclass Colors:\n    RED = '\\033[91m'\n    GREEN = '\\033[92m'\n    YELLOW = '\\033[93m'",
+        "detail": "test_integration",
+        "documentation": {}
+    },
+    {
+        "label": "print_config",
+        "kind": 2,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "def print_config():\n    \"\"\"Print current notification configuration.\"\"\"\n    config = get_config()\n    notif = config.notifications\n    print(\"\\n\" + \"=\" * 60)\n    print(\"NOTIFICATION CONFIGURATION\")\n    print(\"=\" * 60)\n    print(f\"  Enabled:          {notif.enabled}\")\n    print(f\"  Cooldown:         {notif.cooldown_minutes} minutes\")\n    print(f\"  Account:          {config.target.email}\")",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "preview_templates",
+        "kind": 2,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "def preview_templates():\n    \"\"\"Preview all HTML templates in browser without sending emails.\"\"\"\n    print(\"\\n[PREVIEW] Opening HTML templates in browser...\")\n    account = get_config().target.email\n    now = datetime.now()\n    start_time = (now - timedelta(hours=2, minutes=15)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    end_time = now.strftime(\"%Y-%m-%d %H:%M:%S\")\n    # List all templates and render them\n    templates_to_preview = [\n        (\"AUTH_REQUIRED\", {\"timestamp\": start_time, \"account\": account}),",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "test_status_notification",
+        "kind": 2,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "def test_status_notification(status: str):\n    \"\"\"Test sending a notification for a specific status.\"\"\"\n    print(f\"\\n[TEST] Sending {status} notification...\")\n    notifier = Notifier()\n    notifier._last_notification_time = None  # Bypass cooldown\n    start_time = (datetime.now() - timedelta(minutes=5)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    notifier.send_status_notification(\n        status=status, timestamp=start_time, message=f\"Notificación de prueba para estado {status}.\"\n    )\n    print(f\"[TEST] {status} notification sent (check your inbox).\")",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "test_resolution_notification",
+        "kind": 2,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "def test_resolution_notification():\n    \"\"\"Test sending a resolution notification.\"\"\"\n    print(\"\\n[TEST] Sending RESOLUTION notification...\")\n    notifier = Notifier()\n    notifier._last_notification_time = None  # Bypass cooldown\n    start_time = (datetime.now() - timedelta(hours=1, minutes=30)).strftime(\"%Y-%m-%d %H:%M:%S\")\n    end_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    notifier.send_resolution_notification(start_time, end_time)\n    print(\"[TEST] Resolution notification sent (check your inbox).\")\ndef test_direct_email():",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "test_direct_email",
+        "kind": 2,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "def test_direct_email():\n    \"\"\"Test sending email directly without cooldown checks.\"\"\"\n    print(\"\\n[TEST] Sending direct email (bypassing notify())...\")\n    notifier = Notifier()\n    html = render_template(\n        status=\"AUTH_REQUIRED\",\n        timestamp=datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\"),\n        account=get_config().target.email,\n    )\n    success = notifier._send_email(subject=\"Direct Email Test\", body=html, is_html=True)",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        description=\"Test notification system\", formatter_class=argparse.RawDescriptionHelpFormatter, epilog=__doc__\n    )\n    parser.add_argument(\n        \"test_type\",\n        nargs=\"?\",\n        default=\"preview\",\n        choices=[\n            \"preview\",",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "project_root",
+        "kind": 5,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "project_root = Path(__file__).resolve().parent\nif str(project_root) not in sys.path:\n    sys.path.insert(0, str(project_root))\nfrom src.shared.config import get_config\nfrom src.shared.notifier import Notifier\nfrom src.shared.templates import render_template, STATUS_TEMPLATES, TEMPLATES_DIR\n# Configure logging\nlogging.basicConfig(\n    level=logging.DEBUG,\n    format=\"%(asctime)s - %(name)s - %(levelname)s - %(message)s\",",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_notifications",
+        "description": "test_notifications",
+        "peekOfCode": "logger = logging.getLogger(\"test_notifications\")\ndef print_config():\n    \"\"\"Print current notification configuration.\"\"\"\n    config = get_config()\n    notif = config.notifications\n    print(\"\\n\" + \"=\" * 60)\n    print(\"NOTIFICATION CONFIGURATION\")\n    print(\"=\" * 60)\n    print(f\"  Enabled:          {notif.enabled}\")\n    print(f\"  Cooldown:         {notif.cooldown_minutes} minutes\")",
+        "detail": "test_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "test_paused",
+        "kind": 2,
+        "importPath": "test_scenarios",
+        "description": "test_scenarios",
+        "peekOfCode": "def test_paused():\n    print(\"\\n--- Testing PAUSED Remediation ---\")\n    r = RemediationAction()\n    r.REQUIRED_PERSISTENCE = 0\n    # 1. Register State\n    r.act(OneDriveStatus.PAUSED)\n    print(\"Registered PAUSED state.\")\n    # 2. Simulate 3 hours passing\n    r.status_first_seen = datetime.now() - timedelta(hours=3)\n    # 3. Trigger",
+        "detail": "test_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "test_auth",
+        "kind": 2,
+        "importPath": "test_scenarios",
+        "description": "test_scenarios",
+        "peekOfCode": "def test_auth():\n    print(\"\\n--- Testing AUTH_REQUIRED Remediation ---\")\n    print(\"Ensure 'dummy_auth_window.py' is running!\")\n    r = RemediationAction()\n    r.REQUIRED_PERSISTENCE = 0\n    # 1. Register State\n    r.act(OneDriveStatus.AUTH_REQUIRED)\n    # 2. Trigger\n    res = r.act(OneDriveStatus.AUTH_REQUIRED)\n    print(f\"Result (Should be True if window found): {res}\")",
+        "detail": "test_scenarios",
+        "documentation": {}
+    },
+    {
+        "label": "ONEDRIVE_PATH",
+        "kind": 5,
+        "importPath": "test_shell_com",
+        "description": "test_shell_com",
+        "peekOfCode": "ONEDRIVE_PATH = r\"C:\\Users\\hansbuddenberg\\OneDrive - tipartner\"\nOUTPUT_FILE = \"shell_status_test.txt\"\n# Columnas que parecen relevantes para estado de sync\nRELEVANT_COLS = [7, 8, 148, 149, 305, 306]\nwith open(OUTPUT_FILE, \"w\", encoding=\"utf-8\") as f:\n    shell = win32com.client.Dispatch(\"Shell.Application\")\n    namespace = shell.Namespace(ONEDRIVE_PATH)\n    f.write(\"=== COLUMNAS RELEVANTES PARA ESTADO ===\\n\\n\")\n    # Mostrar nombres de columnas\n    f.write(\"Nombres de columnas:\\n\")",
+        "detail": "test_shell_com",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_FILE",
+        "kind": 5,
+        "importPath": "test_shell_com",
+        "description": "test_shell_com",
+        "peekOfCode": "OUTPUT_FILE = \"shell_status_test.txt\"\n# Columnas que parecen relevantes para estado de sync\nRELEVANT_COLS = [7, 8, 148, 149, 305, 306]\nwith open(OUTPUT_FILE, \"w\", encoding=\"utf-8\") as f:\n    shell = win32com.client.Dispatch(\"Shell.Application\")\n    namespace = shell.Namespace(ONEDRIVE_PATH)\n    f.write(\"=== COLUMNAS RELEVANTES PARA ESTADO ===\\n\\n\")\n    # Mostrar nombres de columnas\n    f.write(\"Nombres de columnas:\\n\")\n    for col in RELEVANT_COLS:",
+        "detail": "test_shell_com",
+        "documentation": {}
+    },
+    {
+        "label": "RELEVANT_COLS",
+        "kind": 5,
+        "importPath": "test_shell_com",
+        "description": "test_shell_com",
+        "peekOfCode": "RELEVANT_COLS = [7, 8, 148, 149, 305, 306]\nwith open(OUTPUT_FILE, \"w\", encoding=\"utf-8\") as f:\n    shell = win32com.client.Dispatch(\"Shell.Application\")\n    namespace = shell.Namespace(ONEDRIVE_PATH)\n    f.write(\"=== COLUMNAS RELEVANTES PARA ESTADO ===\\n\\n\")\n    # Mostrar nombres de columnas\n    f.write(\"Nombres de columnas:\\n\")\n    for col in RELEVANT_COLS:\n        col_name = namespace.GetDetailsOf(None, col)\n        f.write(f\"  Col {col}: {col_name}\\n\")",
+        "detail": "test_shell_com",
+        "documentation": {}
+    },
+    {
+        "label": "watch_log",
+        "kind": 2,
+        "importPath": "watch_log",
+        "description": "watch_log",
+        "peekOfCode": "def watch_log():\n    if not LOG_PATH.exists():\n        print(f\"Log not found: {LOG_PATH}\")\n        return\n    print(f\"Watching {LOG_PATH}\")\n    print(\"Toggle OneDrive Pause/Resume to see if this updates...\")\n    print(\"-\" * 60)\n    last_mtime = 0\n    while True:\n        try:",
+        "detail": "watch_log",
+        "documentation": {}
+    },
+    {
+        "label": "LOG_PATH",
+        "kind": 5,
+        "importPath": "watch_log",
+        "description": "watch_log",
+        "peekOfCode": "LOG_PATH = Path(r\"C:\\Users\\hansbuddenberg\\AppData\\Local\\Microsoft\\OneDrive\\logs\\Business1\\SyncDiagnostics.log\")\ndef watch_log():\n    if not LOG_PATH.exists():\n        print(f\"Log not found: {LOG_PATH}\")\n        return\n    print(f\"Watching {LOG_PATH}\")\n    print(\"Toggle OneDrive Pause/Resume to see if this updates...\")\n    print(\"-\" * 60)\n    last_mtime = 0\n    while True:",
+        "detail": "watch_log",
+        "documentation": {}
+    },
+    {
+        "label": "get_registry_state",
+        "kind": 2,
+        "importPath": "watch_registry_change",
+        "description": "watch_registry_change",
+        "peekOfCode": "def get_registry_state():\n    state = {}\n    path = r\"Software\\Microsoft\\OneDrive\\Accounts\"\n    try:\n        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, path) as key:\n            info = winreg.QueryInfoKey(key)\n            for i in range(info[0]):\n                subkey_name = winreg.EnumKey(key, i)\n                state[subkey_name] = {}\n                sub_path = f\"{path}\\\\{subkey_name}\"",
+        "detail": "watch_registry_change",
+        "documentation": {}
+    },
+    {
+        "label": "diff_states",
+        "kind": 2,
+        "importPath": "watch_registry_change",
+        "description": "watch_registry_change",
+        "peekOfCode": "def diff_states(old, new):\n    changes = []\n    # Check for new or modified keys/values\n    for key, val in new.items():\n        if key not in old:\n            changes.append(f\"New Account Subkey: {key}\")\n        else:\n            for sub_k, sub_v in val.items():\n                if sub_k not in old[key]:\n                    changes.append(f\"New Value in {key}: {sub_k} = {sub_v}\")",
+        "detail": "watch_registry_change",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "watch_registry_change",
+        "description": "watch_registry_change",
+        "peekOfCode": "def main():\n    logger.info(\"Starting Registry Watcher for OneDrive Accounts...\")\n    initial_state = get_registry_state()\n    logger.info(f\"Initial state captured. Monitoring {len(initial_state)} accounts.\")\n    while True:\n        try:\n            current_state = get_registry_state()\n            changes = diff_states(initial_state, current_state)\n            if changes:\n                logger.info(\"!\" * 20)",
+        "detail": "watch_registry_change",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "watch_registry_change",
+        "description": "watch_registry_change",
+        "peekOfCode": "logger = logging.getLogger(\"RegistryWatcher\")\ndef get_registry_state():\n    state = {}\n    path = r\"Software\\Microsoft\\OneDrive\\Accounts\"\n    try:\n        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, path) as key:\n            info = winreg.QueryInfoKey(key)\n            for i in range(info[0]):\n                subkey_name = winreg.EnumKey(key, i)\n                state[subkey_name] = {}",
+        "detail": "watch_registry_change",
+        "documentation": {}
+    }
+]

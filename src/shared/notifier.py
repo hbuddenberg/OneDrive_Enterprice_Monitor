@@ -1,3 +1,48 @@
+# --- Lógica de notificación centralizada (tabla del usuario) ---
+INCIDENT_STATES = {"NOT_RUNNING", "ERROR", "PAUSED", "AUTH_REQUIRED", "NOT_FOUND"}
+SYNCING_STATE = "SYNCING"
+OK_STATE = "OK"
+
+
+# Devuelve una lista de (enviar, tipo) para soportar transiciones múltiples (ej: INCIDENTE->SYNCING debe enviar RESOLVED y luego SYNCING)
+def get_notification_action(prev, curr, is_first_run):
+    # No notificar si SYNCING -> SYNCING
+    if prev == SYNCING_STATE and curr == SYNCING_STATE:
+        return (False, None)
+    actions = []
+    # 1. Siempre que el estado actual sea INCIDENTE, enviar INCIDENTE
+    if curr == "INCIDENTE" or (curr in INCIDENT_STATES and (prev is None or prev not in INCIDENT_STATES)):
+        actions.append((True, "INCIDENTE"))
+        return actions[0] if len(actions) == 1 else actions
+
+    # 3. INCIDENTE -> SYNCING: enviar RESOLVED y luego SYNCING
+    if (prev == "INCIDENTE" or prev in INCIDENT_STATES) and curr == SYNCING_STATE:
+        actions.append((True, "RESOLVED"))
+        actions.append((True, "SYNCING"))
+        return actions
+
+    # 2. INCIDENTE -> OK: enviar RESOLVED
+    if (prev == "INCIDENTE" or prev in INCIDENT_STATES) and curr == OK_STATE:
+        actions.append((True, "RESOLVED"))
+        return actions[0] if len(actions) == 1 else actions
+
+    # 4. OK -> SYNCING: enviar SYNCING
+    # 4. OK -> SYNCING: evitar notificar inmediatamente para reducir flapping.
+    #    Dejar que la rama de persistencia en `remediator` envíe la notificación
+    #    después de que el estado se mantenga el tiempo configurado.
+
+    # 5. SYNCING -> OK: enviar OK
+    if prev == SYNCING_STATE and curr == OK_STATE:
+        actions.append((True, "OK"))
+        return actions[0]
+
+    # 6. Primer arranque en OK
+    if is_first_run and curr == OK_STATE:
+        actions.append((True, "OK"))
+        return actions[0]
+
+    # 7. OK -> OK, RESOLVED -> OK, OK -> RESOLVED: no enviar
+    return (False, None)
 """Notification module for OneDrive Monitor.
 
 Sends notifications via email, Teams, and Slack when status changes occur.
@@ -27,10 +72,15 @@ class Notifier:
 
     def _in_cooldown(self) -> bool:
         """Check if we're still in notification cooldown period."""
+        cooldown_minutes = self.config.cooldown_minutes
+        
+        # Si cooldown es 0, nunca hay cooldown
+        if cooldown_minutes <= 0:
+            return False
+            
         if self._last_notification_time is None:
             return False
         
-        cooldown_minutes = self.config.cooldown_minutes
         cooldown_ends = self._last_notification_time + timedelta(minutes=cooldown_minutes)
         
         if datetime.now() < cooldown_ends:

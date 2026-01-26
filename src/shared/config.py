@@ -24,6 +24,10 @@ class MonitorConfig(BaseModel):
     active_check_timeout_seconds: int = 20
     log_path: str = "C:\\Users\\hansbuddenberg\\AppData\\Local\\Microsoft\\OneDrive\\logs\\Business1\\SyncDiagnostics.log"
     canary_file: str = ".monitor_canary"
+    # If true, the monitor will fully restart OneDrive.exe on startup to avoid ghost states
+    restart_on_startup: bool = False
+    # How many seconds to wait after restarting OneDrive before proceeding
+    restart_wait_seconds: int = 10
 
 
 class SmtpConfig(BaseModel):

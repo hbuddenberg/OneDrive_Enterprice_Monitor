@@ -1,3 +1,8 @@
+from src.shared.notifier import get_notification_action
+# Ejemplo de uso en dashboard: función para decidir si mostrar banner especial o log de transición
+def should_show_notification(prev, curr, is_first_run):
+    notify, tipo = get_notification_action(prev, curr, is_first_run)
+    return notify, tipo
 """OneDrive Business Monitor Dashboard - Aplicación FastAPI."""
 
 import json

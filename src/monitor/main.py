@@ -18,6 +18,8 @@ from src.monitor.alerter import Alerter
 from src.monitor.checker import OneDriveChecker
 from src.shared.config import get_config
 from src.shared.schemas import OneDriveStatus, StatusReport
+import subprocess
+import shlex
 
 # Configure logging
 # Force UTF-8 for stdout/stderr to handle emojis on Windows
@@ -94,6 +96,46 @@ def run_monitor() -> None:
     from src.shared.database import init_db, log_status, get_outage_start_time
     init_db()
     
+    # Reiniciar OneDrive si está habilitado en configuración para evitar estados fantasma
+    if config.monitor.restart_on_startup:
+        logger.info("Restart on startup enabled: restarting OneDrive.exe to avoid ghost states...")
+        try:
+            # Kill any running OneDrive processes
+            subprocess.run(shlex.split("taskkill /F /IM OneDrive.exe"), check=False)
+        except Exception as e:
+            logger.warning(f"Failed to kill OneDrive.exe: {e}")
+
+        # Try to start OneDrive from common locations
+        candidates = [
+            os.path.join(os.environ.get('LOCALAPPDATA', ''), 'Microsoft', 'OneDrive', 'OneDrive.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES', ''), 'Microsoft OneDrive', 'OneDrive.exe'),
+            os.path.join(os.environ.get('PROGRAMFILES(X86)', ''), 'Microsoft OneDrive', 'OneDrive.exe')
+        ]
+        started = False
+        for candidate in candidates:
+            if candidate and os.path.exists(candidate):
+                try:
+                    subprocess.Popen([candidate], shell=False)
+                    logger.info(f"Started OneDrive from {candidate}")
+                    started = True
+                    break
+                except Exception as e:
+                    logger.warning(f"Failed to start OneDrive from {candidate}: {e}")
+
+        if not started:
+            # Fallback: rely on 'start' shell command
+            try:
+                subprocess.run(shlex.split("start OneDrive"), shell=True)
+                logger.info("Started OneDrive using shell 'start' command")
+                started = True
+            except Exception as e:
+                logger.warning(f"Fallback start failed: {e}")
+
+        # Wait configurable seconds for OneDrive to spin up
+        wait_secs = config.monitor.restart_wait_seconds if hasattr(config.monitor, 'restart_wait_seconds') else 10
+        logger.info(f"Waiting {wait_secs}s for OneDrive to initialize...")
+        time.sleep(wait_secs)
+
     # Obtener estado inicial REAL antes de inicializar
     logger.info("Obteniendo estado inicial...")
     initial_status, initial_process_running, initial_detail = checker.get_full_status()

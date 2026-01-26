@@ -5,19 +5,21 @@ target:
   folder: "C:\\Users\\hansbuddenberg\\OneDrive - tipartner"  # Icon title: "OneDrive - tipartner"
 
 # Monitor settings
-  monitor:
-    check_interval_seconds: 15
-    status_file: "./status.json"
-    active_check_enabled: true
-    active_check_interval_seconds: 30
-    active_check_timeout_seconds: 20
-    log_path: "C:\\Users\\hansbuddenberg\\AppData\\Local\\Microsoft\\OneDrive\\logs\\Business1\\SyncDiagnostics.log"
-    canary_file: ".monitor_canary"
+monitor:
+  check_interval_seconds: 15
+  status_file: "./status.json"
+  active_check_enabled: true
+  active_check_interval_seconds: 30
+  active_check_timeout_seconds: 20
+  log_path: "C:\\Users\\hansbuddenberg\\AppData\\Local\\Microsoft\\OneDrive\\logs\\Business1\\SyncDiagnostics.log"
+  canary_file: ".monitor_canary"
+  restart_on_startup: true
+  restart_wait_seconds: 10
 
 # Notifications (Multi-channel)
 notifications:
   enabled: true
-  cooldown_minutes: 60
+  cooldown_minutes: 0  # 0 = sin cooldown (para pruebas), 60 = producción
   failed_remediation_delay_seconds: 120  # Time to wait after restart before notifying failure
   channels:
     email:
@@ -38,7 +40,7 @@ notifications:
 
 # Alerting (Legacy - see notifications)
 alerting:
-  enabled: false
+  enabled: true
 
 # Dashboard settings
 dashboard:

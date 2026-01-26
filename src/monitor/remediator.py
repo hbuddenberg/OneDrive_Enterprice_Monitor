@@ -1,3 +1,16 @@
+
+
+import logging
+import subprocess
+import time
+import os
+from pathlib import Path
+from datetime import datetime, timedelta
+from typing import Optional
+from src.shared.schemas import OneDriveStatus
+from src.shared.notifier import Notifier
+
+from src.shared.notifier import get_notification_action
 import logging
 import subprocess
 import time
@@ -23,8 +36,16 @@ class RemediationAction:
         # Persistence tracking
         self.last_status: Optional[OneDriveStatus] = None
         self.status_first_seen: Optional[datetime] = None
-        # How long a bad status must persist before we act (to avoid flapping)
-        self.REQUIRED_PERSISTENCE = 30 # seconds
+        # How long a bad status must persist before we act (per-state configuration)
+        self.PERSISTENCE_BY_STATUS = {
+            OneDriveStatus.NOT_RUNNING: 10,      # 10 seconds - critical, notify fast
+            OneDriveStatus.AUTH_REQUIRED: 60,    # 60 seconds - needs user action
+            OneDriveStatus.PAUSED: 90,           # 90 seconds - may auto-resume
+            OneDriveStatus.ERROR: 30,            # 30 seconds
+            OneDriveStatus.SYNCING: 30,          # 30 seconds - transient state
+            OneDriveStatus.NOT_FOUND: 30,        # 30 seconds
+        }
+        self.DEFAULT_PERSISTENCE = 30  # Default for unlisted states
 
         # Notification Logic
         self.notifier = Notifier()
@@ -35,26 +56,71 @@ class RemediationAction:
     def act(self, status: OneDriveStatus, outage_start_time: Optional[datetime] = None) -> bool:
         """Attempt to fix the current status if critical. Returns True if action taken."""
         now = datetime.now()
-        
-        # 1. Update Persistence Tracker & Immediate Notifications
-        if status != self.last_status:
-            # Check for resolution (state changed to OK)
-            if status == OneDriveStatus.OK:
-                # Solo enviar RESOLVED si hubo un incidente previo (no en el primer arranque)
-                if self.notification_sent_for_incident and not self.is_first_run:
-                    outage_str = outage_start_time.strftime("%Y-%m-%d %H:%M:%S") if outage_start_time else "Unknown"
-                    now_str = now.strftime("%Y-%m-%d %H:%M:%S")
-                    try:
-                        self.notifier.send_resolution_notification(outage_str, now_str)
-                        logger.info("RESOLUTION: Sent resolution notification immediately.")
-                    except Exception as e:
-                        logger.error(f"Failed to send resolution notification: {e}")
-                    self.notification_sent_for_incident = False
-                self.reset_counters()
 
-            # Check for NEW critical state
-            # (We wait for persistence in Step 2 to notify)
-            pass
+        # DEBUG: log current persistence tracking state for diagnosis
+        logger.debug(f"ACT: now={now.isoformat()} | last_status={self.last_status} | status_first_seen={self.status_first_seen} | notification_sent={self.notification_sent_for_incident} | is_first_run={self.is_first_run}")
+
+        # 1. Update Persistence Tracker & Immediate Notifications
+        if status != self.last_status or self.is_first_run:
+            prev = self.last_status.name if self.last_status else None
+            curr = status.name
+            # Si ambos estados son SYNCING, no hacer nada
+            if prev == "SYNCING" and curr == "SYNCING":
+                logger.info("STATE: SYNCING -> SYNCING | No se envía notificación ni se actualizan flags.")
+                return
+            notify, tipo = get_notification_action(prev, curr, self.is_first_run)
+            logger.info(f"STATE CHANGE: {prev} -> {curr} | is_first_run={self.is_first_run} | notification_sent={self.notification_sent_for_incident} | notify={notify} tipo={tipo}")
+
+            # Definir time_in_state para los mensajes
+            if hasattr(self, 'status_first_seen') and self.status_first_seen:
+                time_in_state = (now - self.status_first_seen).total_seconds()
+            else:
+                time_in_state = 0
+
+            if outage_start_time:
+                timestamp_str = outage_start_time.strftime("%Y-%m-%d %H:%M:%S")
+            elif self.status_first_seen:
+                timestamp_str = self.status_first_seen.strftime("%Y-%m-%d %H:%M:%S")
+            else:
+                timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
+
+            if notify:
+                try:
+                    if tipo == "RESOLVED":
+                        self.notifier.send_resolution_notification(timestamp_str, now.strftime("%Y-%m-%d %H:%M:%S"))
+                        logger.info("RESOLVED: Sent resolution notification immediately.")
+                        self.notification_sent_for_incident = False
+                    elif tipo == "INCIDENTE":
+                        self.notifier.send_status_notification(
+                            status=status.value,
+                            timestamp=timestamp_str,
+                            message=f"Estado persistente detectado despues de {time_in_state:.0f}s"
+                        )
+                        logger.info(f"INCIDENTE: Sent notification for {status.value} after persistence ({time_in_state:.1f}s).")
+                        self.notification_sent_for_incident = True
+                        self.is_first_run = False
+                    elif tipo == "SYNCING":
+                        self.notifier.send_status_notification(
+                            status=status.value,
+                            timestamp=timestamp_str,
+                            message=f"Sincronizando archivos despues de {time_in_state:.0f}s"
+                        )
+                        logger.info(f"SYNCING: Sent notification for {status.value} after persistence ({time_in_state:.1f}s).")
+                        # Marcar como notificado para evitar que la rama de persistencia
+                        # vuelva a enviar otra notificación SYNCING más tarde.
+                        self.notification_sent_for_incident = True
+                        self.is_first_run = False
+                    elif tipo == "OK":
+                        self.notifier.send_status_notification(
+                            status="OK",
+                            timestamp=timestamp_str,
+                            message="Sistema funcionando correctamente"
+                        )
+                        logger.info(f"OK: Sent OK notification after persistence ({time_in_state:.1f}s).")
+                        self.notification_sent_for_incident = False
+                        self.is_first_run = False
+                except Exception as e:
+                    logger.error(f"Failed to send status notification: {e}")
 
             self.last_status = status
             
@@ -82,9 +148,11 @@ class RemediationAction:
             
             return False
             
-        # 2. Check Duration
+        # 2. Check Duration (per-state persistence time)
         time_in_state = (now - self.status_first_seen).total_seconds()
-        if time_in_state < self.REQUIRED_PERSISTENCE:
+        required_persistence = self.PERSISTENCE_BY_STATUS.get(status, self.DEFAULT_PERSISTENCE)
+        logger.debug(f"PERSISTENCE CHECK: status={status} | time_in_state={time_in_state:.1f}s | required={required_persistence}s | notified={self.notification_sent_for_incident}")
+        if time_in_state < required_persistence:
             return False
 
         # PERSISTENCE REACHED - Status is confirmed
@@ -95,7 +163,7 @@ class RemediationAction:
             try:
                 if status == OneDriveStatus.OK:
                     if self.is_first_run:
-                        # Primer arranque con OK → enviar ok.html
+                        # Primer arranque con OK: enviar ok.html
                         self.notifier.send_status_notification(
                             status="OK",
                             timestamp=timestamp_str,
@@ -105,7 +173,7 @@ class RemediationAction:
                         self.is_first_run = False
                     # Si no es first_run y está OK, no enviamos nada (RESOLVED se envía en cambio de estado)
                 else:
-                    # Estado no-OK → enviar template correspondiente
+                    # Estado no-OK o SYNCING: enviar template correspondiente
                     self.notifier.send_status_notification(
                         status=status.value,
                         timestamp=timestamp_str,
