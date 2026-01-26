@@ -196,3 +196,60 @@ MIT License - Ver [LICENSE](LICENSE)
 ## 👤 Autor
 
 Hans Buddenberg - [@hbuddenberg](https://github.com/hbuddenberg)
+
+---
+
+## 🚦 Plug & Play (Multiplataforma, sin uv)
+
+1. **Crea el entorno virtual:**
+   ```
+   python -m venv .venv
+   ```
+2. **Activa el entorno virtual:**
+   - **Windows:**
+     ```
+     .venv\Scripts\activate
+     ```
+   - **Linux/Mac:**
+     ```
+     source .venv/bin/activate
+     ```
+3. **Instala dependencias:**
+   ```
+   pip install -r requirements.txt
+   ```
+4. **Ejecuta el monitor, dashboard o limpieza:**
+   - **Windows:**
+     - Haz doble clic en `run_monitor.bat` o ejecuta:
+       ```
+       run_monitor.bat monitor
+       run_monitor.bat dashboard
+       run_monitor.bat clean
+       ```
+   - **Linux/Mac:**
+     ```
+     ./run_monitor.sh monitor
+     ./run_monitor.sh dashboard
+     ./run_monitor.sh clean
+     ```
+
+---
+
+## Comandos útiles (manual)
+
+- **Solo monitor:**
+  ```
+  python -m src.main monitor
+  ```
+- **Solo dashboard:**
+  ```
+  python -m src.main dashboard
+  ```
+- **Limpiar base de datos y estado:**
+  ```
+  python -m src.main clean
+  ```
+
+---
+
+¡Listo para usar en cualquier máquina con Python instalado! No necesitas instalar nada globalmente ni usar uv.
