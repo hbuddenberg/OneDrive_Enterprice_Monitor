@@ -1,3 +1,36 @@
+def get_monthly_incident_count(year: int = None, month: int = None) -> int:
+    """Devuelve el número de incidentes críticos en el mes actual."""
+    from datetime import datetime
+    if year is None or month is None:
+        now = datetime.now()
+        year = now.year
+        month = now.month
+    incident_states = ("NOT_RUNNING", "ERROR", "PAUSED", "AUTH_REQUIRED", "NOT_FOUND")
+    conn = sqlite3.connect(get_db_path())
+    cursor = conn.cursor()
+    # Crear la tabla si no existe
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS status_history (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        status TEXT NOT NULL,
+        message TEXT,
+        is_change BOOLEAN DEFAULT 0
+    )
+    ''')
+    conn.commit()
+    try:
+        cursor.execute('''
+            SELECT COUNT(*) FROM status_history
+            WHERE status IN (?, ?, ?, ?, ?)
+            AND strftime('%Y', timestamp) = ?
+            AND strftime('%m', timestamp) = ?
+        ''', (*incident_states, str(year), f'{month:02d}'))
+        count = cursor.fetchone()[0]
+    except Exception:
+        count = 0
+    conn.close()
+    return count
 import sqlite3
 import os
 from datetime import datetime

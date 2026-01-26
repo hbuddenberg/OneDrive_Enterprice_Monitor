@@ -112,12 +112,16 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        logger.info("Interrupted by user")
-    except Exception as e:
-        logger.error(f"Fatal error: {e}")
+    if len(sys.argv) > 1 and sys.argv[1] == "clean":
+        from src.main_clean import clean_monitor_data
+        clean_monitor_data()
+    else:
+        try:
+            asyncio.run(main())
+        except KeyboardInterrupt:
+            logger.info("Interrupted by user")
+        except Exception as e:
+            logger.error(f"Fatal error: {e}")
         sys.exit(1)
 
 
@@ -136,9 +140,9 @@ def cli() -> None:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["monitor", "dashboard"],
+        choices=["monitor", "dashboard", "clean"],
         default=None,
-        help="Component to run: 'monitor', 'dashboard', or omit for both",
+        help="Component to run: 'monitor', 'dashboard', 'clean', or omit for both",
     )
     parser.add_argument(
         "--port",
@@ -167,7 +171,7 @@ def cli() -> None:
             logger.info("=" * 60)
             from src.monitor.main import run_monitor
             run_monitor()
-            
+
         elif args.command == "dashboard":
             # Run only dashboard with reload by default
             logger.info("=" * 60)
@@ -182,11 +186,16 @@ def cli() -> None:
                 reload=not args.no_reload,
                 log_level="info",
             )
-            
+
+        elif args.command == "clean":
+            from src.main_clean import clean_monitor_data
+            clean_monitor_data()
+            logger.info("Limpieza completada.")
+
         else:
             # Run both (default)
             asyncio.run(main())
-            
+
     except KeyboardInterrupt:
         logger.info("Interrupted by user")
     except Exception as e:

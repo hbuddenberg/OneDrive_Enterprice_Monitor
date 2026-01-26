@@ -126,6 +126,8 @@ async def dashboard(request: Request) -> HTMLResponse:
         except Exception:
             not_sync_display = str(not_sync_raw)
 
+    from src.shared.database import get_monthly_incident_count
+    incident_count = get_monthly_incident_count()
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -185,12 +187,19 @@ async def dashboard(request: Request) -> HTMLResponse:
                 </dl>
             </div>
 
+
             <!-- Gráfico de Actividad -->
             <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
                 <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">📈 Actividad</h3>
                 <div class="relative h-64 w-full">
                     <canvas id="activityChart"></canvas>
                 </div>
+            </div>
+
+            <!-- Bloque de Caídas Mensuales -->
+            <div class="bg-gray-800 rounded-xl p-6 shadow-xl flex flex-col items-center">
+                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2 text-red-400">Caídas este mes</h3>
+                <div class="text-5xl font-bold text-red-300">{incident_count}</div>
             </div>
 
             <!-- Tabla de Historial -->
