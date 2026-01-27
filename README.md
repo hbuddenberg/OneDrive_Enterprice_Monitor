@@ -81,9 +81,6 @@ notifications:
     email:
       enabled: true
       smtp_server: "smtp.gmail.com"
-      smtp_port: 587
-      sender_email: "monitor@gmail.com"
-      sender_password: "app-password"
       to_email: "admin@empresa.com"
 ```
 
@@ -99,48 +96,65 @@ uv run python -m src.monitor.main
 
 ```bash
 uv run python -m src.dashboard.main
-```
 
-Acceder a: http://localhost:8000
+  ## Instalación y uso plug-and-play (con UV local en el venv)
 
-### Ejecutar Ambos
+  1. Crea y activa un entorno virtual:
+    ```sh
+    python -m venv .venv
+    # Windows:
+    .venv\Scripts\activate
+    # Linux/macOS:
+    source .venv/bin/activate
+    ```
 
-```bash
-# Terminal 1 - Monitor
-uv run python -m src.monitor.main
+  2. Instala el proyecto y dependencias (esto instalará también uv localmente):
+    ```sh
+    pip install .
+    # o usando uv si ya lo tienes global:
+    uv pip install .
+    ```
 
-# Terminal 2 - Dashboard
-uv run python -m src.dashboard.main
-```
+  3. Ahora puedes usar el comando `uv` directamente dentro del venv:
+    ```sh
+    uv pip install -r requirements.txt
+    uv pip sync
+    uv pip list
+    # O ejecutar scripts con uv run ...
+    uv run python -m src.main monitor
+    ```
 
-## 📊 Estados Detectados
+  4. Los scripts de ejecución (`run_monitor.bat` y `run_monitor.sh`) detectan automáticamente si hay un uv local en el venv y lo usan para mayor velocidad. Si no está, usan python/pip normalmente.
 
-| Estado | Emoji | Descripción | Notificación |
-|--------|-------|-------------|--------------|
-| OK | ✅ | Sincronizado | Solo al inicio |
-| SYNCING | 🔄 | Sincronizando | Sí |
-| PAUSED | ⏸️ | Pausado por usuario | Sí |
-| ERROR | ❌ | Error de sincronización | Sí + Auto-fix |
-| AUTH_REQUIRED | 🔐 | Re-autenticación necesaria | Sí (Crítico) |
-| NOT_RUNNING | 💀 | OneDrive no ejecutándose | Sí + Auto-fix |
-| NOT_FOUND | 🔍 | Cuenta no encontrada | Sí |
-| UNKNOWN | ❓ | Estado desconocido | Sí |
-| RESOLVED | 🎉 | Problema resuelto | Sí |
+  5. También puedes seguir usando pip/python directamente si lo prefieres:
+    ```sh
+    python -m src.main monitor
+    python -m src.main dashboard
+    python -m src.main clean
+    ```
 
-## 📧 Plantillas de Email
+  ---
 
-Las plantillas HTML están en `src/shared/templates/`:
+  ## Ejecución multiplataforma
 
-- `ok.html` - Estado normal / Monitor iniciado
-- `error.html` - Error de sincronización
-- `auth_required.html` - Autenticación requerida
-- `not_running.html` - OneDrive no ejecutándose
-- `paused.html` - Sincronización pausada
-- `syncing.html` - Sincronización en progreso
-- `not_found.html` - Cuenta no encontrada
-- `unknown.html` - Estado desconocido
-- `resolved.html` - Problema resuelto
+  Los scripts `run_monitor.bat` (Windows) y `run_monitor.sh` (Linux/macOS) permiten ejecutar el monitor, dashboard o limpieza con un solo comando. Detectan y usan uv local si está disponible, o python si no.
 
+  Ejemplo:
+
+  - Windows:
+    ```bat
+    run_monitor.bat monitor
+    run_monitor.bat dashboard
+    run_monitor.bat clean
+    ```
+  - Linux/macOS:
+    ```sh
+    ./run_monitor.sh monitor
+    ./run_monitor.sh dashboard
+    ./run_monitor.sh clean
+    ```
+
+  ---
 ## 🔧 API del Dashboard
 
 | Endpoint | Método | Descripción |

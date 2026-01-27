@@ -13,7 +13,7 @@ import psutil
 import win32api
 import win32con
 
-from src.shared.config import get_config
+from src.shared.config import get_config, is_validation_enabled
 from src.shared.schemas import OneDriveStatus
 
 logger = logging.getLogger(__name__)
@@ -37,6 +37,12 @@ class OneDriveChecker:
 
     def check_process(self) -> bool:
         """Check if the specific OneDrive process for this account is running."""
+        validation_name = "process_check"
+        logger.info("Ejecutando validación: process_check")
+        from src.shared.config import is_validation_enabled
+        if not is_validation_enabled(validation_name):
+            logger.info(f"Validation '{validation_name}' is disabled. Skipping.")
+            return True
         target_is_personal = "personal" in self.config.target.folder.lower()
         
         for proc in psutil.process_iter(["name", "cmdline"]):
@@ -106,6 +112,12 @@ class OneDriveChecker:
 
     def verify_registry_account(self) -> bool:
         """Verify the target account exists in registry."""
+        logger.info("Ejecutando validación: registry_check")
+        validation_name = "registry_check"
+        if not is_validation_enabled(validation_name):
+            logger.info(f"Validation '{validation_name}' is disabled. Skipping.")
+            return True
+
         try:
             accounts_path = r"Software\Microsoft\OneDrive\Accounts"
             with winreg.OpenKey(winreg.HKEY_CURRENT_USER, accounts_path) as accounts_key:
@@ -136,6 +148,12 @@ class OneDriveChecker:
 
     def _check_canary_attributes_changed(self) -> bool:
         """Check if canary file attributes indicate it was processed by OneDrive (ReparsePoint)."""
+        validation_name = "canary_check"
+        logger.info("Ejecutando validación: canary_check")
+        from src.shared.config import is_validation_enabled
+        if not is_validation_enabled(validation_name):
+            logger.info(f"Validation '{validation_name}' is disabled. Skipping.")
+            return False
         if not self.canary_path.exists():
             return False
         try:
@@ -179,6 +197,12 @@ class OneDriveChecker:
             return False
 
     def active_liveness_check(self) -> tuple[OneDriveStatus, str]:
+        validation_name = "liveness_check"
+        logger.info("Ejecutando validación: liveness_check")
+        from src.shared.config import is_validation_enabled
+        if not is_validation_enabled(validation_name):
+            logger.info(f"Validation '{validation_name}' is disabled. Skipping.")
+            return OneDriveStatus.OK, "Validación liveness_check deshabilitada"
         """Perform active liveness check using Canary File + Attributes.
         
         Strategy (Active Polling):
@@ -309,7 +333,12 @@ class OneDriveChecker:
 
     def get_full_status(self) -> tuple[OneDriveStatus, bool, Optional[str]]:
         """Get complete OneDrive status (Headless)."""
-        
+        validation_name = "status_assignment"
+        logger.info("Ejecutando validación: status_assignment")
+        from src.shared.config import is_validation_enabled
+        if not is_validation_enabled(validation_name):
+            logger.info(f"Validation '{validation_name}' is disabled. Skipping.")
+            return OneDriveStatus.OK, True, "Validación status_assignment deshabilitada"
         # 0. Check if account is still configured (Registry Check)
         # This detects if the user has logged out (Registry key removed)
         if not self.verify_registry_account():

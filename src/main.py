@@ -40,11 +40,13 @@ logger = logging.getLogger(__name__)
 async def run_monitor_async() -> None:
     """Run the monitor in a thread to not block the event loop."""
     from src.monitor.main import run_monitor
-    
+    import asyncio
     logger.info("🔍 Starting OneDrive Monitor...")
     try:
-        # Run the blocking monitor loop in a thread
-        await asyncio.to_thread(run_monitor)
+        # Pasar shutdown_event al monitor para cierre limpio
+        loop = asyncio.get_running_loop()
+        shutdown_event = getattr(loop, "_shutdown_event", None)
+        await asyncio.to_thread(run_monitor, shutdown_event)
     except Exception as e:
         logger.error(f"Monitor error: {e}")
         raise
@@ -81,6 +83,9 @@ async def main() -> None:
     
     # Handle graceful shutdown
     shutdown_event = asyncio.Event()
+    # Guardar shutdown_event en el loop para acceso desde run_monitor_async
+    loop = asyncio.get_running_loop()
+    loop._shutdown_event = shutdown_event
     
     def signal_handler():
         logger.info("\n⚠️ Shutdown signal received, stopping services...")
@@ -108,6 +113,21 @@ async def main() -> None:
         logger.error(f"Error running services: {e}")
         raise
     finally:
+        logger.info("Deteniendo procesos hijos de Python levantados por el monitor...")
+        try:
+            import psutil
+            parent = psutil.Process()
+            children = parent.children(recursive=True)
+            for child in children:
+                if child.name().lower().startswith("python"):
+                    logger.info(f"Terminando proceso hijo Python PID={child.pid}")
+                    child.terminate()
+            gone, alive = psutil.wait_procs(children, timeout=5)
+            for p in alive:
+                logger.info(f"Forzando kill a proceso hijo Python PID={p.pid}")
+                p.kill()
+        except Exception as e:
+            logger.warning(f"No se pudo terminar todos los procesos hijos: {e}")
         logger.info("✅ All services stopped")
 
 

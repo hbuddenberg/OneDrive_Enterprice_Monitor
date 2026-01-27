@@ -8,6 +8,7 @@ import time
 import os
 from datetime import datetime
 from pathlib import Path
+import contextlib
 
 # Fix module search path when running script directly
 project_root = Path(__file__).resolve().parents[2]
@@ -22,10 +23,9 @@ import subprocess
 import shlex
 
 # Configure logging
-# Force UTF-8 for stdout/stderr to handle emojis on Windows
-if os.name == "nt":
-    sys.stdout.reconfigure(encoding='utf-8')
-    sys.stderr.reconfigure(encoding='utf-8')
+# Reemplazar el uso incorrecto de reconfigure con una solución alternativa
+sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1)
+sys.stderr = open(sys.stderr.fileno(), mode='w', encoding='utf-8', buffering=1)
 
 # Configure logging
 logging.basicConfig(
@@ -59,15 +59,13 @@ def write_status_atomic(report: StatusReport, path: Path) -> None:
         logger.debug(f"Status written to {path}")
     except Exception as e:
         # Clean up temp file on error
-        try:
+        with contextlib.suppress(FileNotFoundError):
             Path(temp_path).unlink()
-        except Exception:
-            pass
         raise e
 
 
-def run_monitor() -> None:
-    """Run the OneDrive monitor loop."""
+def run_monitor(shutdown_event=None) -> None:
+    """Run the OneDrive monitor loop. Si shutdown_event se pasa, permite cierre limpio."""
     config = get_config()
     checker = OneDriveChecker()
     alerter = Alerter()
@@ -84,13 +82,25 @@ def run_monitor() -> None:
     logger.info(f"Intervalo de Verificación: {interval}s")
     logger.info(f"Archivo de Estado: {status_path.absolute()}")
     logger.info(f"Alertas Habilitadas: {config.alerting.enabled}")
+    # Mostrar el estado de cada validación
+    from src.shared.config import is_validation_enabled
+    logger.info("Validaciones activas:")
+    for v in [
+        "registry_check",
+        "process_check",
+        "log_check",
+        "canary_check",
+        "liveness_check",
+        "status_assignment"
+    ]:
+        logger.info(f"  {v}: {'Enabled' if is_validation_enabled(v) else 'Disabled'}")
     logger.info("=" * 60)
 
     # Verificar que la cuenta existe en el registro
     if checker.verify_registry_account():
-        logger.info("✓ Cuenta verificada en el Registro de Windows")
+        logger.info("Cuenta verificada en el Registro de Windows")
     else:
-        logger.warning("⚠ Cuenta no encontrada en el registro - puede no estar configurada")
+        logger.warning("Cuenta no encontrada en el registro - puede no estar configurada")
 
     # Inicializar BD
     from src.shared.database import init_db, log_status, get_outage_start_time
@@ -99,11 +109,7 @@ def run_monitor() -> None:
     # Reiniciar OneDrive si está habilitado en configuración para evitar estados fantasma
     if config.monitor.restart_on_startup:
         logger.info("Restart on startup enabled: restarting OneDrive.exe to avoid ghost states...")
-        try:
-            # Kill any running OneDrive processes
-            subprocess.run(shlex.split("taskkill /F /IM OneDrive.exe"), check=False)
-        except Exception as e:
-            logger.warning(f"Failed to kill OneDrive.exe: {e}")
+        kill_onedrive_processes()
 
         # Try to start OneDrive from common locations
         candidates = [
@@ -168,6 +174,10 @@ def run_monitor() -> None:
     out_of_sync_since_ts = None
 
     while True:
+        # Si se pasa shutdown_event y está seteado, salir del bucle
+        if shutdown_event is not None and shutdown_event.is_set():
+            logger.info("Monitor: Señal de cierre recibida, saliendo del bucle principal.")
+            break
         try:
             # Get current status
             status, process_running, status_detail = checker.get_full_status()
@@ -212,7 +222,7 @@ def run_monitor() -> None:
             
             if is_change or (current_time - last_db_time > HEARTBEAT_INTERVAL):
                 # Ensure we capture detail if present, or just status value
-                db_msg = status_detail if status_detail else status.value
+                db_msg = status_detail or status.value
                 log_status(status.value, db_msg, is_change)
                 last_db_time = current_time
                 last_db_status = status
@@ -242,15 +252,15 @@ def run_monitor() -> None:
 def _get_status_message(status: OneDriveStatus) -> str:
     """Obtiene mensaje legible para el estado."""
     messages = {
-        OneDriveStatus.OK: "OneDrive está actualizado",
-        OneDriveStatus.SYNCING: "OneDrive está sincronizando archivos",
-        OneDriveStatus.PAUSED: "La sincronización de OneDrive está pausada",
-        OneDriveStatus.AUTH_REQUIRED: "⚠️ ¡OneDrive requiere re-autenticación! Por favor inicie sesión.",
-        OneDriveStatus.ERROR: "❌ OneDrive ha encontrado un error",
-        OneDriveStatus.NOT_RUNNING: "OneDrive.exe no está ejecutándose",
-        OneDriveStatus.NOT_FOUND: "Icono de OneDrive Empresarial no encontrado en la bandeja del sistema",
+        OneDriveStatus.OK: "OK",
+        OneDriveStatus.SYNCING: "Syncing",
+        OneDriveStatus.PAUSED: "Paused",
+        OneDriveStatus.AUTH_REQUIRED: "Authentication Required",
+        OneDriveStatus.ERROR: "Error",
+        OneDriveStatus.NOT_RUNNING: "Not Running",
+        OneDriveStatus.NOT_FOUND: "Not Found",
     }
-    return messages.get(status, "Estado desconocido")
+    return messages.get(status, "Unknown")
 
 
 def _get_status_emoji(status: OneDriveStatus) -> str:
@@ -265,6 +275,15 @@ def _get_status_emoji(status: OneDriveStatus) -> str:
         OneDriveStatus.NOT_FOUND: "🔍",
     }
     return emojis.get(status, "❓")
+
+
+def kill_onedrive_processes():
+    """Mata cualquier proceso de OneDrive en ejecución."""
+    try:
+        # Kill any running OneDrive processes
+        subprocess.run(shlex.split("taskkill /F /IM OneDrive.exe"), check=False)
+    except Exception as e:
+        logger.error(f"Error al matar procesos de OneDrive: {e}")
 
 
 if __name__ == "__main__":

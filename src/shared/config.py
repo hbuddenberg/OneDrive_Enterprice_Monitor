@@ -5,7 +5,11 @@ from typing import Any, Optional
 
 import yaml
 from pydantic import BaseModel
+import logging
 
+# Initialize logger
+logger = logging.getLogger("ValidationLogger")
+logger.setLevel(logging.DEBUG)
 
 class TargetConfig(BaseModel):
     """Target OneDrive account configuration."""
@@ -91,6 +95,17 @@ class NotificationConfig(BaseModel):
     failed_remediation_delay_seconds: int = 300
     channels: NotificationChannels = NotificationChannels()
 
+
+class ValidationsConfig(BaseModel):
+    """Validation toggles - enable/disable specific checks."""
+    registry_check: bool = True
+    process_check: bool = True
+    log_check: bool = True
+    canary_check: bool = True
+    liveness_check: bool = True
+    status_assignment: bool = True
+
+
 class AppConfig(BaseModel):
     """Root application configuration."""
 
@@ -99,6 +114,7 @@ class AppConfig(BaseModel):
     alerting: AlertingConfig = AlertingConfig()
     notifications: NotificationConfig = NotificationConfig()
     dashboard: DashboardConfig = DashboardConfig()
+    validations: ValidationsConfig = ValidationsConfig()
 
 
 
@@ -130,3 +146,21 @@ def get_config() -> AppConfig:
     if _config is None:
         _config = load_config()
     return _config
+
+# Add a method to check if a validation is enabled
+def is_validation_enabled(validation_name: str) -> bool:
+    """Check if a specific validation is enabled in the configuration.
+
+    Args:
+        validation_name: The name of the validation to check.
+
+    Returns:
+        True if the validation is enabled, False otherwise.
+    """
+    config = get_config()
+    # Access the validations model directly using getattr for dynamic field access
+    is_enabled = getattr(config.validations, validation_name, True)
+
+    logger.debug(f"Validation '{validation_name}' enabled: {is_enabled}")
+    return is_enabled
+
