@@ -32,6 +32,8 @@ class MonitorConfig(BaseModel):
     restart_on_startup: bool = False
     # How many seconds to wait after restarting OneDrive before proceeding
     restart_wait_seconds: int = 10
+    # How long SYNCING state must persist before triggering forced restart (0 = disabled)
+    syncing_restart_timeout_seconds: int = 300
 
 
 class SmtpConfig(BaseModel):

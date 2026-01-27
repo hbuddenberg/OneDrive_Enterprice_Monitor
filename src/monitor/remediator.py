@@ -222,10 +222,17 @@ class RemediationAction:
         if self._in_cooldown():
             return False
 
-        # 5. Act - Force Restart for ALL critical states as requested
-        # NOT_RUNNING, AUTH_REQUIRED, PAUSED -> Restart
+        # 5. Act - Force Restart for critical states
+        # NOT_RUNNING, AUTH_REQUIRED, PAUSED -> Restart immediately
         if status in [OneDriveStatus.NOT_RUNNING, OneDriveStatus.AUTH_REQUIRED, OneDriveStatus.PAUSED]:
             return self._force_restart_onedrive(status)
+        
+        # 6. SYNCING for too long -> Force Restart (configurable via syncing_restart_timeout_seconds)
+        syncing_timeout = self.config.monitor.syncing_restart_timeout_seconds
+        if status == OneDriveStatus.SYNCING and syncing_timeout > 0:
+            if time_in_state >= syncing_timeout:
+                logger.warning(f"REMEDIATION: SYNCING state persisted for {time_in_state:.0f}s (timeout: {syncing_timeout}s). Forcing restart.")
+                return self._force_restart_onedrive(status)
             
         return False
 

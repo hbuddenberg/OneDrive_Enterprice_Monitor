@@ -15,6 +15,7 @@ monitor:
   canary_file: ".monitor_canary"
   restart_on_startup: false
   restart_wait_seconds: 10
+  syncing_restart_timeout_seconds: 300  # 5 min en SYNCING -> forzar reinicio (0 = deshabilitado)
 
 # Notifications (Multi-channel)
 notifications:
