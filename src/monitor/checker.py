@@ -315,7 +315,8 @@ class OneDriveChecker:
                          # "Pending" status just means OneDrive is busy - NOT auth required
                          # Only report PAUSED if truly stalled, otherwise keep as SYNCING
                          if "pendiente" in ps_lower or "pending" in ps_lower:
-                             logger.info(f"Verificación Activa: Archivo en 'Pendiente' por {age:.0f}s. OneDrive ocupado.")
+                             only_canary = self.is_only_canary_syncing()
+                             logger.info(f"Verificación Activa: Archivo en 'Pendiente' por {age:.0f}s. OneDrive ocupado. Solo canary: {only_canary}")
                              return OneDriveStatus.SYNCING, f"Sincronizando (Pendiente {age:.0f}s)"
                          
                          return OneDriveStatus.PAUSED, f"Estancado (Sincronizando > {SYNC_TIMEOUT}s)"
