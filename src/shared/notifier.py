@@ -31,9 +31,9 @@ def get_notification_action(prev, curr, is_first_run):
     #    Dejar que la rama de persistencia en `remediator` envíe la notificación
     #    después de que el estado se mantenga el tiempo configurado.
 
-    # 5. SYNCING -> OK: enviar OK
+    # 5. SYNCING -> OK: enviar RESOLVED (SYNCING prolongado se considera incidente)
     if prev == SYNCING_STATE and curr == OK_STATE:
-        actions.append((True, "OK"))
+        actions.append((True, "RESOLVED"))
         return actions[0]
 
     # 6. Primer arranque en OK
