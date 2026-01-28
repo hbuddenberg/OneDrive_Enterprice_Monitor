@@ -42,7 +42,7 @@ class RemediationAction:
             OneDriveStatus.AUTH_REQUIRED: 60,    # 60 seconds - needs user action
             OneDriveStatus.PAUSED: 90,           # 90 seconds - may auto-resume
             OneDriveStatus.ERROR: 30,            # 30 seconds
-            OneDriveStatus.SYNCING: 30,          # 30 seconds - transient state
+            OneDriveStatus.SYNCING: 45,          # 45 seconds (3 ciclos) - transient state
             OneDriveStatus.NOT_FOUND: 30,        # 30 seconds
         }
         self.DEFAULT_PERSISTENCE = 30  # Default for unlisted states
