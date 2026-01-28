@@ -382,22 +382,32 @@ class OneDriveChecker:
                     logger.debug(f"Error reading SyncDiagnostics.log: {e}")
             
             # Method 2: Check for credential windows using simple PowerShell
-            ps_script = """
+            # Use the configured target title for more precise matching
+            from src.shared.config import get_config
+            config = get_config()
+            target_title = config.target.title if hasattr(config.target, 'title') else 'OneDrive'
+            
+            ps_script = f"""
 $procs = Get-Process -Name OneDrive -ErrorAction SilentlyContinue
-foreach ($proc in $procs) {
+foreach ($proc in $procs) {{
     $title = $proc.MainWindowTitle
-    if ($title -and ($title -match 'Sign in|Iniciar ses|Contrase|Password|credential|credencial|vuelve a escribir')) {
+    # Check for auth-related keywords in OneDrive windows
+    if ($title -and ($title -match 'Sign in|Iniciar ses|Contrase|Password|credential|credencial|vuelve a escribir')) {{
         Write-Output "AUTH_WINDOW:$title"
-    }
-}
+    }}
+    # Also check if the configured OneDrive title has auth keywords
+    if ($title -match '{target_title}' -and ($title -match 'Sign in|credential|credencial|vuelve')) {{
+        Write-Output "ONEDRIVE_AUTH:$title"
+    }}
+}}
 
 # Check for specific Microsoft account login windows (not general Microsoft apps)
-$loginProcs = Get-Process | Where-Object { 
+$loginProcs = Get-Process | Where-Object {{ 
     $_.MainWindowTitle -match 'Sign in to your account|Iniciar sesi.n en su cuenta|cuenta de Microsoft|Microsoft account'
-}
-foreach ($lp in $loginProcs) {
+}}
+foreach ($lp in $loginProcs) {{
     Write-Output "LOGIN_WINDOW:$($lp.MainWindowTitle)"
-}
+}}
 """
             
             result = subprocess.run(
