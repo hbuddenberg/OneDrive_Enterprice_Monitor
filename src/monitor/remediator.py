@@ -115,13 +115,19 @@ class RemediationAction:
                         self.notification_sent_for_incident = True
                         self.is_first_run = False
                     elif tipo == "SYNCING":
-                        self.notifier.send_status_notification(
-                            status=status.value,
-                            timestamp=timestamp_str,
-                            message=f"Sincronizando archivos despues de {time_in_state:.0f}s"
-                        )
-                        logger.info(f"SYNCING: Sent notification for {status.value} after persistence ({time_in_state:.1f}s).")
-                        self.notification_sent_for_incident = True
+                        # Check if only canary is syncing - suppress notification if so
+                        from src.monitor.checker import OneDriveChecker
+                        checker = OneDriveChecker()
+                        if checker.is_only_canary_syncing():
+                            logger.info("SYNCING: Suppressed notification - only canary file is syncing")
+                        else:
+                            self.notifier.send_status_notification(
+                                status=status.value,
+                                timestamp=timestamp_str,
+                                message=f"Sincronizando archivos despues de {time_in_state:.0f}s"
+                            )
+                            logger.info(f"SYNCING: Sent notification for {status.value} after persistence ({time_in_state:.1f}s).")
+                            self.notification_sent_for_incident = True
                         self.is_first_run = False
                     elif tipo == "OK":
                         # Solo enviar OK si es primer arranque

@@ -110,6 +110,47 @@ class OneDriveChecker:
             logger.error(f"Error checking PowerShell status: {e}")
             return None
 
+    def is_only_canary_syncing(self) -> bool:
+        """Check if only the canary file is syncing (to suppress SYNCING notifications).
+        
+        Reads SyncDiagnostics.log to check FilesToUpload count.
+        If FilesToUpload <= 1 and canary is pending, assume it's just the canary.
+        """
+        try:
+            log_path = self.log_path
+            if not log_path.exists():
+                return False
+            
+            # Read last 10KB of the log to find FilesToUpload
+            with open(log_path, 'r', encoding='utf-8', errors='ignore') as f:
+                f.seek(0, 2)
+                file_size = f.tell()
+                read_size = min(file_size, 10000)
+                f.seek(max(0, file_size - read_size))
+                content = f.read()
+            
+            # Parse FilesToUpload from log
+            files_to_upload = 0
+            for line in content.split('\n'):
+                if 'FilesToUpload' in line and '=' in line:
+                    try:
+                        value = line.split('=')[1].strip()
+                        files_to_upload = int(value)
+                    except (ValueError, IndexError):
+                        pass
+            
+            # If only 0 or 1 file is pending upload, it's likely just the canary
+            if files_to_upload <= 1:
+                logger.debug(f"Only {files_to_upload} file(s) to upload - likely just canary")
+                return True
+            else:
+                logger.debug(f"{files_to_upload} files to upload - real sync in progress")
+                return False
+                
+        except Exception as e:
+            logger.debug(f"Error checking sync file count: {e}")
+            return False
+
     def verify_registry_account(self) -> bool:
         """Verify the target account exists in registry."""
         logger.info("Ejecutando validación: registry_check")
