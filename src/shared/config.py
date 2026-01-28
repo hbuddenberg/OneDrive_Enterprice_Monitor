@@ -106,6 +106,7 @@ class ValidationsConfig(BaseModel):
     canary_check: bool = True
     liveness_check: bool = True
     status_assignment: bool = True
+    tray_auth_check: bool = True  # Check for auth required messages in system tray
 
 
 class AppConfig(BaseModel):

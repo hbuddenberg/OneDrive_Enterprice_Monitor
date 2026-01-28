@@ -56,3 +56,4 @@ validations:
   canary_check: true
   liveness_check: true
   status_assignment: true
+  tray_auth_check: true  # Detectar mensajes de credenciales en bandeja del sistema
