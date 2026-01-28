@@ -282,7 +282,7 @@ class OneDriveChecker:
                      if self.check_auth_window():
                          return OneDriveStatus.AUTH_REQUIRED, "Autenticación Requerida (Ventana Detectada)"
                      
-                     return OneDriveStatus.OK, status_detail
+                     return OneDriveStatus.SYNCING, status_detail
 
                 # 3. Check for explicit AVAILABLE (Local but Synced)
                 available_keywords = ["disponible", "available", "ok", "listo", "ready"]
