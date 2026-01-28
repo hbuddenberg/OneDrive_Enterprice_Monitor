@@ -2,7 +2,8 @@
 # Target account to monitor (MUST match tray icon title)
 target:
   email: "hansbuddenberg@tipartner.com"
-  folder: "C:\\Users\\hansbuddenberg\\OneDrive - tipartner"  # Icon title: "OneDrive - tipartner"
+  folder: "C:\\Users\\hansbuddenberg\\OneDrive - tipartner"
+  title: "OneDrive - tipartner"
 
 # Monitor settings
 monitor:

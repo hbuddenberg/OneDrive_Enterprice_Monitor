@@ -386,13 +386,15 @@ class OneDriveChecker:
 $procs = Get-Process -Name OneDrive -ErrorAction SilentlyContinue
 foreach ($proc in $procs) {
     $title = $proc.MainWindowTitle
-    if ($title -and ($title -match 'Sign in|Iniciar ses|Contrase|Password|credential|credencial')) {
+    if ($title -and ($title -match 'Sign in|Iniciar ses|Contrase|Password|credential|credencial|vuelve a escribir')) {
         Write-Output "AUTH_WINDOW:$title"
     }
 }
 
-# Also check for Microsoft login windows
-$loginProcs = Get-Process | Where-Object { $_.MainWindowTitle -match 'Microsoft|Sign in|Iniciar ses' }
+# Check for specific Microsoft account login windows (not general Microsoft apps)
+$loginProcs = Get-Process | Where-Object { 
+    $_.MainWindowTitle -match 'Sign in to your account|Iniciar sesi.n en su cuenta|cuenta de Microsoft|Microsoft account'
+}
 foreach ($lp in $loginProcs) {
     Write-Output "LOGIN_WINDOW:$($lp.MainWindowTitle)"
 }
