@@ -332,52 +332,71 @@ class OneDriveChecker:
             return False
 
     def check_tray_auth_required(self) -> bool:
-        """Check if OneDrive tray icon shows authentication required message.
+        """Check if OneDrive requires authentication.
         
-        Detects messages like:
-        - 'Vuelve a escribir tus credenciales'
-        - 'credentials required'
-        - 'Sign in to sync'
+        Uses multiple methods:
+        1. Check SyncDiagnostics.log for auth-related error states
+        2. Check for credential-related window titles
+        3. Check OneDrive dat file for user state
         """
         validation_name = "tray_auth_check"
+        logger.info(f"Ejecutando validación: {validation_name}")
         from src.shared.config import is_validation_enabled
         if not is_validation_enabled(validation_name):
+            logger.info(f"Validation '{validation_name}' is disabled. Skipping.")
             return False
             
         try:
-            # PowerShell script to get OneDrive notification balloon/tooltip text
-            # Uses UI Automation to find the OneDrive tray icon and get its tooltip
-            ps_script = '''
-            Add-Type -AssemblyName UIAutomationClient
-            Add-Type -AssemblyName UIAutomationTypes
+            # Method 1: Check SyncDiagnostics.log for auth issues
+            log_dir = self.log_path.parent
+            sync_diag_log = log_dir / "SyncDiagnostics.log"
             
-            # Search for OneDrive notification text in recent notifications
-            $shell = New-Object -ComObject WScript.Shell
+            if sync_diag_log.exists():
+                try:
+                    # Read last 50KB of the log file
+                    with open(sync_diag_log, 'r', encoding='utf-8', errors='ignore') as f:
+                        f.seek(0, 2)  # Go to end
+                        file_size = f.tell()
+                        read_size = min(file_size, 50000)
+                        f.seek(max(0, file_size - read_size))
+                        content = f.read()
+                    
+                    # Look for auth-related errors in recent log content
+                    auth_indicators = [
+                        "SignIn",
+                        "AuthenticationRequired", 
+                        "CredentialsRequired",
+                        "NeedsPassword",
+                        "TokenExpired",
+                        "OAuth",
+                        "LoginRequired",
+                        "ReauthRequired"
+                    ]
+                    
+                    for indicator in auth_indicators:
+                        if indicator.lower() in content.lower():
+                            logger.warning(f"Tray Auth: Found '{indicator}' in SyncDiagnostics.log")
+                            return True
+                            
+                except Exception as e:
+                    logger.debug(f"Error reading SyncDiagnostics.log: {e}")
             
-            # Method 1: Check Action Center notifications for OneDrive
-            try {
-                $notifications = Get-Process | Where-Object { $_.ProcessName -eq "OneDrive" }
-                foreach ($proc in $notifications) {
-                    $mainWnd = $proc.MainWindowTitle
-                    if ($mainWnd -match "credencial|credential|sign in|iniciar sesión|contraseña|password|vuelve a escribir") {
-                        Write-Output "AUTH_REQUIRED:$mainWnd"
-                    }
-                }
-            } catch {}
-            
-            # Method 2: Check for OneDrive notification windows (toast notifications)
-            try {
-                $wnd = [System.Windows.Automation.AutomationElement]::RootElement
-                $condition = New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::NameProperty, "OneDrive*", [System.Windows.Automation.PropertyConditionFlags]::IgnoreCase)
-                $elements = $wnd.FindAll([System.Windows.Automation.TreeScope]::Descendants, $condition)
-                foreach ($el in $elements) {
-                    $name = $el.Current.Name
-                    if ($name -match "credencial|credential|sign in|iniciar sesión|contraseña|password|vuelve a escribir") {
-                        Write-Output "AUTH_REQUIRED:$name"
-                    }
-                }
-            } catch {}
-            '''
+            # Method 2: Check for credential windows using simple PowerShell
+            ps_script = """
+$procs = Get-Process -Name OneDrive -ErrorAction SilentlyContinue
+foreach ($proc in $procs) {
+    $title = $proc.MainWindowTitle
+    if ($title -and ($title -match 'Sign in|Iniciar ses|Contrase|Password|credential|credencial')) {
+        Write-Output "AUTH_WINDOW:$title"
+    }
+}
+
+# Also check for Microsoft login windows
+$loginProcs = Get-Process | Where-Object { $_.MainWindowTitle -match 'Microsoft|Sign in|Iniciar ses' }
+foreach ($lp in $loginProcs) {
+    Write-Output "LOGIN_WINDOW:$($lp.MainWindowTitle)"
+}
+"""
             
             result = subprocess.run(
                 ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", ps_script],
@@ -389,39 +408,23 @@ class OneDriveChecker:
             
             if result.returncode == 0 and result.stdout.strip():
                 output = result.stdout.strip()
-                if "AUTH_REQUIRED:" in output:
+                if "AUTH_WINDOW:" in output or "LOGIN_WINDOW:" in output:
                     logger.warning(f"Tray Auth Required Detected: {output}")
                     return True
+            
+            # Method 3: Check dat files for user signed out status
+            dat_path = log_dir.parent / "settings" / "Business1" / "global.dat"
+            if dat_path.exists():
+                try:
+                    with open(dat_path, 'rb') as f:
+                        content = f.read()
+                    # Look for SignedOut or similar markers in binary content
+                    if b'SignedOut' in content or b'RequireSignIn' in content:
+                        logger.warning("Tray Auth: Found auth required marker in global.dat")
+                        return True
+                except Exception:
+                    pass
                     
-            # Method 3: Simple check - look for OneDrive windows with credential keywords
-            cmd = '''Get-Process OneDrive -ErrorAction SilentlyContinue | ForEach-Object {
-                $wmi = Get-WmiObject Win32_Process -Filter "ProcessId = $($_.Id)"
-                $cmdline = $wmi.CommandLine
-                Write-Output $cmdline
-            }'''
-            
-            # Also check balloon notifications via registry
-            reg_cmd = '''
-            try {
-                $balloonTip = (Get-ItemProperty -Path "HKCU:\\Software\\Microsoft\\OneDrive" -Name "LastBalloonTip" -ErrorAction SilentlyContinue).LastBalloonTip
-                if ($balloonTip -match "credencial|credential|sign in|iniciar sesión|vuelve a escribir") {
-                    Write-Output "BALLOON_AUTH:$balloonTip"
-                }
-            } catch {}
-            '''
-            
-            result2 = subprocess.run(
-                ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", reg_cmd],
-                capture_output=True,
-                text=True,
-                timeout=3,
-                creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
-            )
-            
-            if result2.returncode == 0 and "BALLOON_AUTH:" in result2.stdout:
-                logger.warning(f"Balloon Auth Required Detected: {result2.stdout.strip()}")
-                return True
-                
             return False
             
         except subprocess.TimeoutExpired:

@@ -275,7 +275,7 @@ class RemediationAction:
         # Check limits
         if self.restart_attempts >= self.MAX_RESTARTS_PER_HOUR:
             logger.warning(f"REMEDIATION: Max restarts ({self.MAX_RESTARTS_PER_HOUR}/hr) reached. Skipping fix.")
-            self.notifier.notify("Remediación Omitida", "Se alcanzó el máximo de reinicios por hora. Se requiere intervención manual.", "ERROR")
+            # No enviar email de remediación omitida - solo log
             return False
 
         logger.warning(f"REMEDIATION: Force Restart triggered due to {reason_status.value}...")
