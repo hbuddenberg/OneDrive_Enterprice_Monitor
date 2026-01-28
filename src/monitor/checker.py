@@ -486,8 +486,9 @@ foreach ($lp in $loginProcs) {{
         # Active Liveness Check is now the PRIMARY source of truth
         status, msg = self.active_liveness_check()
         
-        # If liveness check returns OK but tray shows auth message, override
-        if status == OneDriveStatus.OK and self.check_auth_window():
+        # Check for auth window - override any status if auth window is detected
+        # This catches cases where OneDrive shows auth window but status is SYNCING/other
+        if self.check_auth_window():
             return OneDriveStatus.AUTH_REQUIRED, process_running, "Autenticación Requerida (Ventana Detectada)"
         
         return status, process_running, msg
