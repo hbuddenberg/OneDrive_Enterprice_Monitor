@@ -52,6 +52,7 @@ class RemediationAction:
         self.last_remediation_time: Optional[datetime] = None
         self.notification_sent_for_incident: bool = False
         self.is_first_run: bool = True  # Para enviar OK al inicio vs RESOLVED después de incidente
+        self.pre_syncing_status: Optional[OneDriveStatus] = None  # Estado antes de entrar a SYNCING
 
     def act(self, status: OneDriveStatus, outage_start_time: Optional[datetime] = None) -> bool:
         """Attempt to fix the current status if critical. Returns True if action taken."""
@@ -64,12 +65,26 @@ class RemediationAction:
         if status != self.last_status or self.is_first_run:
             prev = self.last_status.name if self.last_status else None
             curr = status.name
+            
+            # Rastrear estado pre-SYNCING
+            if curr == "SYNCING" and prev != "SYNCING":
+                # Guardamos el estado que había antes de entrar a SYNCING
+                self.pre_syncing_status = prev
+            elif curr != "SYNCING" and prev == "SYNCING":
+                # Al salir de SYNCING, usamos el pre_syncing_status guardado
+                pass  # Se usará self.pre_syncing_status en get_notification_action
+            elif curr != "SYNCING":
+                # Si no estamos en SYNCING, reseteamos el pre_syncing_status
+                self.pre_syncing_status = None
+            
             # Si ambos estados son SYNCING, no hacer nada CON NOTIFICACIONES pero SI continuar al timeout check
             if prev == "SYNCING" and curr == "SYNCING":
                 logger.debug("STATE: SYNCING -> SYNCING | Skipping notification, but will check timeout.")
                 # No hacemos return aquí - dejamos que continúe al check de timeout
-            notify, tipo = get_notification_action(prev, curr, self.is_first_run)
-            logger.info(f"STATE CHANGE: {prev} -> {curr} | is_first_run={self.is_first_run} | notification_sent={self.notification_sent_for_incident} | notify={notify} tipo={tipo}")
+            
+            # Pasar pre_syncing_status a get_notification_action
+            notify, tipo = get_notification_action(prev, curr, self.is_first_run, self.pre_syncing_status)
+            logger.info(f"STATE CHANGE: {prev} -> {curr} | is_first_run={self.is_first_run} | pre_syncing={self.pre_syncing_status} | notification_sent={self.notification_sent_for_incident} | notify={notify} tipo={tipo}")
 
             # Definir time_in_state para los mensajes
             if hasattr(self, 'status_first_seen') and self.status_first_seen:
@@ -83,17 +98,6 @@ class RemediationAction:
                 timestamp_str = self.status_first_seen.strftime("%Y-%m-%d %H:%M:%S")
             else:
                 timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
-
-            # Solo enviar OK aquí si es el primer arranque (is_first_run)
-            if notify and tipo == "OK" and not self.is_first_run:
-                # Ya se notificó OK en persistencia, no reenviar aquí
-                logger.info("OK: Notificación OK ya enviada en persistencia, se omite en cambio de estado.")
-                self.last_status = status
-                if outage_start_time and outage_start_time < now:
-                    self.status_first_seen = outage_start_time
-                else:
-                    self.status_first_seen = now
-                return False
 
             if notify:
                 try:

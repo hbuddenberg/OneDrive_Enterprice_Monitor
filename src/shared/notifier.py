@@ -4,44 +4,43 @@ SYNCING_STATE = "SYNCING"
 OK_STATE = "OK"
 
 
-# Devuelve una lista de (enviar, tipo) para soportar transiciones múltiples (ej: INCIDENTE->SYNCING debe enviar RESOLVED y luego SYNCING)
-def get_notification_action(prev, curr, is_first_run):
+# Devuelve (enviar, tipo) o lista de tuplas para transiciones múltiples
+# pre_syncing_status: el estado que había ANTES de entrar a SYNCING (para decidir RESOLVED vs OK)
+def get_notification_action(prev, curr, is_first_run, pre_syncing_status=None):
     # No notificar si SYNCING -> SYNCING
     if prev == SYNCING_STATE and curr == SYNCING_STATE:
         return (False, None)
-    actions = []
-    # 1. Siempre que el estado actual sea INCIDENTE, enviar INCIDENTE
-    if curr == "INCIDENTE" or (curr in INCIDENT_STATES and (prev is None or prev not in INCIDENT_STATES)):
-        actions.append((True, "INCIDENTE"))
-        return actions[0] if len(actions) == 1 else actions
-
-    # 3. INCIDENTE -> SYNCING: enviar RESOLVED y luego SYNCING
-    if (prev == "INCIDENTE" or prev in INCIDENT_STATES) and curr == SYNCING_STATE:
-        actions.append((True, "RESOLVED"))
-        actions.append((True, "SYNCING"))
-        return actions
-
-    # 2. INCIDENTE -> OK: enviar RESOLVED
-    if (prev == "INCIDENTE" or prev in INCIDENT_STATES) and curr == OK_STATE:
-        actions.append((True, "RESOLVED"))
-        return actions[0] if len(actions) == 1 else actions
-
-    # 4. OK -> SYNCING: enviar SYNCING
-    # 4. OK -> SYNCING: evitar notificar inmediatamente para reducir flapping.
-    #    Dejar que la rama de persistencia en `remediator` envíe la notificación
-    #    después de que el estado se mantenga el tiempo configurado.
-
-    # 5. SYNCING -> OK: enviar RESOLVED (SYNCING prolongado se considera incidente)
+    
+    # 1. Cualquier estado -> INCIDENTE: enviar INCIDENTE
+    if curr in INCIDENT_STATES and (prev is None or prev not in INCIDENT_STATES):
+        return (True, "INCIDENTE")
+    
+    # 2. INCIDENTE -> SYNCING: enviar RESOLVED y luego SYNCING
+    if prev in INCIDENT_STATES and curr == SYNCING_STATE:
+        return [(True, "RESOLVED"), (True, "SYNCING")]
+    
+    # 3. INCIDENTE -> OK: enviar RESOLVED
+    if prev in INCIDENT_STATES and curr == OK_STATE:
+        return (True, "RESOLVED")
+    
+    # 4. OK -> SYNCING: enviar SYNCING (después de persistencia)
+    if prev == OK_STATE and curr == SYNCING_STATE:
+        return (True, "SYNCING")
+    
+    # 5. SYNCING -> OK: decidir basado en pre_syncing_status
     if prev == SYNCING_STATE and curr == OK_STATE:
-        actions.append((True, "RESOLVED"))
-        return actions[0]
-
+        # Si antes del SYNCING hubo un incidente, enviar RESOLVED
+        if pre_syncing_status and pre_syncing_status in INCIDENT_STATES:
+            return (True, "RESOLVED")
+        # Si antes del SYNCING estaba OK o es desconocido, enviar OK
+        else:
+            return (True, "OK")
+    
     # 6. Primer arranque en OK
     if is_first_run and curr == OK_STATE:
-        actions.append((True, "OK"))
-        return actions[0]
-
-    # 7. OK -> OK, RESOLVED -> OK, OK -> RESOLVED: no enviar
+        return (True, "OK")
+    
+    # 7. Sin cambio significativo
     return (False, None)
 """Notification module for OneDrive Monitor.
 
