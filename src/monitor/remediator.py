@@ -138,6 +138,24 @@ class RemediationAction:
                 self.status_first_seen = outage_start_time
             else:
                 self.status_first_seen = now
+            
+            # CRITICAL: Check SYNCING timeout even on first run / state change
+            # This ensures we catch prolonged SYNCING states that persist across restarts
+            from src.shared.config import get_config
+            config = get_config()
+            syncing_timeout = config.monitor.syncing_restart_timeout_seconds
+            
+            # Recalculate time_in_state using outage_start_time (the actual sync pending time)
+            if outage_start_time:
+                actual_time_in_state = (now - outage_start_time).total_seconds()
+            else:
+                actual_time_in_state = time_in_state
+            
+            if status == OneDriveStatus.SYNCING and syncing_timeout > 0 and actual_time_in_state >= syncing_timeout:
+                if not self._in_cooldown():
+                    logger.warning(f"REMEDIATION: SYNCING state persisted for {actual_time_in_state:.0f}s (timeout: {syncing_timeout}s). Forcing restart.")
+                    return self._force_restart_onedrive(status)
+            
             return False
             
         # 2. Check Duration (per-state persistence time)
