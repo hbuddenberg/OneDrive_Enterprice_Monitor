@@ -130,14 +130,13 @@ class RemediationAction:
                             self.notification_sent_for_incident = True
                         self.is_first_run = False
                     elif tipo == "OK":
-                        # Solo enviar OK si es primer arranque
-                        if self.is_first_run:
-                            self.notifier.send_status_notification(
-                                status="OK",
-                                timestamp=timestamp_str,
-                                message="Sistema funcionando correctamente"
-                            )
-                            logger.info(f"OK: Sent OK notification after persistence ({time_in_state:.1f}s).")
+                        # Enviar OK cuando la sincronización se completa (OK -> Sync -> OK)
+                        self.notifier.send_status_notification(
+                            status="OK",
+                            timestamp=timestamp_str,
+                            message="Sincronización completada correctamente"
+                        )
+                        logger.info(f"OK: Sent OK notification after sync completed ({time_in_state:.1f}s).")
                         self.notification_sent_for_incident = False
                         self.is_first_run = False
                 except Exception as e:
