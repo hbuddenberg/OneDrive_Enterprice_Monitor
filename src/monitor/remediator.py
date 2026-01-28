@@ -64,10 +64,10 @@ class RemediationAction:
         if status != self.last_status or self.is_first_run:
             prev = self.last_status.name if self.last_status else None
             curr = status.name
-            # Si ambos estados son SYNCING, no hacer nada
+            # Si ambos estados son SYNCING, no hacer nada CON NOTIFICACIONES pero SI continuar al timeout check
             if prev == "SYNCING" and curr == "SYNCING":
-                logger.info("STATE: SYNCING -> SYNCING | No se envía notificación ni se actualizan flags.")
-                return
+                logger.debug("STATE: SYNCING -> SYNCING | Skipping notification, but will check timeout.")
+                # No hacemos return aquí - dejamos que continúe al check de timeout
             notify, tipo = get_notification_action(prev, curr, self.is_first_run)
             logger.info(f"STATE CHANGE: {prev} -> {curr} | is_first_run={self.is_first_run} | notification_sent={self.notification_sent_for_incident} | notify={notify} tipo={tipo}")
 
