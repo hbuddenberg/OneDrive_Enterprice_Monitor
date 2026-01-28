@@ -198,7 +198,7 @@ async def dashboard(request: Request) -> HTMLResponse:
 
             <!-- Bloque de Caídas Mensuales -->
             <div class="bg-gray-800 rounded-xl p-6 shadow-xl flex flex-col items-center">
-                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2 text-red-400">Caídas este mes</h3>
+                <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2 text-red-400">Incidentes detectados este mes</h3>
                 <div class="text-5xl font-bold text-red-300">{incident_count}</div>
             </div>
 

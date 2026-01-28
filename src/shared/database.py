@@ -1,13 +1,24 @@
 def get_monthly_incident_count(year: int = None, month: int = None) -> int:
-    """Devuelve el número de incidentes críticos en el mes actual."""
+    """Cuenta el número de incidentes agrupados en el mes.
+    
+    Un incidente es un grupo de estados de error consecutivos entre OK y OK.
+    Por ejemplo: OK → ERROR → ERROR → SYNC → OK = 1 incidente (no 3)
+    
+    Solo estados de error cuentan para iniciar/continuar un incidente:
+    NOT_RUNNING, ERROR, PAUSED, AUTH_REQUIRED, NOT_FOUND, SYNCING
+    """
     from datetime import datetime
     if year is None or month is None:
         now = datetime.now()
         year = now.year
         month = now.month
-    incident_states = ("NOT_RUNNING", "ERROR", "PAUSED", "AUTH_REQUIRED", "NOT_FOUND")
+    
+    # Estados que representan un problema (incidente activo)
+    incident_states = {"NOT_RUNNING", "ERROR", "PAUSED", "AUTH_REQUIRED", "NOT_FOUND", "SYNCING"}
+    
     conn = sqlite3.connect(get_db_path())
     cursor = conn.cursor()
+    
     # Crear la tabla si no existe
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS status_history (
@@ -19,18 +30,40 @@ def get_monthly_incident_count(year: int = None, month: int = None) -> int:
     )
     ''')
     conn.commit()
+    
     try:
+        # Obtener todos los registros del mes ordenados cronológicamente
         cursor.execute('''
-            SELECT COUNT(*) FROM status_history
-            WHERE status IN (?, ?, ?, ?, ?)
-            AND strftime('%Y', timestamp) = ?
+            SELECT status FROM status_history
+            WHERE strftime('%Y', timestamp) = ?
             AND strftime('%m', timestamp) = ?
-        ''', (*incident_states, str(year), f'{month:02d}'))
-        count = cursor.fetchone()[0]
+            ORDER BY id ASC
+        ''', (str(year), f'{month:02d}'))
+        
+        rows = cursor.fetchall()
+        
+        # Contar transiciones OK → Error (inicio de incidente)
+        incident_count = 0
+        in_incident = False
+        
+        for row in rows:
+            status = row[0]
+            
+            if status in incident_states:
+                # Entramos o continuamos en un incidente
+                if not in_incident:
+                    incident_count += 1  # Nuevo incidente
+                    in_incident = True
+            elif status == "OK":
+                # Salimos del incidente
+                in_incident = False
+        
+        return incident_count
+        
     except Exception:
-        count = 0
-    conn.close()
-    return count
+        return 0
+    finally:
+        conn.close()
 import sqlite3
 import os
 from datetime import datetime
