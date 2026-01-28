@@ -91,7 +91,8 @@ def run_monitor(shutdown_event=None) -> None:
         "log_check",
         "canary_check",
         "liveness_check",
-        "status_assignment"
+        "status_assignment",
+        "tray_auth_check"
     ]:
         logger.info(f"  {v}: {'Enabled' if is_validation_enabled(v) else 'Disabled'}")
     logger.info("=" * 60)
